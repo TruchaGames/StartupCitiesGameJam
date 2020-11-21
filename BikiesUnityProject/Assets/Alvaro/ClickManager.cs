@@ -17,6 +17,7 @@ public class ClickManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        economyManager = FindObjectOfType<EconomyManager>();
         coins = economyManager.getWallet();
         coinText.SetText(coins.ToString());
     }

@@ -165,7 +165,7 @@ public class BikeStation : MonoBehaviour
                 nearbyApartments.Add(apartment);
 
                 // 4. Also, add yourself to the list of other newly connected nodes
-                //apartment.nearbyBikeStations.Add(this); //TODO
+                apartment.nearbyBikeStations.Add(this);
 
                 ++nodesConnected;
             }
@@ -188,7 +188,7 @@ public class BikeStation : MonoBehaviour
                 nearbyInterestPoints.Add(iPoint);
 
                 // 4. Also, add yourself to the list of other newly connected nodes
-                //iPoint.nearbyBikeStations.Add(this); //TODO
+                iPoint.nearbyBikeStations.Add(this);
 
                 ++nodesConnected;
             }

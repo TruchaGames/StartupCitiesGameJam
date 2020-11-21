@@ -19,11 +19,13 @@ public class CityManager : MonoBehaviour
     private float interestPointActivationTimer = 0.0f;
 
     // ~~~~ PROVISIONAL ~~~~~~
+    public List<BikeStation> bikeStations;
+
     private List<Apartment> unactiveApartments;
     private List<InterestPoint> unactiveInterestPoints;
 
-    private List<Apartment> activeApartments = new List<Apartment>();
-    private List<InterestPoint> activeInterestPoints = new List<InterestPoint>();
+    public List<Apartment> activeApartments = new List<Apartment>();
+    public List<InterestPoint> activeInterestPoints = new List<InterestPoint>();
 
     // Start is called before the first frame update
     void Start()

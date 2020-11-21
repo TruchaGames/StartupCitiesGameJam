@@ -182,8 +182,10 @@ public class CityManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && stationBeingplaced.GetComponent<BikeStation>().IsConstructable() /*-- need to check if the station fits in the current position*/)
         {
             placingBikeStation = false;
+            bikeStations.Add(stationBeingplaced.GetComponent<BikeStation>());
             //Coordinate all points to include the station in their list, etc,etc.
-
+            if (buildingMode == BuildingMode.CREATING)
+                stationBeingplaced.transform.SetParent(gameObject.transform);
         }
 
         // -- RIGHT click or ESCAPE to CANCEL

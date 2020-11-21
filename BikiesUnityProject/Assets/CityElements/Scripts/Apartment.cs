@@ -7,28 +7,29 @@ public class Apartment : CityElement
     [Header("Cyclist Instance")]
     public GameObject Cyclist;
 
-    [Header("Radius of Cyclist Spawn")]
+    [Header("Cyclist Spawn")]
     public float SpawnRadius = 5.0f;
+    public float timeToSpawn = 5.0f;
+    float cyclistSpawnedAt = 0.0f;
 
     public Queue<AIAgent> cyclistsWaiting = new Queue<AIAgent>();
 
-    // --- Temporary ---
-    public float TimeToSpawn = 0.0f;
-    float m_SpawiningTimer = 0.0f;
-
-    bool spawn = true;
+    void Start()
+    {
+        cyclistSpawnedAt = Time.time;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        m_SpawiningTimer += Time.deltaTime;
-        if (m_SpawiningTimer > TimeToSpawn && spawn)
+        // Spawn Cyclists
+        if (Time.time - cyclistSpawnedAt > timeToSpawn)
         {
-            m_SpawiningTimer = 0.0f;
+            cyclistSpawnedAt = Time.time;
             SpawnCyclist();
-            spawn = false;
         }
 
+        // Send Cyclists to a BikeStation
         if (cyclistsWaiting.Count > 0)
         {
             foreach (BikeStation bikeStation in nearbyBikeStations)
@@ -36,7 +37,8 @@ public class Apartment : CityElement
                 if (bikeStation.bikeStock > 0)  //IMPROVE: Search for closed instead of picking first available
                 {
                     AIAgent cyclist = cyclistsWaiting.Dequeue();
-                    cyclist.ChangeDestination(bikeStation.gameObject, AIAgent.AGENT_STATUS.WALKING, bikeStation.ArriveRadius);
+                    cyclist.SetDestination(bikeStation.gameObject, bikeStation.ArriveRadius);
+                    cyclist.AgentStatus = AIAgent.AGENT_STATUS.WALKING;
                 }
             }
         }

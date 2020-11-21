@@ -271,54 +271,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1315208441
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1315208442}
-  - component: {fileID: 1315208443}
-  m_Layer: 0
-  m_Name: Economy_manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1315208442
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315208441}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4995649, y: 1.577907, z: -0.6050006}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1315208443
+--- !u!114 &1315208443 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2308255662618617353, guid: 710cde75b7ee1aa42a3562fe953998c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2308255663795395314}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315208441}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4477152dc2b24c247ab0747f81d95b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starting_money: 100000
-  bike_station_cost: 30000
-  bike_individual_cost: 1000
-  refund_percentage: 0.5
-  wallet: 0
 --- !u!1 &1676176934
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,3 +439,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2308255663795395314
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2308255662618617352, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617352, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617352, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617352, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617352, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617352, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617352, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617352, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617352, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617352, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617352, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617355, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: m_Name
+      value: Economy_manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 710cde75b7ee1aa42a3562fe953998c4, type: 3}

@@ -60,7 +60,6 @@ public class PolutionBar : MonoBehaviour
         slider.maxValue = maxPolution;
         currentPolution = (int)(maxPolution * 0.5f);
         uiPolution = (int)(maxPolution * 0.5f);
-        Debug.Log(currentPolution + " " + uiPolution);
     }
 
     void CurrentPolution(int globalPolution)

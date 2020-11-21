@@ -92,7 +92,7 @@ public class BikeStation : MonoBehaviour
         //foreach (Apartment it in nearbyApartments)    // TODO: Create lists in appropiate places
         //    it.nearbyBikeStations.Remove(this);
 
-        //foreach (InterestPoint it in nearbyInterestPoints)
+        //foreach (InterestPoint it in nearbyInterestPoints)    // TODO: Create lists in appropiate places
         //    it.nearbyBikeStations.Remove(this);
 
         //nearbyBikeStations.Clear();

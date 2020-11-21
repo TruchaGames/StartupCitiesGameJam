@@ -352,6 +352,11 @@ PrefabInstance:
       propertyPath: cityManager
       value: 
       objectReference: {fileID: 485908076}
+    - target: {fileID: 44773695811291742, guid: b0f2cf33fb2b52c43a3db09417120b94,
+        type: 3}
+      propertyPath: ArriveRadius
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 601260447672778358, guid: b0f2cf33fb2b52c43a3db09417120b94,
         type: 3}
       propertyPath: m_Name
@@ -506,42 +511,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1776054391}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &489166275 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6705231015387271539, guid: dae97617b6731c0439452cff8274bdb7,
-    type: 3}
-  m_PrefabInstance: {fileID: 669663115}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &504335532
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 504335533}
-  m_Layer: 0
-  m_Name: BikeStations
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &504335533
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504335532}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.7469242, y: 5.8491254, z: -2.979501}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &554927814
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,80 +604,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554927814}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &669663115
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6705231015387271536, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271536, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271536, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 20.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271536, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271536, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271536, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271536, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271536, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271536, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271536, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271536, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271539, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: m_Name
-      value: Cyclist
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705231015387271541, guid: dae97617b6731c0439452cff8274bdb7,
-        type: 3}
-      propertyPath: FinalDestination
-      value: 
-      objectReference: {fileID: 1600551589}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dae97617b6731c0439452cff8274bdb7, type: 3}
 --- !u!1 &830747693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,12 +1011,12 @@ PrefabInstance:
         type: 3}
       propertyPath: cyclist
       value: 
-      objectReference: {fileID: 489166275}
+      objectReference: {fileID: 0}
     - target: {fileID: 2227426025697464425, guid: 782bb8c3f534c934abe61e2701a2ac53,
         type: 3}
       propertyPath: final_dest
       value: 
-      objectReference: {fileID: 1600551589}
+      objectReference: {fileID: 1600551591}
     - target: {fileID: 2227426025697464425, guid: 782bb8c3f534c934abe61e2701a2ac53,
         type: 3}
       propertyPath: bike_station
@@ -1131,7 +1026,18 @@ PrefabInstance:
         type: 3}
       propertyPath: Cyclist
       value: 
-      objectReference: {fileID: 489166275}
+      objectReference: {fileID: 6705231015387271539, guid: dae97617b6731c0439452cff8274bdb7,
+        type: 3}
+    - target: {fileID: 2227426025697464425, guid: 782bb8c3f534c934abe61e2701a2ac53,
+        type: 3}
+      propertyPath: cityManager
+      value: 
+      objectReference: {fileID: 485908076}
+    - target: {fileID: 2227426025697464425, guid: 782bb8c3f534c934abe61e2701a2ac53,
+        type: 3}
+      propertyPath: bikeStationDetectRadius
+      value: 20.36
+      objectReference: {fileID: 0}
     - target: {fileID: 2227426025697464426, guid: 782bb8c3f534c934abe61e2701a2ac53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1433,6 +1339,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1372168232}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1324237850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 44773695811291742, guid: b0f2cf33fb2b52c43a3db09417120b94,
+    type: 3}
+  m_PrefabInstance: {fileID: 1372168232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c5de10272f97b4fa18ca724ffc7808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1372168232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1588,6 +1506,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 3.2229052
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544908173929848615, guid: aed96d1ffc4b4db4486016f622b39ee6,
+        type: 3}
+      propertyPath: cityManager
+      value: 
+      objectReference: {fileID: 485908076}
+    - target: {fileID: 6544908173929848615, guid: aed96d1ffc4b4db4486016f622b39ee6,
+        type: 3}
+      propertyPath: bikeStationDetectRadius
+      value: 30.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aed96d1ffc4b4db4486016f622b39ee6, type: 3}
@@ -1868,18 +1796,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 146.66699, y: -6.4389954, z: 13.474991}
---- !u!1 &1600551589 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6544908173929848612, guid: aed96d1ffc4b4db4486016f622b39ee6,
+--- !u!114 &1600551591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6544908173929848615, guid: aed96d1ffc4b4db4486016f622b39ee6,
     type: 3}
   m_PrefabInstance: {fileID: 1375138157}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba5c2ee57e55fe428cd2adfd16178e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1758334935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3979048797767688384, guid: b0f2cf33fb2b52c43a3db09417120b94,
     type: 3}
   m_PrefabInstance: {fileID: 483457419}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1758334936 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 44773695811291742, guid: b0f2cf33fb2b52c43a3db09417120b94,
+    type: 3}
+  m_PrefabInstance: {fileID: 483457419}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c5de10272f97b4fa18ca724ffc7808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1776054391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1925,7 +1871,7 @@ PrefabInstance:
     - target: {fileID: 8284881616343839072, guid: ead8d201ff555bc4dbe2ac7d0f50cebe,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8284881616343839072, guid: ead8d201ff555bc4dbe2ac7d0f50cebe,
         type: 3}
@@ -1942,6 +1888,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8284881616343839073, guid: ead8d201ff555bc4dbe2ac7d0f50cebe,
+        type: 3}
+      propertyPath: bikeStations.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284881616343839073, guid: ead8d201ff555bc4dbe2ac7d0f50cebe,
+        type: 3}
+      propertyPath: bikeStations.Array.data[0]
+      value: 
+      objectReference: {fileID: 1758334936}
+    - target: {fileID: 8284881616343839073, guid: ead8d201ff555bc4dbe2ac7d0f50cebe,
+        type: 3}
+      propertyPath: bikeStations.Array.data[1]
+      value: 
+      objectReference: {fileID: 1324237850}
+    - target: {fileID: 8284881616343839073, guid: ead8d201ff555bc4dbe2ac7d0f50cebe,
+        type: 3}
+      propertyPath: bikeStations.Array.data[2]
+      value: 
+      objectReference: {fileID: 1941408114}
     - target: {fileID: 8284881616343839087, guid: ead8d201ff555bc4dbe2ac7d0f50cebe,
         type: 3}
       propertyPath: m_Name
@@ -2073,7 +2039,7 @@ Transform:
   - {fileID: 1324237849}
   - {fileID: 1941408113}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1848337042
 GameObject:
@@ -2267,6 +2233,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 457951402}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1941408114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 44773695811291742, guid: b0f2cf33fb2b52c43a3db09417120b94,
+    type: 3}
+  m_PrefabInstance: {fileID: 457951402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c5de10272f97b4fa18ca724ffc7808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2107166189
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2227426025697464426}
   - component: {fileID: 2227426025697464425}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Apartment
-  m_TagString: Untagged
+  m_TagString: City Element
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 8870645956337530975}
   - component: {fileID: 3113176970043767729}
   - component: {fileID: 1422706642119059471}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -34,9 +34,14 @@ public class BikeStation : MonoBehaviour
         EstablishConnections();
     }
 
+    //Building variables
+    private bool constructable = true;
+    private uint collisions = 0; //Amount of colliders that don't allow the construction of the station
+
     // Update is called once per frame
     void Update()
     {
+
         //foreach (BikeStation BikeStation in nearbyBikeStations)
         //{
         //    Debug.DrawLine(transform.position, BikeStation.transform.position);
@@ -225,5 +230,24 @@ public class BikeStation : MonoBehaviour
         }
 
         return nodesConnected;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Not constructable" || other.gameObject.tag == "City Element")
+            collisions++;
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Not constructable" || other.gameObject.tag == "City Element")
+            collisions--;
+
+    }
+
+    public bool IsConstructable()
+    {
+        return collisions == 0;
     }
 }

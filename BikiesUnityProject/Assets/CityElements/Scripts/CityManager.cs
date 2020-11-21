@@ -179,7 +179,7 @@ public class CityManager : MonoBehaviour
         }
 
         // -- LEFT click to place the station
-        if (Input.GetMouseButtonDown(0) /*&& position available -- need to check if the station fits in the current position*/)
+        if (Input.GetMouseButtonDown(0) && stationBeingplaced.GetComponent<BikeStation>().IsConstructable() /*-- need to check if the station fits in the current position*/)
         {
             placingBikeStation = false;
             //Coordinate all points to include the station in their list, etc,etc.

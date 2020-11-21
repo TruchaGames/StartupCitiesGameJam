@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6544908172782153533}
   - component: {fileID: 6544908172782153538}
   - component: {fileID: 6544908172782153539}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,9 +89,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6544908173929848614}
   - component: {fileID: 6544908173929848615}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InterestPoint
-  m_TagString: Untagged
+  m_TagString: City Element
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

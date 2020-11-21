@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1845279716	Test_Win95			\Default Work Unit\Test_Win95	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	69676076	Microsoft_Windows_95_Startup_Sound	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\Microsoft_Windows_95_Startup_Sound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Microsoft_Windows_95_Startup_Sound		1183808
+

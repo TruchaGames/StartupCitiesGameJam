@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+	<RootPaths>
+		<ProjectRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="984691642" Language="SFX" Hash="196162273">
+			<ObjectPath>\SoundBanks\Default Work Unit\InGame</ObjectPath>
+			<ShortName>InGame</ShortName>
+			<Path>InGame.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1845279716" Name="Test_Win95" ObjectPath="\Events\Default Work Unit\Test_Win95" DurationType="OneShot" DurationMin="6.710567" DurationMax="6.710567">
+					<IncludedMemoryFiles>
+						<File Id="69676076" Language="SFX">
+							<ShortName>Microsoft_Windows_95_Startup_Sound.wav</ShortName>
+							<Path>SFX\Microsoft_Windows_95_Startup_Sound_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="1355168291" Language="SFX" Hash="3791779620">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

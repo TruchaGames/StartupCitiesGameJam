@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" SchemaVersion="97">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Test_Win95" ID="{554A6213-0F57-4737-AA15-C19A1ED367BA}">
+					<ChildrenList>
+						<Action Name="" ID="{9819BC0A-59AE-4103-94E1-E2140F56430C}" ShortID="991432626">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Microsoft_Windows_95_Startup_Sound" ID="{3F3608BB-EC58-4135-9C28-217465FF1B96}" WorkUnitID="{6B851F4F-E408-41E0-B565-98F635B4E4E3}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

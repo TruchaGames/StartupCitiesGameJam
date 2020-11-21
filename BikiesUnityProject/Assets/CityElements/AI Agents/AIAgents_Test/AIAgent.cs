@@ -10,7 +10,7 @@ public class AIAgent : MonoBehaviour
     NavMeshAgent m_Agent;
 
     [Header("Agent Patience")]
-    public float waitTimeLimit = 0.0f;
+    public float waitTimeLimit = 10.0f;
     float startedWaitingAt = 0.0f;
 
     // AI Status
@@ -27,10 +27,17 @@ public class AIAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(AgentStatus)
+        startedWaitingAt += Time.deltaTime;
+
+        switch (AgentStatus)
         {
             // Agent waits around the apartement
             case AGENT_STATUS.APT_WAIT:
+                if (Time.time - startedWaitingAt > waitTimeLimit)
+                {
+                    //Destroy(gameObject);
+                    //TODO-Lucho: Augmentar polució, eliminate agent, etc.
+                }
                 break;
 
             // Agent Walks from Apartment to Bike Station A
@@ -38,7 +45,6 @@ public class AIAgent : MonoBehaviour
                 if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
                 {
                     NextDestination.GetComponent<BikeStation>().waitingCyclists.Enqueue(this);
-
                     AgentStatus = AGENT_STATUS.BIKE_WAIT;
                 }
                 break;
@@ -48,6 +54,7 @@ public class AIAgent : MonoBehaviour
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
                     NextDestination.GetComponent<BikeStation>().waitingCyclists.Dequeue();
+                    //Destroy(gameObject);
                     //TODO-Lucho: Augmentar polució, eliminate agent, etc.
                 }
                 break;
@@ -55,7 +62,7 @@ public class AIAgent : MonoBehaviour
             // Agent is travelling from Bike Station A to Bike Station B
             case AGENT_STATUS.TRAVELLING:
                 if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
-                    ChangeDestination(FinalDestination, AgentStatus = AGENT_STATUS.ARRIVING);
+                    ChangeDestination(FinalDestination, AGENT_STATUS.ARRIVING, FinalDestination.GetComponent<InterestPoint>().ArriveRadius);
                 break;
 
             // Agent walks from Bike Station B to Destination
@@ -74,31 +81,32 @@ public class AIAgent : MonoBehaviour
     }
 
     // Called Upon Agent Spawn or when Arrives at bike station
-    public void ChangeDestination(GameObject destination, AGENT_STATUS agent_next_status)
+    public void ChangeDestination(GameObject destination, AGENT_STATUS agent_next_status, float arrive_radius)
     {
         AgentStatus = agent_next_status;
+        startedWaitingAt = 0.0f;
+
+        if (m_Agent == null)
+            m_Agent = GetComponent<NavMeshAgent>();
 
         if (destination != null)
         {
             NextDestination = destination;
-            SphereCollider sphere = NextDestination.GetComponent<SphereCollider>();
 
-            if (sphere != null)
-            {
-                Vector2 random_unit_circle = Random.insideUnitCircle;
-                Vector3 dest = new Vector3(random_unit_circle.x, 0.0f, random_unit_circle.y) * sphere.radius;
-
-                if(m_Agent == null)
-                    m_Agent = GetComponent<NavMeshAgent>();
-
-                m_Agent.destination = NextDestination.transform.position + dest;
-            }
-            else
-            {
-                Debug.LogError("DESTINATION PASSED HAS NOT A SPHERE COLLIDER OR AGENT HAS NOT AN AGENT COMPONENT!");
-                AgentStatus = AGENT_STATUS.NONE;
-                return;
-            }
+            Vector2 random_unit_circle = Random.insideUnitCircle;
+            Vector3 dest = new Vector3(random_unit_circle.x, 0.0f, random_unit_circle.y) * arrive_radius;
+            m_Agent.destination = NextDestination.transform.position + dest;
         }
+        else
+        {
+            Debug.LogError("Destination was NULL!");
+            AgentStatus = AGENT_STATUS.NONE;
+        }
+    }
+
+    public void SetDestination(GameObject destination)
+    {
+        if(destination != null)
+            FinalDestination = destination;
     }
 }

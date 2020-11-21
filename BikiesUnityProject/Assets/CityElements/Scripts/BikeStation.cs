@@ -26,15 +26,23 @@ public class BikeStation : MonoBehaviour
     [Header("Queue of Waiting Cyclists")]
     public Queue<AIAgent> waitingCyclists = new Queue<AIAgent>();
 
+    [Header("Cyclist Arrive Radius")]
+    public float ArriveRadius = 5.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         EstablishConnections();
     }
 
+    //Building variables
+    private bool constructable = true;
+    private uint collisions = 0; //Amount of colliders that don't allow the construction of the station
+
     // Update is called once per frame
     void Update()
     {
+
         //foreach (BikeStation BikeStation in nearbyBikeStations)
         //{
         //    Debug.DrawLine(transform.position, BikeStation.transform.position);
@@ -43,8 +51,35 @@ public class BikeStation : MonoBehaviour
         if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && waitingCyclists.Count > 0)
         {
             AIAgent cyclist = waitingCyclists.Dequeue();
+
             //LUCHO-TODO: Metelo el estado que sea y mándalo a pastar al ciclista a su bike destination.
-            //cyclist.ChangeDestination("destination", AIAgent.AGENT_STATUS.TRAVELLING);
+            InterestPoint interest_pt = cyclist.FinalDestination.GetComponent<InterestPoint>();
+
+            int bikestation_index = -1;
+            if(interest_pt.nearbyBikeStations.Count > 0)
+            {
+                int i = 1;
+                float distance_to_objective = (interest_pt.nearbyBikeStations[0].transform.position - cyclist.FinalDestination.transform.position).magnitude;
+
+                foreach(BikeStation bike_st in interest_pt.nearbyBikeStations)
+                {
+                    //if(bike_st.bikeStock) -- If not full
+                    float new_distance = (bike_st.transform.position - cyclist.FinalDestination.transform.position).magnitude;
+                    if(new_distance < distance_to_objective)
+                    {
+                        bikestation_index = i;
+                        distance_to_objective = new_distance;
+                    }
+
+                    ++i;
+                }
+            }
+
+            if (interest_pt.nearbyBikeStations.Count > 0)
+            {
+                BikeStation bike_station = interest_pt.nearbyBikeStations[0];
+                cyclist.ChangeDestination(bike_station.gameObject, AIAgent.AGENT_STATUS.TRAVELLING, bike_station.ArriveRadius);
+            }
 
             --bikeStock;
             bikePickedAt = Time.time;
@@ -196,5 +231,24 @@ public class BikeStation : MonoBehaviour
         }
 
         return nodesConnected;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Not constructable" || other.gameObject.tag == "City Element")
+            collisions++;
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Not constructable" || other.gameObject.tag == "City Element")
+            collisions--;
+
+    }
+
+    public bool IsConstructable()
+    {
+        return collisions == 0;
     }
 }

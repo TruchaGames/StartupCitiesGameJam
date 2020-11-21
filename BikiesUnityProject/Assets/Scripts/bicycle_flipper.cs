@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum UNITTYPE
+{
+    Pedestrian = 0,
+    Bicycle
+}
+
 public class bicycle_flipper : MonoBehaviour
 {
+    public UNITTYPE unit_type = UNITTYPE.Pedestrian;
     public Sprite leftSprite;
     public Sprite rightSprite;
+    public Sprite pedestrianSprite;
+
+   
 
     public bool go_left = true;
 
@@ -30,14 +40,20 @@ public class bicycle_flipper : MonoBehaviour
         else
             renderized_sprite.sprite = rightSprite;
 
-
-        if (transform.position.x > last_pos_x)//Going right
+        if (unit_type == UNITTYPE.Bicycle)
         {
-            go_left = false;
+            if (transform.position.x > last_pos_x)//Going right
+            {
+                go_left = false;
+            }
+            else if (transform.position.x < last_pos_x)//Going left
+            {
+                go_left = true;
+            }
         }
-        else if (transform.position.x < last_pos_x)//Going left
+        else if(unit_type == UNITTYPE.Pedestrian)
         {
-            go_left = true;
+            renderized_sprite.sprite = pedestrianSprite;
         }
 
 

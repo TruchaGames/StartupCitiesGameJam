@@ -8,6 +8,7 @@ public class BikeStation : MonoBehaviour
     public CityManager cityManager;
 
     [Header("Bikes")]
+    public uint maxBikes = 8;
     public uint bikeStock = 5;
     public float bikePickupCooldown = 1; // In seconds
     float bikePickedAt = 0.0f;

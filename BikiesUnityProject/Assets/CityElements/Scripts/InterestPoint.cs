@@ -10,11 +10,6 @@ public class InterestPoint : CityElement
 
     }
 
-    public override void Activate()
-    {
-        area.SetActive(true);
-    }
-
     bool InsideRadius(Vector3 nearbyElement, float radius)
     {
         float x_distance = nearbyElement.x - gameObject.transform.position.x;

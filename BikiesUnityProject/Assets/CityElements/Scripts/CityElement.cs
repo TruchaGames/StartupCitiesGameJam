@@ -40,4 +40,15 @@ public class CityElement : MonoBehaviour
 
         area.SetActive(false);
     }
+
+    protected bool InsideRadius(Vector3 nearbyElement, float radius)
+    {
+        float x_distance = nearbyElement.x - gameObject.transform.position.x;
+        float y_distance = nearbyElement.z - gameObject.transform.position.z;
+
+        if (Mathf.Sqrt(Mathf.Pow(x_distance, 2) + Mathf.Pow(y_distance, 2)) <= radius)
+            return true;
+        else
+            return false;
+    }
 }

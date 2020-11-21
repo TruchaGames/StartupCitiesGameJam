@@ -54,6 +54,18 @@ public class EconomyManager : MonoBehaviour
         return false;
     }
 
+    public void BuyNewBikeUI()
+    {
+        if (wallet >= bike_individual_cost)
+        {
+            wallet -= (int)bike_individual_cost;
+            Debug.Log("Bought a new bike!");
+            return;
+        }
+        Debug.Log("Couldn't buy a new bike!");
+        return;
+    }
+
     public void AddWalletMoney(int ammount)
     {
         wallet += ammount;
@@ -83,5 +95,10 @@ public class EconomyManager : MonoBehaviour
         int money_refunded = (int)(bike_station_cost * refund_percentage);
         wallet += money_refunded;
         return money_refunded;
+    }
+
+    public int getWallet()
+    {
+        return wallet;
     }
 }

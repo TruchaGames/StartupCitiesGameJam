@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ClickManager : MonoBehaviour
@@ -7,12 +8,17 @@ public class ClickManager : MonoBehaviour
 
     public LayerMask detectionMask;
     public GameObject lastSelected;
-    
+    public GameObject lastSelectedBuyPanel;
+
+    public EconomyManager economyManager;
+    public TextMeshProUGUI coinText;
+    public int coins;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
+        coins = economyManager.getWallet();
+        coinText.SetText(coins.ToString());
     }
 
     void Update()
@@ -25,14 +31,22 @@ public class ClickManager : MonoBehaviour
         { 
             Debug.Log(hit.collider.gameObject.name);
             lastSelected = hit.collider.gameObject.transform.GetChild(0).gameObject;
+            lastSelectedBuyPanel = hit.collider.gameObject.transform.GetChild(1).gameObject;
             ActivateFloatingMenu(lastSelected);
 
             if (Input.GetMouseButtonDown(0))
             {
                 // Aqui se comprara una bici
-                Debug.Log("Hey");
-                hit.collider.GetComponent<currentBikes>().AddBike();
-        
+                if (!lastSelectedBuyPanel.activeSelf)
+                {
+                    ActivateFloatingMenu(lastSelectedBuyPanel);
+                }
+                else if (lastSelectedBuyPanel.activeSelf)
+                {
+                    DeactivateFloatingMenu(lastSelectedBuyPanel);
+                }
+
+
             }
         }
         else if (hit.collider == null && lastSelected != null)
@@ -41,7 +55,10 @@ public class ClickManager : MonoBehaviour
         }
 
 
-       
+        coins = economyManager.getWallet();
+        coinText.SetText(coins.ToString());
+
+
     }
 
     void ActivateFloatingMenu(GameObject floatingMenu)

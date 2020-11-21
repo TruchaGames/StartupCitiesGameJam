@@ -14,6 +14,8 @@ public class Apartment : CityElement
 
     public Queue<AIAgent> cyclistsWaiting = new Queue<AIAgent>();
 
+    public GameObject vanGO;
+
     void Start()
     {
         cyclistSpawnedAt = Time.time;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BikeBase : MonoBehaviour
 {
+    public uint bikeStock = 5;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -9,6 +9,10 @@ public class AIAgent : MonoBehaviour
     public GameObject FinalDestination;
     NavMeshAgent m_Agent;
 
+    [Header("Agent Patience")]
+    public float waitTimeLimit = 0.0f;
+    float startedWaitingAt = 0.0f;
+
     // AI Status
     public enum AGENT_STATUS { NONE = -1, APT_WAIT, WALKING, BIKE_WAIT, TRAVELLING, ARRIVING };
     AGENT_STATUS AgentStatus = AGENT_STATUS.NONE;
@@ -32,11 +36,20 @@ public class AIAgent : MonoBehaviour
             // Agent Walks from Apartment to Bike Station A
             case AGENT_STATUS.WALKING:
                 if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
+                {
+                    NextDestination.GetComponent<BikeStation>().waitingCyclists.Enqueue(this);
+
                     AgentStatus = AGENT_STATUS.BIKE_WAIT;
+                }
                 break;
 
             // Agent waits around the bike station
             case AGENT_STATUS.BIKE_WAIT:
+                if (Time.time - startedWaitingAt > waitTimeLimit)
+                {
+                    NextDestination.GetComponent<BikeStation>().waitingCyclists.Dequeue();
+                    //TODO-Lucho: Augmentar polució, eliminate agent, etc.
+                }
                 break;
 
             // Agent is travelling from Bike Station A to Bike Station B

@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CityManager : MonoBehaviour
+//enum to know if we are CREATING  a station or MOVING one that we already have
+enum BuildingMode
 {
-    // ~~~~ PROVISIONAL ~~~~~~    
+    NONE = 0,
+    REPLACING,
+    CREATING
+}
+
+public class CityManager : MonoBehaviour
+{ 
+    [Header("Game parameters")]
     // -- Amount of active apartments & interest points at the start of the game
     public int startApartments = 0;
     public int startInterestPoints = 0;
@@ -17,15 +25,29 @@ public class CityManager : MonoBehaviour
     // -- Timers
     private float apartmentActivationTimer = 0.0f;
     private float interestPointActivationTimer = 0.0f;
+    
+    // -- Bike station prefab. Will be used to instantiate new ones when we want to create new stations
+    public GameObject stationPrefab;
 
-    // ~~~~ PROVISIONAL ~~~~~~
+    //  --Lists of elements
+    [Header("Lists of Nodes")]
     public List<BikeStation> bikeStations;
-
     private List<Apartment> unactiveApartments;
     private List<InterestPoint> unactiveInterestPoints;
 
     public List<Apartment> activeApartments = new List<Apartment>();
     public List<InterestPoint> activeInterestPoints = new List<InterestPoint>();
+
+
+    // -- BUILDING TOOLS 
+    private bool placingBikeStation = false;
+    // -- When we want to add or move a bike station, this object will be the one we will refer to
+
+    private GameObject stationBeingplaced;
+    private BuildingMode buildingMode = BuildingMode.NONE;
+
+    //In case we move a station, we save its initial position, in case we want to cancel and get it back to where it previously was
+    private Vector3 stationStartPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +75,14 @@ public class CityManager : MonoBehaviour
     {
         UpdateActivationTimers();
         CheckForActivations();
+
+        if (placingBikeStation)
+            PlaceBikeStation();
+
+        //DEBUG
+        if (Input.GetKeyDown(KeyCode.Space) && !placingBikeStation)
+            CreateBikeStation();
+        //DEBUG
     }
 
     // -- Update timers
@@ -108,5 +138,63 @@ public class CityManager : MonoBehaviour
 
         //Remove it from the list of unactive apartments
         unactiveInterestPoints.Remove(_interestPoint);
+    }
+
+    // -- Call this function when we want the player to create a new station
+    public void CreateBikeStation()
+    {
+        stationBeingplaced = Instantiate(stationPrefab);
+        placingBikeStation = true;
+        buildingMode = BuildingMode.CREATING;
+    }
+
+    // -- Call this function when we want to move a station
+    public void MoveBikeStation(GameObject station)
+    {
+        stationBeingplaced = station;
+        placingBikeStation = true;
+        buildingMode = BuildingMode.REPLACING;
+    }
+
+    // --  Method to place bike stations in the map
+    private void PlaceBikeStation()
+    {
+        int rayLayer = 1 << 9;
+
+        RaycastHit hitInfo = new RaycastHit();
+        bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo,100f,rayLayer);
+
+        Debug.DrawLine(Camera.main.ScreenPointToRay(Input.mousePosition).origin , hitInfo.point);
+        Debug.Log(hitInfo.point);
+
+        if (hit)
+        {
+            stationBeingplaced.transform.position = hitInfo.point;
+        }
+
+        // -- LEFT click to place the station
+        if (Input.GetMouseButtonDown(0) /*&& position available -- need to check if the station fits in the current position*/)
+        {
+            placingBikeStation = false;
+            //Coordinate all points to include the station in their list, etc,etc.
+
+        }
+
+        // -- RIGHT click or ESCAPE to CANCEL
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            placingBikeStation = false;
+            
+            if (buildingMode == BuildingMode.CREATING)
+            {
+                //MANAGE LISTS IF NEEDED
+                Destroy(stationBeingplaced);
+            }
+            else if (buildingMode == BuildingMode.REPLACING)
+            {
+                //MANAGE LISTS IF NEEDED
+                stationBeingplaced.transform.position = stationStartPosition;
+            }
+        }
     }
 }

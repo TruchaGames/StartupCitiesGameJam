@@ -46,4 +46,7 @@ MonoBehaviour:
   startApartments: 1
   startInterestPoints: 2
   apartmentActivationPeriod: 6.41
-  interesPointActivationPeriod: 4.18
+  interestPointActivationPeriod: 30
+  bikeStations: []
+  activeApartments: []
+  activeInterestPoints: []

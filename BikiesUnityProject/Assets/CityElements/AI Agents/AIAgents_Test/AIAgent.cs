@@ -6,27 +6,37 @@ using UnityEngine.AI;
 public class AIAgent : MonoBehaviour
 {
     GameObject NextDestination;
-    public GameObject FinalDestination;
+    public InterestPoint finalDestination;
+
     NavMeshAgent m_Agent;
 
     [Header("Agent Patience")]
     public float waitTimeLimit = 10.0f;
-    float startedWaitingAt = 0.0f;
+    public float startedWaitingAt = 0.0f;
 
     // AI Status
-    public enum AGENT_STATUS { NONE = -1, APT_WAIT, WALKING, BIKE_WAIT, TRAVELLING, ARRIVING };
+    public enum AGENT_STATUS {
+        NONE = -1,
+        APT_WAIT,
+        WALKING,
+        BIKE_WAIT,
+        TRAVELLING,
+        ARRIVING
+    };
+    [SerializeField]
     AGENT_STATUS AgentStatus = AGENT_STATUS.NONE;
-
 
     private void Awake()
     {
         m_Agent = GetComponent<NavMeshAgent>();
+        startedWaitingAt = Time.time;
         AgentStatus = AGENT_STATUS.WALKING;
     }
 
     private void Start()
     {
         m_Agent = GetComponent<NavMeshAgent>();
+        startedWaitingAt = Time.time;
         AgentStatus = AGENT_STATUS.WALKING;
     }
 
@@ -36,15 +46,13 @@ public class AIAgent : MonoBehaviour
         if(m_Agent == null)
             m_Agent = GetComponent<NavMeshAgent>();
 
-        startedWaitingAt += Time.deltaTime;
-
         switch (AgentStatus)
         {
             // Agent waits around the apartement
             case AGENT_STATUS.APT_WAIT:
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
-                    //Destroy(gameObject);
+                    Destroy(gameObject);
                     //TODO-Lucho: Augmentar polució, eliminate agent, etc.
                 }
                 break;
@@ -54,6 +62,7 @@ public class AIAgent : MonoBehaviour
                 if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
                 {
                     NextDestination.GetComponent<BikeStation>().waitingCyclists.Enqueue(this);
+                    startedWaitingAt = Time.time;
                     AgentStatus = AGENT_STATUS.BIKE_WAIT;
                 }
                 break;
@@ -63,15 +72,15 @@ public class AIAgent : MonoBehaviour
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
                     NextDestination.GetComponent<BikeStation>().waitingCyclists.Dequeue();
-                    //Destroy(gameObject);
+                    Destroy(gameObject);
                     //TODO-Lucho: Augmentar polució, eliminate agent, etc.
                 }
                 break;
 
             // Agent is travelling from Bike Station A to Bike Station B
             case AGENT_STATUS.TRAVELLING:
-                if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
-                    ChangeDestination(FinalDestination, AGENT_STATUS.ARRIVING, FinalDestination.GetComponent<InterestPoint>().ArriveRadius);
+                if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
+                    ChangeDestination(finalDestination.gameObject, AGENT_STATUS.ARRIVING, finalDestination.ArriveRadius);
                 break;
 
             // Agent walks from Bike Station B to Destination
@@ -93,7 +102,6 @@ public class AIAgent : MonoBehaviour
     public void ChangeDestination(GameObject destination, AGENT_STATUS agent_next_status, float arrive_radius)
     {
         AgentStatus = agent_next_status;
-        startedWaitingAt = 0.0f;
 
         if (m_Agent == null)
             m_Agent = GetComponent<NavMeshAgent>();
@@ -113,9 +121,9 @@ public class AIAgent : MonoBehaviour
         }
     }
 
-    public void SetDestination(GameObject destination)
+    public void SetFinalDestination(InterestPoint destination)
     {
         if(destination != null)
-            FinalDestination = destination;
+            finalDestination = destination;
     }
 }

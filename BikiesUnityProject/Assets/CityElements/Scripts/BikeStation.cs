@@ -47,30 +47,31 @@ public class BikeStation : MonoBehaviour
             AIAgent cyclist = waitingCyclists.Dequeue();
 
             //LUCHO-TODO: Metelo el estado que sea y mándalo a pastar al ciclista a su bike destination.
-            InterestPoint interest_pt = cyclist.FinalDestination.GetComponent<InterestPoint>();
+            InterestPoint interest_pt = cyclist.finalDestination;
 
-            int bikestation_index = -1;
-            if(interest_pt.nearbyBikeStations.Count > 0)
-            {
-                int i = 1;
-                float distance_to_objective = (interest_pt.nearbyBikeStations[0].transform.position - cyclist.FinalDestination.transform.position).magnitude;
+            //int bikestation_index = -1;
+            //if(interest_pt.nearbyBikeStations.Count > 0)
+            //{
+            //    int i = 1;
+            //    float distance_to_objective = (interest_pt.nearbyBikeStations[0].transform.position - cyclist.finalDestination.transform.position).magnitude;
 
-                foreach(BikeStation bike_st in interest_pt.nearbyBikeStations)
-                {
-                    //if(bike_st.bikeStock) -- If not full
-                    float new_distance = (bike_st.transform.position - cyclist.FinalDestination.transform.position).magnitude;
-                    if(new_distance < distance_to_objective)
-                    {
-                        bikestation_index = i;
-                        distance_to_objective = new_distance;
-                    }
+            //    foreach(BikeStation bike_st in interest_pt.nearbyBikeStations)
+            //    {
+            //        //if(bike_st.bikeStock) -- If not full
+            //        float new_distance = (bike_st.transform.position - cyclist.finalDestination.transform.position).magnitude;
+            //        if(new_distance < distance_to_objective)
+            //        {
+            //            bikestation_index = i;
+            //            distance_to_objective = new_distance;
+            //        }
 
-                    ++i;
-                }
-            }
+            //        ++i;
+            //    }
+            //}
 
             if (interest_pt.nearbyBikeStations.Count > 0)
             {
+                cyclist.startedWaitingAt = Time.time;
                 BikeStation bike_station = interest_pt.nearbyBikeStations[0];
                 cyclist.ChangeDestination(bike_station.gameObject, AIAgent.AGENT_STATUS.TRAVELLING, bike_station.ArriveRadius);
             }

@@ -11,7 +11,7 @@ public class Apartment : CityElement
     public float SpawnRadius = 5.0f;
 
     [Header("DEBUG")]
-    public GameObject final_dest;
+    public InterestPoint final_dest;
 
     // --- Temporary ---
     public float TimeToSpawn = 0.0f;
@@ -41,7 +41,7 @@ public class Apartment : CityElement
         // Pick a random destination (interest point)
         //int IPIndex = Random.Range(0, cityManager.activeInterestPoints.Count - 1);
         //new_cyclist.FinalDestination = cityManager.activeInterestPoints[IPIndex].gameObject;
-        new_cyclist.SetDestination(final_dest.gameObject);
+        new_cyclist.SetFinalDestination(final_dest);
 
         // Look for the nearest bike station with bikes
         int bikestation_index = -1;

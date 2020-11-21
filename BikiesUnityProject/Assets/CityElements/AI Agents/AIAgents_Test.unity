@@ -1016,7 +1016,7 @@ PrefabInstance:
         type: 3}
       propertyPath: final_dest
       value: 
-      objectReference: {fileID: 1600551589}
+      objectReference: {fileID: 1600551591}
     - target: {fileID: 2227426025697464425, guid: 782bb8c3f534c934abe61e2701a2ac53,
         type: 3}
       propertyPath: bike_station
@@ -1796,12 +1796,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 146.66699, y: -6.4389954, z: 13.474991}
---- !u!1 &1600551589 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6544908173929848612, guid: aed96d1ffc4b4db4486016f622b39ee6,
+--- !u!114 &1600551591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6544908173929848615, guid: aed96d1ffc4b4db4486016f622b39ee6,
     type: 3}
   m_PrefabInstance: {fileID: 1375138157}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba5c2ee57e55fe428cd2adfd16178e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1758334935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3979048797767688384, guid: b0f2cf33fb2b52c43a3db09417120b94,

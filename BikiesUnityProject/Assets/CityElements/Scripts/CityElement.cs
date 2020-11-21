@@ -10,7 +10,7 @@ public class CityElement : MonoBehaviour
     public CityManager cityManager;
 
     [Header("Lists of Nearby BikeStations")]
-    public List<BikeStation> nearbyBikeStations;
+    public List<BikeStation> nearbyBikeStations = new List<BikeStation>();
 
     [Header("Radius Detection")]
     public float bikeStationDetectRadius = 0.0f;
@@ -32,13 +32,13 @@ public class CityElement : MonoBehaviour
         Vector3 pos = area.transform.position;
 
         //scale.y = Random.Range(1.1f, 7.82f);
-        scale.y = Random.Range(6.0f, 25.0f);
-        pos.y += scale.y/2;
+        scale.y = Random.Range(6.0f, 10.0f);
+        //pos.y += scale.y/2;
 
         area.transform.position = pos;
         area.transform.localScale = scale;
 
-        area.SetActive(false);
+        //area.SetActive(false);
     }
 
     protected bool InsideRadius(Vector3 nearbyElement, float radius)

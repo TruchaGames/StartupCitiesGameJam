@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6544908172782153533}
   - component: {fileID: 6544908172782153538}
   - component: {fileID: 6544908172782153539}
-  - component: {fileID: 6544908172782153536}
+  - component: {fileID: 7296398406881201775}
   m_Layer: 0
-  m_Name: PhysicalPoint
+  m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6544908172782153536
+--- !u!135 &7296398406881201775
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +91,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6544908173929848612
 GameObject:
@@ -103,7 +103,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6544908173929848614}
   - component: {fileID: 6544908173929848615}
-  - component: {fileID: 6417349589074889051}
   m_Layer: 0
   m_Name: InterestPoint
   m_TagString: Untagged
@@ -138,18 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba5c2ee57e55fe428cd2adfd16178e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 0
+  cityManager: {fileID: 0}
+  nearbyBikeStations: []
+  bikeStationDetectRadius: 0
   area: {fileID: 6544908172782153537}
-  m_BikeStationsInRange: []
---- !u!135 &6417349589074889051
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6544908173929848612}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.75
-  m_Center: {x: 0, y: 0, z: 0}
+  ArriveRadius: 5

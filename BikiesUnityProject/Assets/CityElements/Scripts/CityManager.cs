@@ -122,6 +122,9 @@ public class CityManager : MonoBehaviour
 
         //Remove it from the list of unactive apartments
         unactiveApartments.Remove(_apartment);
+
+        // Call to fill the list of near bike stations
+        _apartment.ConnectBikeStations();
     }
 
     // -- Activates a random unactive InterestPoint  
@@ -138,6 +141,9 @@ public class CityManager : MonoBehaviour
 
         //Remove it from the list of unactive apartments
         unactiveInterestPoints.Remove(_interestPoint);
+
+        // Call to fill the list of near bike stations
+        _interestPoint.ConnectBikeStations();
     }
 
     // -- Call this function when we want the player to create a new station

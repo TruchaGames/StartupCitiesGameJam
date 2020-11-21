@@ -23,7 +23,10 @@ public class BikeStation : MonoBehaviour
     public List<InterestPoint> nearbyInterestPoints = new List<InterestPoint>();
 
     [Header("Queue of Waiting Cyclists")]
-    public Queue<AIAgent> waitingCyclists;
+    public Queue<AIAgent> waitingCyclists = new Queue<AIAgent>();
+
+    [Header("Cyclist Arrive Radius")]
+    public float ArriveRadius = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +42,38 @@ public class BikeStation : MonoBehaviour
         //    Debug.DrawLine(transform.position, BikeStation.transform.position);
         //};
 
-        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0)
+        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && waitingCyclists.Count > 0)
         {
             AIAgent cyclist = waitingCyclists.Dequeue();
+
             //LUCHO-TODO: Metelo el estado que sea y mándalo a pastar al ciclista a su bike destination.
-            //cyclist.ChangeDestination("destination", AIAgent.AGENT_STATUS.TRAVELLING);
+            InterestPoint interest_pt = cyclist.FinalDestination.GetComponent<InterestPoint>();
+
+            int bikestation_index = -1;
+            if(interest_pt.nearbyBikeStations.Count > 0)
+            {
+                int i = 1;
+                float distance_to_objective = (interest_pt.nearbyBikeStations[0].transform.position - cyclist.FinalDestination.transform.position).magnitude;
+
+                foreach(BikeStation bike_st in interest_pt.nearbyBikeStations)
+                {
+                    //if(bike_st.bikeStock) -- If not full
+                    float new_distance = (bike_st.transform.position - cyclist.FinalDestination.transform.position).magnitude;
+                    if(new_distance < distance_to_objective)
+                    {
+                        bikestation_index = i;
+                        distance_to_objective = new_distance;
+                    }
+
+                    ++i;
+                }
+            }
+
+            if (interest_pt.nearbyBikeStations.Count > 0)
+            {
+                BikeStation bike_station = interest_pt.nearbyBikeStations[0];
+                cyclist.ChangeDestination(bike_station.gameObject, AIAgent.AGENT_STATUS.TRAVELLING, bike_station.ArriveRadius);
+            }
 
             --bikeStock;
             bikePickedAt = Time.time;

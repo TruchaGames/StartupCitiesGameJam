@@ -11,12 +11,12 @@ public class BikeStation : MonoBehaviour
     public uint bikeStock = 5;
 
     [Header("Radius Detection")]
-    public float bikeStationDetectRadius = 0.0f;
+    //public float bikeStationDetectRadius = 0.0f;
     public float apartmentDetectRadius = 0.0f;
     public float interestPointDetectRadius = 0.0f;
 
     [Header("Lists of Nearby Nodes")]
-    public List<BikeStation> nearbyBikeStations = new List<BikeStation>();
+    //public List<BikeStation> nearbyBikeStations = new List<BikeStation>();
     public List<Apartment> nearbyApartments = new List<Apartment>();
     public List<InterestPoint> nearbyInterestPoints = new List<InterestPoint>();
 
@@ -29,10 +29,32 @@ public class BikeStation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (BikeStation BikeStation in nearbyBikeStations)
+        //foreach (BikeStation BikeStation in nearbyBikeStations)
+        //{
+        //    Debug.DrawLine(transform.position, BikeStation.transform.position);
+        //};
+
+        foreach (Apartment BikeStation in nearbyApartments)
         {
             Debug.DrawLine(transform.position, BikeStation.transform.position);
         };
+
+        foreach (InterestPoint BikeStation in nearbyInterestPoints)
+        {
+            Debug.DrawLine(transform.position, BikeStation.transform.position);
+        };
+    }
+
+    void OnDrawGizmos()
+    {
+        //Gizmos.color = Color.magenta;
+        //Gizmos.DrawWireSphere(new Vector3(transform.position.x, 0.0f, transform.position.z), bikeStationDetectRadius);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, 0.0f, transform.position.z), apartmentDetectRadius);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, 0.0f, transform.position.z), interestPointDetectRadius);
     }
 
     // Player actions
@@ -54,7 +76,7 @@ public class BikeStation : MonoBehaviour
     // PUBLIC: Request to connect to nearby nodes.
     public bool EstablishConnections()
     {
-        ConnectBikeStations();
+        //ConnectBikeStations();
         ConnectApartments();
         ConnectInterestPoints();
 
@@ -64,8 +86,8 @@ public class BikeStation : MonoBehaviour
     // PUBLIC: Request to disconnect from all nodes.
     public void RemoveConnections()
     {
-        foreach (BikeStation it in nearbyBikeStations)
-            it.nearbyBikeStations.Remove(this);
+        //foreach (BikeStation it in nearbyBikeStations)
+        //    it.nearbyBikeStations.Remove(this);
 
         //foreach (Apartment it in nearbyApartments)    // TODO: Create lists in appropiate places
         //    it.nearbyBikeStations.Remove(this);
@@ -73,44 +95,44 @@ public class BikeStation : MonoBehaviour
         //foreach (InterestPoint it in nearbyInterestPoints)
         //    it.nearbyBikeStations.Remove(this);
 
-        nearbyBikeStations.Clear();
+        //nearbyBikeStations.Clear();
         nearbyApartments.Clear();
         nearbyInterestPoints.Clear();
     }
 
-    bool InsideRadius(Vector3 nearbyElement)
+    bool InsideRadius(Vector3 nearbyElement, float radius)
     {
         float x_distance = nearbyElement.x - gameObject.transform.position.x;
         float y_distance = nearbyElement.z - gameObject.transform.position.z;
 
-        if (Mathf.Sqrt(Mathf.Pow(x_distance, 2) + Mathf.Pow(y_distance, 2)) <= bikeStationDetectRadius)
+        if (Mathf.Sqrt(Mathf.Pow(x_distance, 2) + Mathf.Pow(y_distance, 2)) <= radius)
             return true;
         else
             return false;
     }
 
-    uint ConnectBikeStations()
-    {
-        uint nodesConnected = 0;
+    //uint ConnectBikeStations()
+    //{
+    //    uint nodesConnected = 0;
 
-        // 1. Iterate list of all existing bike bases
-        foreach (BikeStation bikeStation in cityManager.bikeStations)
-        {
-            // 2. Do a A->B vector from this base to each existing base
-            if (InsideRadius(bikeStation.transform.position))
-            {
-                // 3. If magnitude of A->B is <= to radius, then add to correspodant list
-                nearbyBikeStations.Add(bikeStation);
+    //    // 1. Iterate list of all existing bike bases
+    //    foreach (BikeStation bikeStation in cityManager.bikeStations)
+    //    {
+    //        // 2. Do a A->B vector from this base to each existing base
+    //        if (InsideRadius(bikeStation.transform.position, bikeStationDetectRadius))
+    //        {
+    //            // 3. If magnitude of A->B is <= to radius, then add to correspodant list
+    //            nearbyBikeStations.Add(bikeStation);
 
-                // 4. Also, add yourself to the list of other newly connected node
-                bikeStation.nearbyBikeStations.Add(this);
+    //            // 4. Also, add yourself to the list of other newly connected node
+    //            bikeStation.nearbyBikeStations.Add(this);
 
-                ++nodesConnected;
-            }
-        }
+    //            ++nodesConnected;
+    //        }
+    //    }
 
-        return nodesConnected;
-    }
+    //    return nodesConnected;
+    //}
 
     uint ConnectApartments()
     {
@@ -120,7 +142,7 @@ public class BikeStation : MonoBehaviour
         foreach (Apartment apartment in cityManager.activeApartments)
         {
             // 2. Do a A->B vector from this base to each existing base
-            if (InsideRadius(apartment.transform.position))
+            if (InsideRadius(apartment.transform.position, apartmentDetectRadius))
             {
                 // 3. If magnitude of A->B is <= to radius, then add to correspodant list
                 nearbyApartments.Add(apartment);
@@ -143,7 +165,7 @@ public class BikeStation : MonoBehaviour
         foreach (InterestPoint iPoint in cityManager.activeInterestPoints)
         {
             // 2. Do a A->B vector from this base to each existing base
-            if (InsideRadius(iPoint.transform.position))
+            if (InsideRadius(iPoint.transform.position, interestPointDetectRadius))
             {
                 // 3. If magnitude of A->B is <= to radius, then add to correspodant list
                 nearbyInterestPoints.Add(iPoint);

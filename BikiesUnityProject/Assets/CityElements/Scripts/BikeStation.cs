@@ -8,7 +8,10 @@ public class BikeStation : MonoBehaviour
     public CityManager cityManager;
 
     [Header("Bikes")]
+    public uint maxBikes = 8;
     public uint bikeStock = 5;
+    public float bikePickupCooldown = 1; // In seconds
+    float bikePickedAt = 0.0f;
 
     [Header("Radius Detection")]
     //public float bikeStationDetectRadius = 0.0f;
@@ -19,6 +22,9 @@ public class BikeStation : MonoBehaviour
     //public List<BikeStation> nearbyBikeStations = new List<BikeStation>();
     public List<Apartment> nearbyApartments = new List<Apartment>();
     public List<InterestPoint> nearbyInterestPoints = new List<InterestPoint>();
+
+    [Header("Queue of Waiting Cyclists")]
+    public Queue<AIAgent> waitingCyclists;
 
     // Start is called before the first frame update
     void Start()
@@ -34,15 +40,15 @@ public class BikeStation : MonoBehaviour
         //    Debug.DrawLine(transform.position, BikeStation.transform.position);
         //};
 
-        foreach (Apartment BikeStation in nearbyApartments)
+        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0)
         {
-            Debug.DrawLine(transform.position, BikeStation.transform.position);
-        };
+            AIAgent cyclist = waitingCyclists.Dequeue();
+            //LUCHO-TODO: Metelo el estado que sea y mándalo a pastar al ciclista a su bike destination.
+            //cyclist.ChangeDestination("destination", AIAgent.AGENT_STATUS.TRAVELLING);
 
-        foreach (InterestPoint BikeStation in nearbyInterestPoints)
-        {
-            Debug.DrawLine(transform.position, BikeStation.transform.position);
-        };
+            --bikeStock;
+            bikePickedAt = Time.time;
+        }
     }
 
     void OnDrawGizmos()
@@ -55,6 +61,18 @@ public class BikeStation : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(new Vector3(transform.position.x, 0.0f, transform.position.z), interestPointDetectRadius);
+
+        //------------------------------------------------------
+
+        foreach (Apartment BikeStation in nearbyApartments)
+        {
+            Debug.DrawLine(transform.position, BikeStation.transform.position);
+        };
+
+        foreach (InterestPoint BikeStation in nearbyInterestPoints)
+        {
+            Debug.DrawLine(transform.position, BikeStation.transform.position);
+        };
     }
 
     // Player actions
@@ -148,7 +166,7 @@ public class BikeStation : MonoBehaviour
                 nearbyApartments.Add(apartment);
 
                 // 4. Also, add yourself to the list of other newly connected nodes
-                //apartment.nearbyBikeStations.Add(this); //TODO
+                apartment.nearbyBikeStations.Add(this);
 
                 ++nodesConnected;
             }
@@ -171,7 +189,7 @@ public class BikeStation : MonoBehaviour
                 nearbyInterestPoints.Add(iPoint);
 
                 // 4. Also, add yourself to the list of other newly connected nodes
-                //iPoint.nearbyBikeStations.Add(this); //TODO
+                iPoint.nearbyBikeStations.Add(this);
 
                 ++nodesConnected;
             }

@@ -53,10 +53,10 @@ public class Apartment : CityElement
 
             // Instantiate Cyclist nearby, set position and destination
             AIAgent new_cyclist = GameObject.Instantiate(cyclist).GetComponent<AIAgent>();
-            
+
             Vector2 random_circle = Random.insideUnitCircle * 5.0f;
             new_cyclist.gameObject.transform.position = gameObject.transform.position + new Vector3(random_circle.x, 0.0f, random_circle.y);
-            
+
             //int IPIndex = Random.Range(0, m_CityManager.activeInterestPoints.Count - 1);
             //new_cyclist.FinalDestination = m_CityManager.activeInterestPoints[IPIndex].gameObject;
 
@@ -71,5 +71,39 @@ public class Apartment : CityElement
         else
             Debug.LogError("THE APARTMENT HAS NOT A SPHERE COLLIDER!");
 
-    }    
+    }
+
+    bool InsideRadius(Vector3 nearbyElement, float radius)
+    {
+        float x_distance = nearbyElement.x - gameObject.transform.position.x;
+        float y_distance = nearbyElement.z - gameObject.transform.position.z;
+
+        if (Mathf.Sqrt(Mathf.Pow(x_distance, 2) + Mathf.Pow(y_distance, 2)) <= radius)
+            return true;
+        else
+            return false;
+    }
+
+    public uint ConnectBikeStations()
+    {
+        uint nodesConnected = 0;
+
+        // 1. Iterate list of all existing bike bases
+        foreach (BikeStation bikeStation in cityManager.bikeStations)
+        {
+            // 2. Do a A->B vector from this base to each existing base
+            if (InsideRadius(bikeStation.transform.position, bikeStationDetectRadius))
+            {
+                // 3. If magnitude of A->B is <= to radius, then add to correspodant list
+                nearbyBikeStations.Add(bikeStation);
+
+                // 4. Also, add yourself to the list of other newly connected node
+                bikeStation.nearbyApartments.Add(this);
+
+                ++nodesConnected;
+            }
+        }
+
+        return nodesConnected;
+    }
 }

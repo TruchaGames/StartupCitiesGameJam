@@ -20,6 +20,9 @@ public class BikeStation : MonoBehaviour
     public List<Apartment> nearbyApartments = new List<Apartment>();
     public List<InterestPoint> nearbyInterestPoints = new List<InterestPoint>();
 
+    //[Header("Queue of Waiting Cyclists")]
+    //public Queue<AIAgent> waitingCyclists;
+
     // Start is called before the first frame update
     void Start()
     {

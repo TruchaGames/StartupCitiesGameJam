@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class CityElement : MonoBehaviour
 {
-    // Range of the element
-    public GameObject area;
+    public int radius = 0;
 
-    // List of Bike Stations nearby
-    public List<GameObject> m_BikeStationsInRange;
+    [Header("ADD City Manager GO HERE!")]
+    public CityManager cityManager;
+
+    [Header("Lists of Nearby BikeStations")]
+    public List<BikeStation> nearbyBikeStations;
+
+    [Header("Radius Detection")]
+    public float bikeStationDetectRadius = 0.0f;
+
+    //Range of the element
+    public GameObject area;
 
     //  -- When a point is activated from behind hidden or unactive we call this function
     public void Activate()
@@ -31,21 +39,5 @@ public class CityElement : MonoBehaviour
         area.transform.localScale = scale;
 
         area.SetActive(false);
-    }
-
-    // Add Bike Stations to list
-    public void AddBikeStation(GameObject bike_station)
-    {
-        m_BikeStationsInRange.Add(bike_station);
-    }
-
-    // Remove Bike Stations to list
-    public void RemoveBikeStation(GameObject bike_station)
-    {
-        m_BikeStationsInRange.Remove(bike_station);
-    }
-    public void RemoveBikeStation(int bike_station_index)
-    {
-        m_BikeStationsInRange.RemoveAt(bike_station_index);
     }
 }

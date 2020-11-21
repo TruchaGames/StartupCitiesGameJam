@@ -1041,8 +1041,14 @@ PrefabInstance:
     - target: {fileID: 2227426025697464425, guid: 782bb8c3f534c934abe61e2701a2ac53,
         type: 3}
       propertyPath: timeToSpawn
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2227426025697464425, guid: 782bb8c3f534c934abe61e2701a2ac53,
+        type: 3}
+      propertyPath: vanGO
+      value: 
+      objectReference: {fileID: 669600242641729352, guid: 90d7a2d3c267c8c49bb65bb96652c65e,
+        type: 3}
     - target: {fileID: 2227426025697464426, guid: 782bb8c3f534c934abe61e2701a2ac53,
         type: 3}
       propertyPath: m_LocalPosition.x

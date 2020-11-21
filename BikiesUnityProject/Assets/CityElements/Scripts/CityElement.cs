@@ -6,8 +6,14 @@ public class CityElement : MonoBehaviour
 { 
     public int radius = 0;
 
-    public uint bikeCapacity = 20;
-    public uint currentBikesAmount = 0;
+    [Header("ADD City Manager GO HERE!")]
+    public CityManager cityManager;
+
+    [Header("Lists of Nearby BikeStations")]
+    public List<BikeStation> nearbyBikeStations;
+
+    [Header("Radius Detection")]
+    public float bikeStationDetectRadius = 0.0f;
 
     //Range of the element
     public GameObject area;

@@ -17,16 +17,25 @@ public class AIAgent : MonoBehaviour
     public enum AGENT_STATUS { NONE = -1, APT_WAIT, WALKING, BIKE_WAIT, TRAVELLING, ARRIVING };
     AGENT_STATUS AgentStatus = AGENT_STATUS.NONE;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         m_Agent = GetComponent<NavMeshAgent>();
-        AgentStatus = AGENT_STATUS.APT_WAIT;
+        AgentStatus = AGENT_STATUS.WALKING;
+    }
+
+    private void Start()
+    {
+        m_Agent = GetComponent<NavMeshAgent>();
+        AgentStatus = AGENT_STATUS.WALKING;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(m_Agent == null)
+            m_Agent = GetComponent<NavMeshAgent>();
+
         startedWaitingAt += Time.deltaTime;
 
         switch (AgentStatus)
@@ -42,7 +51,7 @@ public class AIAgent : MonoBehaviour
 
             // Agent Walks from Apartment to Bike Station A
             case AGENT_STATUS.WALKING:
-                if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
+                if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
                 {
                     NextDestination.GetComponent<BikeStation>().waitingCyclists.Enqueue(this);
                     AgentStatus = AGENT_STATUS.BIKE_WAIT;
@@ -67,8 +76,8 @@ public class AIAgent : MonoBehaviour
 
             // Agent walks from Bike Station B to Destination
             case AGENT_STATUS.ARRIVING:
-                if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
-                    Destroy(gameObject);
+                //if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
+                    //Destroy(gameObject);
                 break;
 
             case AGENT_STATUS.NONE:

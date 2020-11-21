@@ -17,14 +17,17 @@ public class Apartment : CityElement
     public float TimeToSpawn = 0.0f;
     float m_SpawiningTimer = 0.0f;
 
+    bool spawn = true;
+
     // Update is called once per frame
     void Update()
     {
         m_SpawiningTimer += Time.deltaTime;
-        if (m_SpawiningTimer > TimeToSpawn)
+        if (m_SpawiningTimer > TimeToSpawn && spawn)
         {
             m_SpawiningTimer = 0.0f;
             SpawnCyclist();
+            spawn = false;
         }
     }
 

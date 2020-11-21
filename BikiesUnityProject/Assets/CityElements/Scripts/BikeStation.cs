@@ -23,7 +23,7 @@ public class BikeStation : MonoBehaviour
     public List<InterestPoint> nearbyInterestPoints = new List<InterestPoint>();
 
     [Header("Queue of Waiting Cyclists")]
-    public Queue<AIAgent> waitingCyclists;
+    public Queue<AIAgent> waitingCyclists = new Queue<AIAgent>();
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,7 @@ public class BikeStation : MonoBehaviour
         //    Debug.DrawLine(transform.position, BikeStation.transform.position);
         //};
 
-        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0)
+        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && waitingCyclists.Count > 0)
         {
             AIAgent cyclist = waitingCyclists.Dequeue();
             //LUCHO-TODO: Metelo el estado que sea y mándalo a pastar al ciclista a su bike destination.

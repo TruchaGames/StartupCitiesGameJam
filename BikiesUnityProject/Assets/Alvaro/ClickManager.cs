@@ -19,11 +19,10 @@ public class ClickManager : MonoBehaviour
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 100f, detectionMask);
-
-        if (hit.collider != null)
-        {
+        RaycastHit hit;
+        
+       if(Physics.Raycast(mousePos, Vector3.forward, out hit, Mathf.Infinity, detectionMask))
+        { 
             Debug.Log(hit.collider.gameObject.name);
             lastSelected = hit.collider.gameObject.transform.GetChild(0).gameObject;
             ActivateFloatingMenu(lastSelected);

@@ -1038,6 +1038,11 @@ PrefabInstance:
       propertyPath: bikeStationDetectRadius
       value: 20.36
       objectReference: {fileID: 0}
+    - target: {fileID: 2227426025697464425, guid: 782bb8c3f534c934abe61e2701a2ac53,
+        type: 3}
+      propertyPath: timeToSpawn
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2227426025697464426, guid: 782bb8c3f534c934abe61e2701a2ac53,
         type: 3}
       propertyPath: m_LocalPosition.x

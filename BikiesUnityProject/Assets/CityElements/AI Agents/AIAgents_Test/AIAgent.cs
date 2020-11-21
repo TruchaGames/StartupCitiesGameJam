@@ -5,29 +5,46 @@ using UnityEngine.AI;
 
 public class AIAgent : MonoBehaviour
 {
+    
     GameObject NextDestination;
-    public GameObject FinalDestination;
+    public Apartment sourceApartment;
+    public InterestPoint finalDestination;
+
     NavMeshAgent m_Agent;
 
     [Header("Agent Patience")]
     public float waitTimeLimit = 10.0f;
-    float startedWaitingAt = 0.0f;
+    public float startedWaitingAt = 0.0f;   // We'll use this for a small workaround so that Re-Cast has time to calculate
 
     // AI Status
-    public enum AGENT_STATUS { NONE = -1, APT_WAIT, WALKING, BIKE_WAIT, TRAVELLING, ARRIVING };
+    public enum AGENT_STATUS {
+        NONE = -1,
+        APT_WAIT,
+        WALKING,
+        BIKE_WAIT,
+        TRAVELLING,
+        ARRIVING
+    };
+    [SerializeField]
     AGENT_STATUS AgentStatus = AGENT_STATUS.NONE;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         m_Agent = GetComponent<NavMeshAgent>();
-        AgentStatus = AGENT_STATUS.APT_WAIT;
+        startedWaitingAt = Time.time;
+        AgentStatus = AGENT_STATUS.WALKING;
+    }
+
+    private void Start()
+    {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        startedWaitingAt += Time.deltaTime;
+        if(m_Agent == null)
+            m_Agent = GetComponent<NavMeshAgent>();
 
         switch (AgentStatus)
         {
@@ -35,16 +52,18 @@ public class AIAgent : MonoBehaviour
             case AGENT_STATUS.APT_WAIT:
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
-                    //Destroy(gameObject);
+                    sourceApartment.cyclistsWaiting.Dequeue();
+                    Destroy(gameObject);
                     //TODO-Lucho: Augmentar polució, eliminate agent, etc.
                 }
                 break;
 
             // Agent Walks from Apartment to Bike Station A
             case AGENT_STATUS.WALKING:
-                if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
+                if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
                 {
                     NextDestination.GetComponent<BikeStation>().waitingCyclists.Enqueue(this);
+                    startedWaitingAt = Time.time;
                     AgentStatus = AGENT_STATUS.BIKE_WAIT;
                 }
                 break;
@@ -54,21 +73,24 @@ public class AIAgent : MonoBehaviour
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
                     NextDestination.GetComponent<BikeStation>().waitingCyclists.Dequeue();
-                    //Destroy(gameObject);
+                    Destroy(gameObject);
                     //TODO-Lucho: Augmentar polució, eliminate agent, etc.
                 }
                 break;
 
             // Agent is travelling from Bike Station A to Bike Station B
             case AGENT_STATUS.TRAVELLING:
-                if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
-                    ChangeDestination(FinalDestination, AGENT_STATUS.ARRIVING, FinalDestination.GetComponent<InterestPoint>().ArriveRadius);
+                if (Time.time - startedWaitingAt > 2 && m_Agent.remainingDistance <= m_Agent.stoppingDistance)  //NOTE: The time is a workaround to give time for Re-Cast to calculate stuff
+                    ChangeDestination(finalDestination.gameObject, AGENT_STATUS.ARRIVING, finalDestination.ArriveRadius);
                 break;
 
             // Agent walks from Bike Station B to Destination
             case AGENT_STATUS.ARRIVING:
-                if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
+                if (Time.time - startedWaitingAt > 2 && m_Agent.remainingDistance <= m_Agent.stoppingDistance)  //NOTE: The time is a workaround to give time for Re-Cast to calculate stuff
+                {
                     Destroy(gameObject);
+                    //TODO: Reduce pollution etc
+                }  
                 break;
 
             case AGENT_STATUS.NONE:
@@ -83,8 +105,9 @@ public class AIAgent : MonoBehaviour
     // Called Upon Agent Spawn or when Arrives at bike station
     public void ChangeDestination(GameObject destination, AGENT_STATUS agent_next_status, float arrive_radius)
     {
+        startedWaitingAt = Time.time;
+
         AgentStatus = agent_next_status;
-        startedWaitingAt = 0.0f;
 
         if (m_Agent == null)
             m_Agent = GetComponent<NavMeshAgent>();
@@ -104,9 +127,46 @@ public class AIAgent : MonoBehaviour
         }
     }
 
-    public void SetDestination(GameObject destination)
-    {
-        if(destination != null)
-            FinalDestination = destination;
-    }
+    // - LUCHO LEGACY -
+    //public void SetFinalDestination(InterestPoint destination)
+    //{
+    //    if(destination != null)
+    //        finalDestination = destination;
+    //}
+
+    //public void SendToBikeStation(BikeStation bikeStation)
+    //{
+    //    // 3. Look for the nearest bike station with bikes
+    //    int bikestation_index = -1;
+    //    if (nearbyBikeStations.Count > 0)
+    //    {
+    //        int i = 1;
+    //        float distance = (nearbyBikeStations[0].transform.position - transform.position).magnitude;
+    //        foreach (BikeStation bike_st in nearbyBikeStations)
+    //        {
+    //            if (bike_st.bikeStock > 0)
+    //            {
+    //                float new_distance = (bike_st.transform.position - transform.position).magnitude;
+    //                if (new_distance < distance)
+    //                {
+    //                    bikestation_index = i;
+    //                    distance = new_distance;
+    //                }
+    //            }
+
+    //            ++i;
+    //        }
+    //    }
+
+    //    // Pass the bike station to the cyclist (or keep it null if -1)
+    //    if (nearbyBikeStations.Count > 0)
+    //    {
+            
+    //    }
+
+    //    //if (bikestation_index != -1)
+    //    //    new_cyclist.ChangeDestination(m_BikeStationsInRange[bikestation_index], AIAgent.AGENT_STATUS.WALKING);
+    //    //else
+    //    //    new_cyclist.ChangeDestination(null, AIAgent.AGENT_STATUS.APT_WAIT);
+    //}
 }

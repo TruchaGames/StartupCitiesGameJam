@@ -54,7 +54,7 @@ public class BikeBase : MonoBehaviour
         //    }
         //}
 
-        //return nodesConnected;
+        return 0;
     }
 
     uint SearchApartements()

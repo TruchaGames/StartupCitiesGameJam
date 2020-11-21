@@ -55,7 +55,7 @@ public class AIVan : MonoBehaviour
                         ++bikeLoad;
                     }
 
-                    if (origin.bikeStock <= 0 || bikesToLoad <= 0)
+                    if (origin.bikeStock <= 0 || bikesToLoad <= 0 || destination.bikeStock + bikeLoad >= destination.maxBikes)
                     {
                         m_Agent.isStopped = false;
                         m_Agent.destination = destination.transform.position;

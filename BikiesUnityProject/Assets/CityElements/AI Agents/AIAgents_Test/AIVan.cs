@@ -11,9 +11,10 @@ public class AIVan : MonoBehaviour
     public float speed = 0.0f;
 
     [Header("Van Load")]
-    public uint bikesToLoad = 0;    //Should be given in the Player script
+    [SerializeField]
     uint bikeLoad = 0;
-    public float vanLoadCooldown = 0.0f;
+    public uint bikesToLoad = 5;    //Should be given in the Player script
+    public float vanLoadCooldown = 1.0f;
     float vanStartedLoadingAt = 0.0f;
 
     [Header("Van Destination")]
@@ -27,7 +28,7 @@ public class AIVan : MonoBehaviour
         TRAVELLING,
         UNLOADING
     };
-
+    [SerializeField]
     VAN_STATUS vanStatus = VAN_STATUS.NONE;
 
     // Start is called before the first frame update
@@ -53,9 +54,10 @@ public class AIVan : MonoBehaviour
                         --origin.bikeStock;
                         --bikesToLoad;
                         ++bikeLoad;
+                        vanStartedLoadingAt = Time.time;
                     }
 
-                    if (origin.bikeStock <= 0 || bikesToLoad <= 0 || destination.bikeStock + bikeLoad >= destination.maxBikes)
+                    if (origin.bikeStock <= 0 || bikesToLoad <= 0 /*|| destination.bikeStock + bikeLoad >= destination.maxBikes*/)
                     {
                         m_Agent.isStopped = false;
                         m_Agent.destination = destination.transform.position;
@@ -66,7 +68,7 @@ public class AIVan : MonoBehaviour
 
             // Agent Walks from Apartment to Bike Station A
             case VAN_STATUS.TRAVELLING:
-                if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
+                if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
                 {
                     m_Agent.isStopped = true;
                     vanStartedLoadingAt = Time.time;
@@ -81,13 +83,14 @@ public class AIVan : MonoBehaviour
                     if (bikeLoad > 0)
                     {
                         --bikeLoad;
-                        ++origin.bikeStock;
+                        ++destination.bikeStock;
+                        vanStartedLoadingAt = Time.time;
                     }
 
                     if (bikeLoad <= 0)
                     {
                         //TODO-Carles: ++PlayerVans
-                        Destroy(this);
+                        Destroy(gameObject);
                     }
                 }
                 break;
@@ -100,4 +103,17 @@ public class AIVan : MonoBehaviour
                 break;
         }
     }
+
+    // -- EXAMPLE CODE TO CREATE A VAN
+    //if (Input.GetKeyDown(KeyCode.R))
+    //{
+    //    AIVan newVan = Instantiate(vanGO).GetComponent<AIVan>();
+
+    //    newVan.origin = stationStart;
+    //    newVan.destination = stationEnd;
+
+    //    newVan.bikesToLoad = 5;
+
+    //    newVan.transform.position = newVan.origin.transform.position;
+    //}
 }

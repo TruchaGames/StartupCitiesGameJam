@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7383ee73f6212a4caabe125c1d9d2ac, type: 3}
   m_Name: AkWwiseProjectData
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   AcousticTextureWwu:
   - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
     PathAndIcons:
@@ -19,7 +19,7 @@ MonoBehaviour:
       ObjectType: 12
     ParentPath: Default Work Unit
     guid: 10bad37e6fe0884889e3541746bd50e1
-    GuidInternal: 
+    GuidInternal:
     m_lastTime: -8585956508645516331
     List: []
   - PhysicalPath: Virtual Acoustics\Factory Reflect Acoustic Textures.wwu
@@ -28,7 +28,7 @@ MonoBehaviour:
       ObjectType: 12
     ParentPath: Factory Reflect Acoustic Textures
     guid: 6b663d46a83ca54f8b4a5fef12b883f6
-    GuidInternal: 
+    GuidInternal:
     m_lastTime: -8585956508645506358
     List:
     - name: Acoustic_Banner
@@ -201,7 +201,7 @@ MonoBehaviour:
       ObjectType: 12
     ParentPath: Default Work Unit
     guid: 1cf5b5ad88b6b6479aca32a15f44d3c2
-    GuidInternal: 
+    GuidInternal:
     m_lastTime: -8585956508646403950
     List:
     - name: Master Audio Bus
@@ -229,7 +229,7 @@ MonoBehaviour:
       ObjectType: 12
     ParentPath: Default Work Unit
     guid: 166cadd5815bf249944523b8e3aac321
-    GuidInternal: 
+    GuidInternal:
     m_lastTime: -8585956508645536280
     List:
     - name: InGame
@@ -248,7 +248,7 @@ MonoBehaviour:
       ObjectType: 12
     ParentPath: Default Work Unit
     guid: 6c3d4a46f3c5f147a6058e626cf28436
-    GuidInternal: 
+    GuidInternal:
     m_lastTime: -8585956508646583482
     List:
     - name: Test_Win95
@@ -270,7 +270,7 @@ MonoBehaviour:
       ObjectType: 12
     ParentPath: Default Work Unit
     guid: ea928548c60c154282b1c7a56c2bc27c
-    GuidInternal: 
+    GuidInternal:
     m_lastTime: -8585956508646573510
     List: []
   - PhysicalPath: Game Parameters\Factory Motion.wwu
@@ -279,7 +279,7 @@ MonoBehaviour:
       ObjectType: 12
     ParentPath: Factory Motion
     guid: 225213d7dbd1d042adc0930743567776
-    GuidInternal: 
+    GuidInternal:
     m_lastTime: -8585956508646563532
     List:
     - name: Playback_Rate
@@ -306,7 +306,7 @@ MonoBehaviour:
       ObjectType: 12
     ParentPath: Factory SoundSeed Air Game Syncs
     guid: 5577163b42fb8b4598bf96f557afb3b9
-    GuidInternal: 
+    GuidInternal:
     m_lastTime: -8585956508646563532
     List:
     - name: SS_Air_Fear
@@ -406,7 +406,7 @@ MonoBehaviour:
       ObjectType: 12
     ParentPath: Default Work Unit
     guid: 23c2a59a3778fe4a949833f53d3a377d
-    GuidInternal: 
+    GuidInternal:
     m_lastTime: -8585956508645536280
     List: []
   SwitchWwu:
@@ -416,7 +416,7 @@ MonoBehaviour:
       ObjectType: 12
     ParentPath: Default Work Unit
     guid: be603bbd382fb6478b6d3260681d4be0
-    GuidInternal: 
+    GuidInternal:
     m_lastTime: -8585956508645526309
     List: []
   TriggerWwu:
@@ -426,7 +426,7 @@ MonoBehaviour:
       ObjectType: 12
     ParentPath: Default Work Unit
     guid: f06f005e983c5a42978cacf4ee6ba6d2
-    GuidInternal: 
+    GuidInternal:
     m_lastTime: -8585956508645516331
     List: []
   ExpandedItems:
@@ -436,4 +436,4 @@ MonoBehaviour:
   - /WwiseBikiesGameJam/SoundBanks
   - /WwiseBikiesGameJam/SoundBanks/Default Work Unit
   autoPopulateEnabled: 1
-  CurrentPluginConfig: 
+  CurrentPluginConfig:

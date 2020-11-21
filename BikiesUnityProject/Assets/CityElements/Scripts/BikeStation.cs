@@ -42,48 +42,8 @@ public class BikeStation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //foreach (BikeStation BikeStation in nearbyBikeStations)
-        //{
-        //    Debug.DrawLine(transform.position, BikeStation.transform.position);
-        //};
-
         if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && waitingCyclists.Count > 0)
-        {
-            AIAgent cyclist = waitingCyclists.Dequeue();
-
-            //LUCHO-TODO: Metelo el estado que sea y mándalo a pastar al ciclista a su bike destination.
-            InterestPoint interest_pt = cyclist.FinalDestination.GetComponent<InterestPoint>();
-
-            int bikestation_index = -1;
-            if(interest_pt.nearbyBikeStations.Count > 0)
-            {
-                int i = 1;
-                float distance_to_objective = (interest_pt.nearbyBikeStations[0].transform.position - cyclist.FinalDestination.transform.position).magnitude;
-
-                foreach(BikeStation bike_st in interest_pt.nearbyBikeStations)
-                {
-                    //if(bike_st.bikeStock) -- If not full
-                    float new_distance = (bike_st.transform.position - cyclist.FinalDestination.transform.position).magnitude;
-                    if(new_distance < distance_to_objective)
-                    {
-                        bikestation_index = i;
-                        distance_to_objective = new_distance;
-                    }
-
-                    ++i;
-                }
-            }
-
-            if (interest_pt.nearbyBikeStations.Count > 0)
-            {
-                BikeStation bike_station = interest_pt.nearbyBikeStations[0];
-                cyclist.ChangeDestination(bike_station.gameObject, AIAgent.AGENT_STATUS.TRAVELLING, bike_station.ArriveRadius);
-            }
-
-            --bikeStock;
-            bikePickedAt = Time.time;
-        }
+            OfferBikeToCyclist();
     }
 
     void OnDrawGizmos()
@@ -98,6 +58,11 @@ public class BikeStation : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector3(transform.position.x, 0.0f, transform.position.z), interestPointDetectRadius);
 
         //------------------------------------------------------
+
+        //foreach (BikeStation BikeStation in nearbyBikeStations)
+        //{
+        //    Debug.DrawLine(transform.position, BikeStation.transform.position);
+        //};
 
         foreach (Apartment BikeStation in nearbyApartments)
         {
@@ -250,5 +215,40 @@ public class BikeStation : MonoBehaviour
     public bool IsConstructable()
     {
         return collisions == 0;
+    }
+
+    void OfferBikeToCyclist()
+    {
+        AIAgent cyclist = waitingCyclists.Dequeue();
+
+        InterestPoint cyclistDestination = cyclist.finalDestination;
+        bool foundStationWithSlots = false;
+
+        foreach (BikeStation bikeStation in cyclistDestination.nearbyBikeStations)
+        {
+            if (bikeStation.bikeStock < bikeStation.maxBikes)
+            {
+                TakeBike(cyclist, bikeStation);
+                foundStationWithSlots = true;
+                break;
+            }
+        }
+
+        if (!foundStationWithSlots)
+        {
+            if (cyclistDestination.nearbyBikeStations.Count > 0)
+                TakeBike(cyclist, cyclistDestination.nearbyBikeStations[0]);
+            else
+                waitingCyclists.Enqueue(cyclist);
+        }
+    }
+
+    void TakeBike(AIAgent cyclist, BikeStation stationDestination)
+    {
+        cyclist.SetDestination(stationDestination.gameObject, stationDestination.ArriveRadius);
+        cyclist.AgentStatus = AIAgent.AGENT_STATUS.TRAVELLING;
+
+        --bikeStock;
+        bikePickedAt = Time.time;
     }
 }

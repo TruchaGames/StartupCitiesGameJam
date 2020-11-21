@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/CameraTest/CameraTestScene.unity
+    guid: 9fb7eb23e2963da41abe9889a7bb8a8e
+  - enabled: 1
+    path: Assets/CameraTest/CameraTestScene 1.unity
+    guid: 380716c72d22b6c4d9ef293e8dfe79e1
   m_configObjects: {}

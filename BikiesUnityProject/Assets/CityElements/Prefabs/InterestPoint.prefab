@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6544908173929848614}
   - component: {fileID: 6544908173929848615}
+  - component: {fileID: 6417349589074889051}
   m_Layer: 0
   m_Name: InterestPoint
   m_TagString: Untagged
@@ -137,8 +138,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba5c2ee57e55fe428cd2adfd16178e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1
-  bikeCapacity: 20
-  currentBikesAmount: 0
   area: {fileID: 6544908172782153537}
-  bikeParkingPeriod: 5
+  m_BikeStationsInRange: []
+--- !u!135 &6417349589074889051
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6544908173929848612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.75
+  m_Center: {x: 0, y: 0, z: 0}

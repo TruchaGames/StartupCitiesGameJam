@@ -8,7 +8,8 @@ public class EconomyManager : MonoBehaviour
     public uint starting_money = 100000;
     public uint bike_station_cost = 30000;
     public uint bike_individual_cost = 1000;
-
+    [Range(0.0f,1.0f)]
+    public float refund_percentage = 0.5f;
 
     [Header("Internal values")]
     //Money that the PLAYER has available!!
@@ -33,8 +34,10 @@ public class EconomyManager : MonoBehaviour
         if (wallet >= bike_station_cost)
         {
             wallet -= (int)bike_station_cost;
+            Debug.Log("Bought bike station!");
             return true;
         }
+        Debug.Log("Couldn't buy a bike station!");
         return false;
     }
 
@@ -44,8 +47,10 @@ public class EconomyManager : MonoBehaviour
         if(wallet >= bike_individual_cost)
         {
             wallet -= (int)bike_individual_cost;
+            Debug.Log("Bought a new bike!");
             return true;
         }
+        Debug.Log("Couldn't buy a new bike!");
         return false;
     }
 
@@ -71,5 +76,12 @@ public class EconomyManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public int RefundRemovedBikeStation()
+    {
+        int money_refunded = (int)(bike_station_cost * refund_percentage);
+        wallet += money_refunded;
+        return money_refunded;
     }
 }

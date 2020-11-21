@@ -317,6 +317,7 @@ MonoBehaviour:
   starting_money: 100000
   bike_station_cost: 30000
   bike_individual_cost: 1000
+  refund_percentage: 0.5
   wallet: 0
 --- !u!1 &1676176934
 GameObject:

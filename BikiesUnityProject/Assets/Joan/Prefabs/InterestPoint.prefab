@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6544908172782153539}
   - component: {fileID: 6544908172782153536}
   m_Layer: 0
-  m_Name: Area
+  m_Name: PhysicalPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6544908172782153537}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8f2b12c35e8ac6479a66ca42cc8786f, type: 2}
+  - {fileID: 2100000, guid: 24b3f93a52f0ca64ab1db6454427ffe5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,5 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba5c2ee57e55fe428cd2adfd16178e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radious: 4
+  radius: 1
+  bikeCapacity: 20
+  currentBikesAmount: 0
   area: {fileID: 6544908172782153537}
+  bikeParkingPeriod: 5

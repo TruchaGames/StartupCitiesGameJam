@@ -109,9 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cityManager: {fileID: 0}
   bikeStock: 5
-  bikeStationDetectRadius: 0
+  bikePickupCooldown: 1
   apartmentDetectRadius: 0
   interestPointDetectRadius: 0
-  nearbyBikeStations: []
   nearbyApartments: []
   nearbyInterestPoints: []
+  ArriveRadius: 3

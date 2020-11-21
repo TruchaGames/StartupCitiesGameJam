@@ -62,7 +62,7 @@ public class AIAgent : MonoBehaviour
             // Agent is travelling from Bike Station A to Bike Station B
             case AGENT_STATUS.TRAVELLING:
                 if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
-                    ChangeDestination(FinalDestination, AgentStatus = AGENT_STATUS.ARRIVING, FinalDestination.GetComponent<InterestPoint>().ArriveRadius);
+                    ChangeDestination(FinalDestination, AGENT_STATUS.ARRIVING, FinalDestination.GetComponent<InterestPoint>().ArriveRadius);
                 break;
 
             // Agent walks from Bike Station B to Destination

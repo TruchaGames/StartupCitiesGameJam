@@ -13,7 +13,7 @@ public class CityElement : MonoBehaviour
     public List<BikeStation> nearbyBikeStations = new List<BikeStation>();
 
     [Header("Radius Detection")]
-    public float bikeStationDetectRadius = 0.0f;
+    public float bikeStationDetectRadius = 5.0f;
 
     //Range of the element
     public GameObject area;
@@ -50,5 +50,11 @@ public class CityElement : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, bikeStationDetectRadius);
     }
 }

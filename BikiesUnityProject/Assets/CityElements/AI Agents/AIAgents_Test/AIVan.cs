@@ -17,8 +17,8 @@ public class AIVan : MonoBehaviour
     float vanStartedLoadingAt = 0.0f;
 
     [Header("Van Destination")]
-    BikeStation origin;
-    BikeStation destination;
+    public BikeStation origin;
+    public BikeStation destination;
 
     // AI Status
     public enum VAN_STATUS {
@@ -34,6 +34,7 @@ public class AIVan : MonoBehaviour
     void Start()
     {
         m_Agent = GetComponent<NavMeshAgent>();
+        m_Agent.isStopped = true;
         vanStatus = VAN_STATUS.LOADING;
         vanStartedLoadingAt = Time.time;
     }
@@ -56,8 +57,9 @@ public class AIVan : MonoBehaviour
 
                     if (origin.bikeStock <= 0 || bikesToLoad <= 0)
                     {
+                        m_Agent.isStopped = false;
+                        m_Agent.destination = destination.transform.position;
                         vanStatus = VAN_STATUS.TRAVELLING;
-                        //TODO-Lucho: Que la van faci pathfinding a destination.
                     }
                 }
                 break;
@@ -66,6 +68,7 @@ public class AIVan : MonoBehaviour
             case VAN_STATUS.TRAVELLING:
                 if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
                 {
+                    m_Agent.isStopped = true;
                     vanStartedLoadingAt = Time.time;
                     vanStatus = VAN_STATUS.UNLOADING;
                 }

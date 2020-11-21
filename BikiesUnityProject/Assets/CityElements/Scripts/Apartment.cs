@@ -10,8 +10,7 @@ public class Apartment : CityElement
     [Header("Radius of Cyclist Spawn")]
     public float SpawnRadius = 5.0f;
 
-    [Header("DEBUG")]
-    public InterestPoint final_dest;
+    public Queue<AIAgent> cyclistsWaiting = new Queue<AIAgent>();
 
     // --- Temporary ---
     public float TimeToSpawn = 0.0f;
@@ -29,53 +28,34 @@ public class Apartment : CityElement
             SpawnCyclist();
             spawn = false;
         }
+
+        if (cyclistsWaiting.Count > 0)
+        {
+            foreach (BikeStation bikeStation in nearbyBikeStations)
+            {
+                if (bikeStation.bikeStock > 0)  //IMPROVE: Search for closed instead of picking first available
+                {
+                    AIAgent cyclist = cyclistsWaiting.Dequeue();
+                    cyclist.ChangeDestination(bikeStation.gameObject, AIAgent.AGENT_STATUS.WALKING, bikeStation.ArriveRadius);
+                }
+            }
+        }
     }
 
     private void SpawnCyclist()
     {
-        // Instantiate Cyclist around nearby, set position and destination
+        // 1. Instantiate Cyclist around nearby, set position and destination
         AIAgent new_cyclist = GameObject.Instantiate(Cyclist).GetComponent<AIAgent>();
         Vector2 random_circle = Random.insideUnitCircle * SpawnRadius;
         new_cyclist.gameObject.transform.position = gameObject.transform.position + new Vector3(random_circle.x, 0.0f, random_circle.y);
 
-        // Pick a random destination (interest point)
-        //int IPIndex = Random.Range(0, cityManager.activeInterestPoints.Count - 1);
-        //new_cyclist.FinalDestination = cityManager.activeInterestPoints[IPIndex].gameObject;
-        new_cyclist.SetFinalDestination(final_dest);
+        // 2. Pick a random destination (interest point)
+        int IPIndex = Random.Range(0, cityManager.activeInterestPoints.Count - 1);
+        new_cyclist.finalDestination = cityManager.activeInterestPoints[IPIndex];
 
-        // Look for the nearest bike station with bikes
-        int bikestation_index = -1;
-        if (nearbyBikeStations.Count > 0)
-        {
-            int i = 1;
-            float distance = (nearbyBikeStations[0].transform.position - transform.position).magnitude;
-            foreach (BikeStation bike_st in nearbyBikeStations)
-            {
-                if (bike_st.bikeStock > 0)
-                {
-                    float new_distance = (bike_st.transform.position - transform.position).magnitude;
-                    if (new_distance < distance)
-                    {
-                        bikestation_index = i;
-                        distance = new_distance;
-                    }
-                }
-                
-                ++i;
-            }
-        }
-
-        // Pass the bike station to the cyclist (or keep it null if -1)
-        if (nearbyBikeStations.Count > 0)
-        {
-            BikeStation bike_station = nearbyBikeStations[0];
-            new_cyclist.ChangeDestination(bike_station.gameObject, AIAgent.AGENT_STATUS.WALKING, bike_station.ArriveRadius);
-        }
-        
-        //if (bikestation_index != -1)
-        //    new_cyclist.ChangeDestination(m_BikeStationsInRange[bikestation_index], AIAgent.AGENT_STATUS.WALKING);
-        //else
-        //    new_cyclist.ChangeDestination(null, AIAgent.AGENT_STATUS.APT_WAIT);
+        // 3. Mark origin of cyclist
+        new_cyclist.sourceApartment = this;
+        cyclistsWaiting.Enqueue(new_cyclist);
     }
 
     public uint ConnectBikeStations()

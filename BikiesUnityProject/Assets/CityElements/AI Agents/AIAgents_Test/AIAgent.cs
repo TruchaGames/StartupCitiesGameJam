@@ -25,22 +25,27 @@ public class AIAgent : MonoBehaviour
     {
         switch(AgentStatus)
         {
+            // Agent waits around the apartement
             case AGENT_STATUS.APT_WAIT:
                 break;
 
+            // Agent Walks from Apartment to Bike Station A
             case AGENT_STATUS.WALKING:
                 if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
                     AgentStatus = AGENT_STATUS.BIKE_WAIT;
                 break;
 
+            // Agent waits around the bike station
             case AGENT_STATUS.BIKE_WAIT:
                 break;
 
+            // Agent is travelling from Bike Station A to Bike Station B
             case AGENT_STATUS.TRAVELLING:
                 if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
                     ChangeDestination(FinalDestination, AgentStatus = AGENT_STATUS.ARRIVING);
                 break;
 
+            // Agent walks from Bike Station B to Destination
             case AGENT_STATUS.ARRIVING:
                 if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete)
                     Destroy(gameObject);

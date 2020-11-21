@@ -5,8 +5,8 @@ using UnityEngine;
 public class Apartment : CityElement
 {
     public GameObject cyclist;
-    CityManager m_CityManager;
     public GameObject bike_station;
+    CityManager m_CityManager;
 
     // --- Temporary ---
     public float TimeToSpawn = 0.0f;

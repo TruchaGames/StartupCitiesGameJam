@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Wwise
+/WwiseBikiesGameJam/.cache/
+/WwiseBikiesGameJam/Originals/*.akd

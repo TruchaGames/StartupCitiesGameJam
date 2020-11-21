@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{4D29726A-D6E4-4FA1-95B5-E84131922C16}" SchemaVersion="97">
+	<Modulators>
+		<WorkUnit Name="Default Work Unit" ID="{4D29726A-D6E4-4FA1-95B5-E84131922C16}" PersistMode="Standalone"/>
+	</Modulators>
+</WwiseDocument>

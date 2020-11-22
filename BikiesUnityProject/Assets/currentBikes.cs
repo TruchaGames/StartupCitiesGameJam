@@ -17,8 +17,11 @@ public class currentBikes : MonoBehaviour
     public uint bikeStock = new uint();
 
     public EconomyManager economyManager;
+    public CityManager cityManager;
+
 
     public BikeStation bikeStation;
+    public GameObject bikeStationPrefab;
 
     // public Image[] bikeSlots;
 
@@ -26,6 +29,8 @@ public class currentBikes : MonoBehaviour
     void Awake()
     {
         economyManager = FindObjectOfType<EconomyManager>();
+        cityManager = FindObjectOfType<CityManager>();
+
 
         bikeStation = GetComponentInParent<BikeStation>();
         if (bikeStation != null)
@@ -71,5 +76,16 @@ public class currentBikes : MonoBehaviour
         }
 
     }
+
+    public void MoveBike()
+    {
+        cityManager.MoveBikeStation(bikeStationPrefab);
+    }
+
+    public void BuyBike()
+    {
+        economyManager.BuyNewBikeUI();
+    }
+        
 
 }

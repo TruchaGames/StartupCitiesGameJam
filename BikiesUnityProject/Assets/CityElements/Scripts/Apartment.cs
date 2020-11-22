@@ -127,7 +127,6 @@ public class Apartment : CityElement
     {
         cyclistsWaiting.Enqueue(cyclist);
         int it = (int)cyclist.finalDestination.interestPointType;
-        Debug.Log(it.ToString());
         ++cyclistTypeAmount[it];
         cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
         cyclistWaitList = cyclistsWaiting.ToArray();

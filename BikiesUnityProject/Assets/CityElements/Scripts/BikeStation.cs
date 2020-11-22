@@ -285,7 +285,7 @@ public class BikeStation : MonoBehaviour
             if (cyclistDestination.nearbyBikeStations.Count > 0)
                 TakeBike(cyclist, cyclistDestination.nearbyBikeStations[0]);
             else
-                cyclistsWaiting.Enqueue(cyclist);
+                EnqueueCyclist(cyclist);
         }
     }
 

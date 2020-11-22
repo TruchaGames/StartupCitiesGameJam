@@ -10,6 +10,8 @@ public class AIAgent : MonoBehaviour
     GameObject NextDestination;
     public Apartment sourceApartment;
     public InterestPoint finalDestination;
+    [SerializeField]
+    InterestPoint.InterestPointType destinationType;
 
     public GameObject polutionUpParticle;
     public GameObject polutionDownParticle;
@@ -46,7 +48,7 @@ public class AIAgent : MonoBehaviour
 
     private void Start()
     {
-
+        destinationType = finalDestination.interestPointType;
     }
 
     // Update is called once per frame
@@ -77,13 +79,21 @@ public class AIAgent : MonoBehaviour
 
             // Agent Walks from Apartment to Bike Station A
             case AGENT_STATUS.WALKING:
-                if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
+                if (waitedForRecast)
                 {
-                    BikeStation station = NextDestination.GetComponent<BikeStation>();
-                    station.DequeueCyclist(this);
+                    if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
+                    {
+                        waitedForRecast = false;
 
-                    startedWaitingAt = Time.time;
-                    AgentStatus = AGENT_STATUS.BIKE_WAIT;
+                        NextDestination.GetComponent<BikeStation>().EnqueueCyclist(this);
+
+                        startedWaitingAt = Time.time;
+                        AgentStatus = AGENT_STATUS.BIKE_WAIT;
+                    }
+                }
+                else
+                {
+                    waitedForRecast = true;
                 }
                 break;
 
@@ -92,7 +102,10 @@ public class AIAgent : MonoBehaviour
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
                     BikeStation station = NextDestination.GetComponent<BikeStation>();
-                    station.DequeueCyclist(this);
+                    if (sourceApartment.cyclistsWaiting.Count > 0)
+                        station.DequeueCyclist(this);
+                    else
+                        Debug.LogError("Cyclist Dequeue failed! Queue is empty!");
 
                     if (polutionBar != null) { polutionBar.IncreasePolution(); }
                     //TODO-UI: Show UI of angry customer (taxi use)

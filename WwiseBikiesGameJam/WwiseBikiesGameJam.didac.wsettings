@@ -4,7 +4,13 @@
 		<UserProjectSettings Name="" ID="{1404C569-181D-45C0-A461-FB5EAF4BE959}">
 			<PropertyList>
 				<Property Name="AudioFilesImporter\Path" Type="string" Value="D:\Miz Cosas\Windows 95 Startup Sound\"/>
+				<Property Name="Event Action List\{3C20BBB3-3BF3-4CF0-BDA3-8449AAD79658}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{3E693DE8-9CBF-43E1-8AE4-DB75B49B7C71}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{4F988A8F-DB2F-4FCF-A357-7206989427A5}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{554A6213-0F57-4737-AA15-C19A1ED367BA}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{B85F4B6E-4AEB-492D-B8E1-F89189162338}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{D09BB54E-FCED-4A3D-8717-BCC3512F3666}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{E8E94EC6-0F0B-42EA-9DF5-FF2A306E7400}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>

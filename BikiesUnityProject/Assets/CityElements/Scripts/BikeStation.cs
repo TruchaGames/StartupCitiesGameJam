@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BikeStation : MonoBehaviour
 {
-    [Header("ADD City Manager GO HERE!")]
-    public CityManager cityManager;
+    CityManager cityManager;
 
     [Header("Bikes")]
     public uint maxBikes = 8;
@@ -29,15 +28,20 @@ public class BikeStation : MonoBehaviour
     [Header("Cyclist Arrive Radius")]
     public float ArriveRadius = 5.0f;
 
+    void Awake()
+    {
+        Debug.Assert(cityManager != null, "GameObject <" + this.gameObject.name + "> is lacking a CityManager!");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        EstablishConnections();
+        cityManager = FindObjectOfType<CityManager>();
+        //EstablishConnections();
     }
 
     //Building variables
-    private bool constructable = true;
-    private uint collisions = 0; //Amount of colliders that don't allow the construction of the station
+    private int collisions = 0; //Amount of colliders that don't allow the construction of the station
 
     // Update is called once per frame
     void Update()
@@ -202,14 +206,13 @@ public class BikeStation : MonoBehaviour
     {
         if (other.gameObject.tag == "Not constructable" || other.gameObject.tag == "City Element")
             collisions++;
-        
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Not constructable" || other.gameObject.tag == "City Element")
             collisions--;
-
+          
     }
 
     public bool IsConstructable()
@@ -247,6 +250,10 @@ public class BikeStation : MonoBehaviour
     {
         cyclist.SetDestination(stationDestination.gameObject, stationDestination.ArriveRadius);
         cyclist.AgentStatus = AIAgent.AGENT_STATUS.TRAVELLING;
+
+        //Change visually a pedestrian to a bike!
+        Agent_Bicycle agent_bicycle = cyclist.GetComponentInChildren<Agent_Bicycle>();
+        agent_bicycle.unit_type = UNITTYPE.Bicycle;
 
         --bikeStock;
         bikePickedAt = Time.time;

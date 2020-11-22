@@ -15,6 +15,6 @@ public class SwitchSceneScript : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(2))
-            SceneManager.LoadScene("CameraTestScene");
+            SceneManager.LoadScene("GameScene");
     }
 }

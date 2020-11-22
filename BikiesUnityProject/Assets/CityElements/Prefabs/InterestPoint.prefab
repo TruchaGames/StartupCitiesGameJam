@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6544908172782153539}
   m_Layer: 8
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: City Element
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,9 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba5c2ee57e55fe428cd2adfd16178e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0
-  cityManager: {fileID: 0}
   nearbyBikeStations: []
-  bikeStationDetectRadius: 0
+  bikeStationDetectRadius: 8
   area: {fileID: 6544908172782153537}
-  ArriveRadius: 5
+  ArriveRadius: 3

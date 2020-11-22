@@ -44,15 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cce2683e26f5e34bb91860d3fcc2e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0
-  cityManager: {fileID: 0}
   nearbyBikeStations: []
-  bikeStationDetectRadius: 0
+  bikeStationDetectRadius: 8
   area: {fileID: 5156978130577350907}
-  Cyclist: {fileID: 0}
-  SpawnRadius: 5
-  final_dest: {fileID: 0}
-  TimeToSpawn: 3
+  Cyclist: {fileID: 6705231015387271539, guid: dae97617b6731c0439452cff8274bdb7, type: 3}
+  SpawnRadius: 3
+  timeToSpawn: 7
 --- !u!1 &5156978130577350907
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,7 +64,7 @@ GameObject:
   - component: {fileID: 1422706642119059471}
   m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: City Element
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

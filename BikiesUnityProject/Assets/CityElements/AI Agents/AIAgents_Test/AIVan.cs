@@ -7,6 +7,8 @@ public class AIVan : MonoBehaviour
 {
     NavMeshAgent m_Agent;
 
+    EconomyManager economy;
+
     [Header("Van Velocity")]
     public float speed = 0.0f;
 
@@ -38,6 +40,8 @@ public class AIVan : MonoBehaviour
         m_Agent.isStopped = true;
         vanStatus = VAN_STATUS.LOADING;
         vanStartedLoadingAt = Time.time;
+
+        economy = FindObjectOfType<EconomyManager>();
     }
 
     // Update is called once per frame
@@ -89,7 +93,7 @@ public class AIVan : MonoBehaviour
 
                     if (bikeLoad <= 0)
                     {
-                        //TODO-Carles: ++PlayerVans
+                        economy.AddVan();
                         Destroy(gameObject);
                     }
                 }

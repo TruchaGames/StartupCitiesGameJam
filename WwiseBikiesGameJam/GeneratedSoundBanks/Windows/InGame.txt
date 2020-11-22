@@ -1,6 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
 	298084058	gameplay_lose_money			\Default Work Unit\gameplay_lose_money	
-	452547817	stop_all			\Default Work Unit\stop_all	
 	500500923	player_place_bike_stand			\Default Work Unit\player_place_bike_stand	
 	1845279716	Test_Win95			\Default Work Unit\Test_Win95	
 	2683640631	gameplay_win_money			\Default Work Unit\gameplay_win_money	
@@ -17,6 +16,7 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	69676076	Microsoft_Windows_95_Startup_Sound	E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\Microsoft_Windows_95_Startup_Sound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Microsoft_Windows_95_Startup_Sound		1183808
+	76504885	bikies_ost_sequence	E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\bikies_ost_sequence_9EDFC787.wem		\Interactive Music Hierarchy\Default Work Unit\BIKIES_GAMEPLAY\Bikies_OST\Bikies neutral OST\bikies_ost_sequence		1192712
 	137065097	win_money_02	E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\win_money_02_3CADDE39.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\win_money\win_money_02		13443
 	157287007	steam_alarm_long	E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\steam_alarm_long_3CADDE39.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\MISC\alert_bike_stand\steam_alarm_long		67275
 	159052801	pay_money	E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\pay_money_3CADDE39.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\pay_money		7547

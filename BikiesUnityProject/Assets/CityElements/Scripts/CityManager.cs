@@ -153,6 +153,7 @@ public class CityManager : MonoBehaviour
     {
         stationBeingplaced = Instantiate(stationPrefab);
         placingBikeStation = true;
+        stationBeingplaced.tag = "UnderConstruction";
         buildingMode = BuildingMode.CREATING;
         stationBeingplaced.GetComponent<BikeStation>().areaCircle.enabled = true;
     }
@@ -194,6 +195,7 @@ public class CityManager : MonoBehaviour
             {
                 stationBeingplaced.transform.SetParent(gameObject.transform);
                 stationBeingplaced.GetComponent<BikeStation>().EstablishConnections();
+                stationBeingplaced.tag = "Not constructable";
                 //Play Audio
                 place_station.Post(gameObject);
             }

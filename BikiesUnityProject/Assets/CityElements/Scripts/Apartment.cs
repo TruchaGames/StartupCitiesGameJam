@@ -43,7 +43,7 @@ public class Apartment : CityElement
         }
 
         // Send Cyclists to a BikeStation
-        if (cyclistsWaiting.Count > 0)
+        if (cyclistsWaiting.Count > 0)  // TODO-UI: Show UI of amount of cyclists waiting in an apartement (use list = queue.ToList())
         {
             foreach (BikeStation bikeStation in nearbyBikeStations)
             {

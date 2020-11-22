@@ -23,13 +23,14 @@ public class CityElement : MonoBehaviour
 
     void Awake()
     {
+        cityManager = FindObjectOfType<CityManager>();
         Debug.Assert(cityManager != null, "GameObject <" + this.gameObject.name + "> is lacking a CityManager!");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        cityManager = FindObjectOfType<CityManager>();
+        //cityManager = FindObjectOfType<CityManager>();
 
         ////Debug purpose: Update sphere size
         //Vector3 scale = area.transform.localScale;

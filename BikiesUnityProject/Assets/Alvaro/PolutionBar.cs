@@ -74,7 +74,7 @@ public class PolutionBar : MonoBehaviour
 
     public void DecreasePolution()
     {
-        slider.value += polutionDecrease;
+        slider.value -= polutionDecrease;
     }
 
     public void SetMaxPolution(int maxPolution)

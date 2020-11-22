@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearbyBikeStations: []
-  bikeStationDetectRadius: 8
+  bikeStationDetectRadius: 25
   area: {fileID: 5979347343928500155}
   cyclistsWaitingGO: {fileID: 5801640217542365094}
   cyclistTypeAmountText:

@@ -372,5 +372,5 @@ MonoBehaviour:
   nearbyBikeStations: []
   bikeStationDetectRadius: 8
   area: {fileID: 6544908173929848612}
-  interestPointType: -1
+  interestPointType: 3
   ArriveRadius: 3

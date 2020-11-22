@@ -109,8 +109,8 @@ MonoBehaviour:
     overrideState: 1
     value: {x: 1, y: 1, z: 1, w: 0}
   gain:
-    overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: 0}
+    overrideState: 0
+    value: {x: 0.9888925, y: 0.9916697, z: 1, w: 0.14043298}
   masterCurve:
     overrideState: 0
     value:
@@ -1373,10 +1373,10 @@ MonoBehaviour:
     value: 1
   shutterAngle:
     overrideState: 1
-    value: 49
+    value: 360
   sampleCount:
     overrideState: 1
-    value: 4
+    value: 32
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

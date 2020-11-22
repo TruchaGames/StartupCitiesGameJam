@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class EconomyManager : MonoBehaviour
 {
-    [Header("Economy Balance & Costs")]
+    [Header("Starting Economy")]
     public uint starting_money = 100000;
     public uint starting_vans = 1;
-    public uint bike_station_cost = 30000;
+
+    [Header("Costs")]
     public uint bike_individual_cost = 1000;
+    public uint bike_station_cost = 30000;
     public uint van_cost = 1000;
+
+    [Header("Income")]
+    public uint bike_rent_income = 1000;
+
     [Range(0.0f,1.0f)]
     public float refund_percentage = 0.5f;
 
@@ -106,6 +112,11 @@ public class EconomyManager : MonoBehaviour
         return;
     }
 
+    public void BikeRentIncome()
+    {
+        wallet += (int)bike_rent_income;
+    }
+
     public uint AddVan()
     {
         return ++vans;
@@ -119,6 +130,7 @@ public class EconomyManager : MonoBehaviour
     public void AddWalletMoney(int ammount)
     {
         wallet += ammount;
+        receive_money.Post(gameObject);
     }
 
     //This utility function (To consult) Returns True if the user can buy a bije station, but won't spend money
@@ -153,6 +165,7 @@ public class EconomyManager : MonoBehaviour
     {
         int money_refunded = (int)(bike_station_cost * refund_percentage);
         wallet += money_refunded;
+        receive_money.Post(gameObject);
         return money_refunded;
     }
 

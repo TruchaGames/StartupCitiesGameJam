@@ -50,6 +50,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sourceApartment: {fileID: 0}
   finalDestination: {fileID: 0}
+  polutionUpParticle: {fileID: 9076974248017986256, guid: 88f4d5a57c864594d951862c3b73511a,
+    type: 3}
+  polutionDownParticle: {fileID: 1231085905883905827, guid: 6b3abe7261a62c64694927d63269b556,
+    type: 3}
+  angryCustomerParticle: {fileID: 6775776277177238689, guid: 631200e6bef2b0e4499d3b2158223da8,
+    type: 3}
+  happyCustomerParticle: {fileID: 7310489868295441393, guid: 5f0740188b5b8894f979d232935766b7,
+    type: 3}
   waitTimeLimit: 10
   AgentStatus: -1
 --- !u!195 &6705231015387271540

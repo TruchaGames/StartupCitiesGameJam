@@ -12,6 +12,7 @@
 						<ObjectRef Name="play_amb" ID="{D09BB54E-FCED-4A3D-8717-BCC3512F3666}" WorkUnitID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="gameplay_bike_move" ID="{3C20BBB3-3BF3-4CF0-BDA3-8449AAD79658}" WorkUnitID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="player_place_bike_stand" ID="{4F988A8F-DB2F-4FCF-A357-7206989427A5}" WorkUnitID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_music" ID="{84ECD11F-F4CD-4FF6-A645-6891E0ABC836}" WorkUnitID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

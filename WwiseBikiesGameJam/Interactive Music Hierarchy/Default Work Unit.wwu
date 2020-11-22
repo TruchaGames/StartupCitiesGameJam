@@ -7,15 +7,127 @@
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="10"/>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
+						<Property Name="Tempo" Type="Real64" Value="70"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EA92EB91-67A7-4F96-A5D9-1A34B7900F2B}"/>
+							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="MUSIC" ID="{87BC3F03-C741-4052-9F22-34E96EF9AC0B}" WorkUnitID="{ADB5F51C-B688-47B6-9ACA-32A15F44D3C2}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<MusicPlaylistContainer Name="Bikies_OST" ID="{1A0ECB08-030A-4748-BCEF-31F91AB217E8}" ShortID="854674682">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EA92EB91-67A7-4F96-A5D9-1A34B7900F2B}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{ADB5F51C-B688-47B6-9ACA-32A15F44D3C2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="Bikies neutral OST" ID="{B389FC16-3123-4406-838D-36EDFD0E9C57}" ShortID="511276298">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="82285.4583333333"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EA92EB91-67A7-4F96-A5D9-1A34B7900F2B}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{ADB5F51C-B688-47B6-9ACA-32A15F44D3C2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Bikies neutral OST" ID="{561D648B-F3D9-4474-863F-744EB00BF1A0}" ShortID="540471379">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{ADB5F51C-B688-47B6-9ACA-32A15F44D3C2}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Bikies neutral OST" ID="{31C9E245-C163-472A-8BE9-BB60CB031C50}">
+													<Language>SFX</Language>
+													<AudioFile>Bikies neutral OST.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="577546604"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{C4339EB3-5B43-4A18-8A3E-BB6DE51DF765}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{0426DBFB-DF44-4514-A9DD-52C851BDEF3E}">
+													<ClipList>
+														<MusicClip Name="Bikies neutral OST" ID="{CFE2B67F-7BCC-4F68-A639-1CB5B64D2B96}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="82285.4583333333"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Bikies neutral OST" ID="{31C9E245-C163-472A-8BE9-BB60CB031C50}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{6BC7D47F-8A20-4EB9-AD6B-56B3AA39ECFF}"/>
+										<MusicCue Name="Exit Cue" ID="{0DCBE2F9-5E67-4D70-9FAC-5D3CFE7ADD6F}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="82285.4583333333"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{DFF0455E-45E0-4EDA-902D-285539CA0FA7}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{163B8410-381D-42C2-9D37-5CC731979E6D}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{C2A66215-D0D2-43DB-A99B-E20146A7FBD1}" ShortID="215395647">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{B05AD6B1-08C1-4FFE-95F7-EE8B3CF856C4}" ShortID="527216208">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="Bikies neutral OST" ID="{B389FC16-3123-4406-838D-36EDFD0E9C57}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+					</ChildrenList>
 					<TransitionList>
 						<MusicTransition Name="Root" ID="{BD42F7BF-DA41-44C4-AC75-1DA33B300937}">
 							<PropertyList>
@@ -29,6 +141,13 @@
 							<TransitionInfo/>
 						</MusicTransition>
 					</TransitionList>
+					<EntryList>
+						<Entry>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="Bikies_OST" ID="{1A0ECB08-030A-4748-BCEF-31F91AB217E8}" WorkUnitID="{CB471E36-51D4-4FFC-9409-3ED2C09FCC84}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+					</EntryList>
 				</MusicSwitchContainer>
 			</ChildrenList>
 		</WorkUnit>

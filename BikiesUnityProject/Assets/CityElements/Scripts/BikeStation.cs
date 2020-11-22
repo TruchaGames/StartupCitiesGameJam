@@ -5,6 +5,7 @@ using UnityEngine;
 public class BikeStation : MonoBehaviour
 {
     CityManager cityManager;
+    EconomyManager economyManager;
 
     [Header("Bikes")]
     public uint maxBikes = 8;
@@ -28,16 +29,20 @@ public class BikeStation : MonoBehaviour
     [Header("Cyclist Arrive Radius")]
     public float ArriveRadius = 5.0f;
 
+    [Header("Audio Events")]
+    public AK.Wwise.Event move_bike;
+
     void Awake()
     {
+        cityManager = FindObjectOfType<CityManager>();
+        economyManager = FindObjectOfType<EconomyManager>();
         Debug.Assert(cityManager != null, "GameObject <" + this.gameObject.name + "> is lacking a CityManager!");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        cityManager = FindObjectOfType<CityManager>();
-        //EstablishConnections();
+        //EstablishConnections();   //Remain commented
     }
 
     //Building variables
@@ -46,7 +51,7 @@ public class BikeStation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && waitingCyclists.Count > 0)
+        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && waitingCyclists.Count > 0)    // TODO-UI: Show UI of amount of cyclists waiting in the station, their wanted destination, and the waiting time of each (use list = queue.ToList())
             OfferBikeToCyclist();
     }
 
@@ -111,10 +116,10 @@ public class BikeStation : MonoBehaviour
         //foreach (BikeStation it in nearbyBikeStations)
         //    it.nearbyBikeStations.Remove(this);
 
-        //foreach (Apartment it in nearbyApartments)    // TODO: Create lists in appropiate places
+        //foreach (Apartment it in nearbyApartments)
         //    it.nearbyBikeStations.Remove(this);
 
-        //foreach (InterestPoint it in nearbyInterestPoints)    // TODO: Create lists in appropiate places
+        //foreach (InterestPoint it in nearbyInterestPoints)
         //    it.nearbyBikeStations.Remove(this);
 
         //nearbyBikeStations.Clear();
@@ -255,7 +260,12 @@ public class BikeStation : MonoBehaviour
         Agent_Bicycle agent_bicycle = cyclist.GetComponentInChildren<Agent_Bicycle>();
         agent_bicycle.unit_type = UNITTYPE.Bicycle;
 
+        //Audio event for a cyclist starting to bike
+        move_bike.Post(cyclist.transform.gameObject);
+
+        economyManager.BikeRentIncome();
         --bikeStock;
+        //TODO-UI: Show UI of bycicle removed from stock of station and money increased by rental?
         bikePickedAt = Time.time;
     }
 }

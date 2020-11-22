@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:BikiesUnityProject/Assets/Alvaro/Prefabs/BikeStationWithUI.prefab.meta
+guid: 8e161d0c370505e449c3cf1620411fdc
+PrefabImporter:
+=======
 guid: a685b19b8f9f0764e988602484e0a6a3
 folderAsset: yes
 DefaultImporter:
+>>>>>>> main:BikiesUnityProject/Assets/Scenes/GameScenes/GameScene_Profiles.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

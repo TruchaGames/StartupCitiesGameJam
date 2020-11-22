@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="97">
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\WwiseBikiesGameJam.wproj" DateLow="1605954052" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\WwiseBikiesGameJam.didac.wsettings" DateLow="1606013640" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\WwiseBikiesGameJam.didac.wsettings" DateLow="1606056224" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Virtual Acoustics\Factory Reflect Acoustic Textures.wwu" DateLow="1605653806" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Virtual Acoustics\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Triggers\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Switches\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\States\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\SoundBanks\Default Work Unit.wwu" DateLow="1605954052" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\SoundBanks\Default Work Unit.wwu" DateLow="1606044394" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Queries\Factory Queries.wwu" DateLow="1605653788" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Queries\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Presets\Factory Spatial Audio.wwu" DateLow="1605653788" DateHigh="0"/>
@@ -16,12 +16,12 @@
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Presets\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Modulators\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Mixing Sessions\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1606013542" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1606013542" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1606044394" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1606055997" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="1605653806" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Game Parameters\Factory Motion.wwu" DateLow="1605653805" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Game Parameters\Default Work Unit.wwu" DateLow="1606037351" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Events\Default Work Unit.wwu" DateLow="1606037351" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Game Parameters\Default Work Unit.wwu" DateLow="1606044393" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Events\Default Work Unit.wwu" DateLow="1606055997" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Effects\Factory Reflect.wwu" DateLow="1605653806" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Effects\Factory McDSP Effects.wwu" DateLow="1605653808" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Effects\Factory Mastering Suite.wwu" DateLow="1605653805" DateHigh="0"/>
@@ -31,7 +31,7 @@
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Effects\Factory iZotope Filters.wwu" DateLow="1605653808" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Effects\Factory iZotope Dynamics.wwu" DateLow="1605653808" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Effects\Factory iZotope Delay.wwu" DateLow="1605653808" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Effects\Factory iZotope Box Modeler.wwu" DateLow="1606013621" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Effects\Factory iZotope Box Modeler.wwu" DateLow="1606055997" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Effects\Factory Effects.wwu" DateLow="1605653788" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Effects\Factory Auro Headphone.wwu" DateLow="1605653806" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Effects\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
@@ -41,8 +41,8 @@
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Control Surface Sessions\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Audio Devices\Default Work Unit.wwu" DateLow="1605950723" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Attenuations\Default Work Unit.wwu" DateLow="1605950706" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Actor-Mixer Hierarchy\Factory Synth One.wwu" DateLow="1606013542" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects.wwu" DateLow="1606013542" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Actor-Mixer Hierarchy\Factory Motion.wwu" DateLow="1606013542" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1606037351" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Actor-Mixer Hierarchy\Factory Synth One.wwu" DateLow="1606044393" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects.wwu" DateLow="1606044393" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Actor-Mixer Hierarchy\Factory Motion.wwu" DateLow="1606044393" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1606055997" DateHigh="0"/>
 </ValidationCache>

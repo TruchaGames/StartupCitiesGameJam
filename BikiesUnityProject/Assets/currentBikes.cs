@@ -25,6 +25,7 @@ public class currentBikes : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        economyManager = FindObjectOfType<EconomyManager>();
 
         bikeStation = GetComponentInParent<BikeStation>();
         maxBikes = bikeStation.maxBikes;

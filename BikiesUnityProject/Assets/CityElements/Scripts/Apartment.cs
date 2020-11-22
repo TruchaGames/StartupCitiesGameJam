@@ -19,16 +19,16 @@ public class Apartment : CityElement
         cityManager = FindObjectOfType<CityManager>();
         cyclistSpawnedAt = Time.time;
 
-        //Debug purpose: Update sphere size
-        Vector3 scale = area.transform.localScale;
-        Vector3 pos = area.transform.position;
-
-        //scale.y = Random.Range(1.1f, 7.82f);
-        scale.y = Random.Range(6.0f, 10.0f);
-        pos.y += scale.y/2;
-
-        area.transform.position = pos;
-        area.transform.localScale = scale;
+        ////Debug purpose: Update sphere size
+        //Vector3 scale = area.transform.localScale;
+        //Vector3 pos = area.transform.position;
+        //
+        ////scale.y = Random.Range(1.1f, 7.82f);
+        //scale.y = Random.Range(6.0f, 10.0f);
+        //pos.y += scale.y/2;
+        //
+        //area.transform.position = pos;
+        //area.transform.localScale = scale;
         area.SetActive(false);
     }
 
@@ -43,7 +43,7 @@ public class Apartment : CityElement
         }
 
         // Send Cyclists to a BikeStation
-        if (cyclistsWaiting.Count > 0)
+        if (cyclistsWaiting.Count > 0)  // TODO-UI: Show UI of amount of cyclists waiting in an apartement, their wanted destination, and the waiting time of each (use list = queue.ToList())
         {
             foreach (BikeStation bikeStation in nearbyBikeStations)
             {
@@ -57,7 +57,7 @@ public class Apartment : CityElement
         }
     }
 
-    private void SpawnCyclist()
+    private void SpawnCyclist() //TODO-UI: Momentarily show that a new cyclyst has spawned
     {
         // 1. Instantiate Cyclist around nearby, set position and destination
         AIAgent new_cyclist = GameObject.Instantiate(Cyclist).GetComponent<AIAgent>();

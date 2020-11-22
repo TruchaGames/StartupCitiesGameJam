@@ -10,8 +10,8 @@ public class InterestPoint : CityElement
 
         IP_CINE,
         IP_FARMACY,
-        IP_1,
-        IP_2,
+        IP_TEMPLE,
+        IP_HOUSES,
         IP_MARKET,
 
         IP_MAX

@@ -94,13 +94,13 @@ public class Apartment : CityElement
         Vector2 random_circle = Random.insideUnitCircle * SpawnRadius;
         new_cyclist.gameObject.transform.position = gameObject.transform.position + new Vector3(random_circle.x, 0.0f, random_circle.y);
 
-        // 2. Mark origin of cyclist
-        new_cyclist.sourceApartment = this;
-        EnqueueCyclist(new_cyclist);
-
-        // 3. Pick a random destination (interest point)
+        // 2. Pick a random destination (interest point)
         int IPIndex = Random.Range(0, cityManager.activeInterestPoints.Count - 1);
         new_cyclist.finalDestination = cityManager.activeInterestPoints[IPIndex];
+
+        // 3. Mark origin of cyclist
+        new_cyclist.sourceApartment = this;
+        EnqueueCyclist(new_cyclist);
     }
 
     public uint ConnectBikeStations()

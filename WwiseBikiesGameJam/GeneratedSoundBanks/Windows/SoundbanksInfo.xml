@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="984691642" Language="SFX" Hash="1415637122">
+		<SoundBank Id="984691642" Language="SFX" Hash="2411923938">
 			<ObjectPath>\SoundBanks\Default Work Unit\InGame</ObjectPath>
 			<ShortName>InGame</ShortName>
 			<Path>InGame.bnk</Path>
@@ -116,6 +116,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="452547817" Name="stop_all" ObjectPath="\Events\Default Work Unit\stop_all" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1845279716" Name="Test_Win95" ObjectPath="\Events\Default Work Unit\Test_Win95" DurationType="OneShot" DurationMin="6.710567" DurationMax="6.710567">
 					<IncludedMemoryFiles>
 						<File Id="69676076" Language="SFX">

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BikeStation : MonoBehaviour
 {
-    [Header("ADD City Manager GO HERE!")]
-    public CityManager cityManager;
+    CityManager cityManager;
 
     [Header("Bikes")]
     public uint maxBikes = 8;
@@ -32,7 +31,8 @@ public class BikeStation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EstablishConnections();
+        cityManager = FindObjectOfType<CityManager>();
+        //EstablishConnections();
     }
 
     //Building variables

@@ -126,6 +126,6 @@ MonoBehaviour:
   radius: 0
   cityManager: {fileID: 0}
   nearbyBikeStations: []
-  bikeStationDetectRadius: 0
+  bikeStationDetectRadius: 8
   area: {fileID: 6544908172782153537}
-  ArriveRadius: 5
+  ArriveRadius: 3

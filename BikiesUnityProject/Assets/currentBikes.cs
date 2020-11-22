@@ -85,6 +85,7 @@ public class currentBikes : MonoBehaviour
     public void BuyBike()
     {
         economyManager.BuyNewBikeUI();
+        economyManager.BuyNewBike();
     }
         
 

@@ -15,7 +15,7 @@ public class AIAgent : MonoBehaviour
 
     [Header("Agent Patience")]
     public float waitTimeLimit = 10.0f;
-    float startedWaitingAt = 0.0f;
+    public float startedWaitingAt = 0.0f;
 
     bool waitedForRecast = false;   // We'll use this for a small workaround so that Re-Cast has time to calculate
 
@@ -55,7 +55,11 @@ public class AIAgent : MonoBehaviour
             case AGENT_STATUS.APT_WAIT:
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
-                    sourceApartment.cyclistsWaiting.Dequeue();
+                    if (sourceApartment.cyclistsWaiting.Count > 0)
+                        sourceApartment.DequeueCyclist(this);
+                    else
+                        Debug.LogError("Cyclist Dequeue failed! Queue is empty!");
+
                     if (polutionBar != null) { polutionBar.IncreasePolution(); } //Pollution increase
                     //TODO-UI: Show UI of angry customer using a taxi. (Destroy GO after UI shown for enough time?)
                     Destroy(gameObject);
@@ -66,7 +70,9 @@ public class AIAgent : MonoBehaviour
             case AGENT_STATUS.WALKING:
                 if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
                 {
-                    NextDestination.GetComponent<BikeStation>().waitingCyclists.Enqueue(this);
+                    BikeStation station = NextDestination.GetComponent<BikeStation>();
+                    station.DequeueCyclist(this);
+
                     startedWaitingAt = Time.time;
                     AgentStatus = AGENT_STATUS.BIKE_WAIT;
                 }
@@ -76,7 +82,9 @@ public class AIAgent : MonoBehaviour
             case AGENT_STATUS.BIKE_WAIT:
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
-                    NextDestination.GetComponent<BikeStation>().waitingCyclists.Dequeue();
+                    BikeStation station = NextDestination.GetComponent<BikeStation>();
+                    station.DequeueCyclist(this);
+
                     if (polutionBar != null) { polutionBar.IncreasePolution(); }
                     //TODO-UI: Show UI of angry customer (taxi use)
                     Destroy(gameObject);

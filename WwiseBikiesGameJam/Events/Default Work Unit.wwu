@@ -104,6 +104,21 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="play_music" ID="{84ECD11F-F4CD-4FF6-A645-6891E0ABC836}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{75EF4E9A-7CA4-4EF9-A4EF-8F4C4EB93BE9}" ShortID="704750319">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BIKIES_GAMEPLAY" ID="{EFE13D49-7D68-41B5-AADF-51097FEA5FC0}" WorkUnitID="{CB471E36-51D4-4FFC-9409-3ED2C09FCC84}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

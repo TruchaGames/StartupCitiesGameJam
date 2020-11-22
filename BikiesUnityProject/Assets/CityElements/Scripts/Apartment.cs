@@ -7,9 +7,10 @@ using TMPro;
 public class Apartment : CityElement
 {
     [Header("Cyclist UI")]
-    uint[] cyclistTypeAmount = new uint[5];
+    public GameObject cyclistsWaitingGO;
     public TextMeshProUGUI[] cyclistTypeAmountText;
     public Image[] cyclistTimerImg;
+    uint[] cyclistTypeAmount = new uint[5];
 
     [Header("Cyclist Instance")]
     public GameObject Cyclist;
@@ -133,6 +134,11 @@ public class Apartment : CityElement
         ++cyclistTypeAmount[it];
         cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
         cyclistWaitList = cyclistsWaiting.ToArray();
+
+        if (cyclistWaitListGO != null && cyclistsWaiting.Count == 1)
+        {
+            cyclistsWaitingGO.SetActive(true);
+        }
     }
 
     public void DequeueCyclist(AIAgent cyclist)
@@ -142,6 +148,11 @@ public class Apartment : CityElement
         --cyclistTypeAmount[it];
         cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
         cyclistWaitList = cyclistsWaiting.ToArray();
+
+        if (cyclistWaitListGO != null && cyclistsWaiting.Count == 0)
+        {
+            cyclistsWaitingGO.SetActive(false);
+        }
     }
 
     void RunCyclistTimer(Image img, AIAgent cyclist)

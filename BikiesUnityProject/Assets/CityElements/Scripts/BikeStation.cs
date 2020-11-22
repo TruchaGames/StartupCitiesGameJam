@@ -28,6 +28,11 @@ public class BikeStation : MonoBehaviour
     [Header("Cyclist Arrive Radius")]
     public float ArriveRadius = 5.0f;
 
+    void Awake()
+    {
+        Debug.Assert(cityManager != null, "GameObject <" + this.gameObject.name + "> is lacking a CityManager!");
+    }
+
     // Start is called before the first frame update
     void Start()
     {

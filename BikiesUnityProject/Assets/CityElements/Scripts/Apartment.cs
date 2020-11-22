@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Apartment : CityElement
-{    
+{
     [Header("Cyclist Instance")]
     public GameObject Cyclist;
 
@@ -13,7 +13,6 @@ public class Apartment : CityElement
     float cyclistSpawnedAt = 0.0f;
 
     public Queue<AIAgent> cyclistsWaiting = new Queue<AIAgent>();
-    public GameObject vanGO;
 
     void Start()
     {

@@ -5917,6 +5917,11 @@ PrefabInstance:
       propertyPath: interestPointType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6544908173929848615, guid: aed96d1ffc4b4db4486016f622b39ee6,
+        type: 3}
+      propertyPath: bikeStationDetectRadius
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aed96d1ffc4b4db4486016f622b39ee6, type: 3}
 --- !u!1001 &502906730

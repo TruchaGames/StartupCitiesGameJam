@@ -32,7 +32,7 @@
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EA92EB91-67A7-4F96-A5D9-1A34B7900F2B}"/>
+							<ObjectRef Name="Vorbis Quality Medium" ID="{01D20CF3-9A4C-4EEE-AE3E-2942B47543E9}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="SFX" ID="{3ACF03A8-65D8-4BF9-B25F-CA58ECED871C}" WorkUnitID="{ADB5F51C-B688-47B6-9ACA-32A15F44D3C2}"/>

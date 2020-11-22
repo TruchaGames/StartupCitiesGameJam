@@ -26,16 +26,33 @@ public class ClickManager : MonoBehaviour
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        
-       if(Physics.Raycast(mousePos, Vector3.forward, out hit, Mathf.Infinity, detectionMask))
-        { 
-            Debug.Log(hit.collider.gameObject.name);
-            lastSelected = hit.collider.gameObject.transform.GetChild(0).gameObject;
-            lastSelectedBuyPanel = hit.collider.gameObject.transform.GetChild(1).gameObject;
-            ActivateFloatingMenu(lastSelected);
 
-            if (Input.GetMouseButtonDown(0))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, detectionMask))
+        {
+            Debug.Log(hit.collider.gameObject.name);
+            if (hit.collider.gameObject.transform.childCount > 0)
+            {
+                if (hit.collider.gameObject.transform.GetChild(0).gameObject.tag == "UI")
+                {
+
+                    lastSelected = hit.collider.gameObject.transform.GetChild(0).gameObject;
+                }
+
+                if (hit.collider.gameObject.transform.GetChild(1).gameObject.tag == "UI")
+                {
+                    lastSelectedBuyPanel = hit.collider.gameObject.transform.GetChild(1).gameObject;
+
+                }
+            }
+               
+            if (lastSelected != null)
+            {
+                ActivateFloatingMenu(lastSelected);
+            }
+
+            if (Input.GetMouseButtonDown(0) && lastSelected !=null)
             {
                 // Aqui se comprara una bici
                 if (!lastSelectedBuyPanel.activeSelf)
@@ -50,7 +67,7 @@ public class ClickManager : MonoBehaviour
 
             }
         }
-        else if (hit.collider == null && lastSelected != null)
+        else if (hit.collider == null)
         {
             DeactivateFloatingMenu(lastSelected);
         }
@@ -70,7 +87,7 @@ public class ClickManager : MonoBehaviour
 
     void DeactivateFloatingMenu(GameObject floatingMenu)
     {
-        if (floatingMenu.activeSelf)
+        if (lastSelected != null && floatingMenu.activeSelf)
             floatingMenu.SetActive(false);
 
         lastSelected = null;

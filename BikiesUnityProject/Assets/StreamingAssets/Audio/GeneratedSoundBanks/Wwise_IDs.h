@@ -18,6 +18,7 @@ namespace AK
         static const AkUniqueID GAMEPLAY_LOSE_MONEY = 298084058U;
         static const AkUniqueID GAMEPLAY_WIN_MONEY = 2683640631U;
         static const AkUniqueID PLAY_AMB = 2959533290U;
+        static const AkUniqueID PLAY_MUSIC = 2932040671U;
         static const AkUniqueID PLAYER_PLACE_BIKE_STAND = 500500923U;
         static const AkUniqueID TEST_WIN95 = 1845279716U;
     } // namespace EVENTS

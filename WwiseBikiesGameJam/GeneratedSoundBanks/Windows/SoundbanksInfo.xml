@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\</ProjectRoot>
+		<SourceFilesRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="984691642" Language="SFX" Hash="3614952366">
+		<SoundBank Id="984691642" Language="SFX" Hash="1415637122">
 			<ObjectPath>\SoundBanks\Default Work Unit\InGame</ObjectPath>
 			<ShortName>InGame</ShortName>
 			<Path>InGame.bnk</Path>
@@ -20,7 +20,7 @@
 					<IncludedMemoryFiles>
 						<File Id="803451803" Language="SFX">
 							<ShortName>bike_move.wav</ShortName>
-							<Path>SFX\bike_move_E03FAFFB.wem</Path>
+							<Path>SFX\bike_move_E2B8126B.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -28,11 +28,11 @@
 					<IncludedMemoryFiles>
 						<File Id="157287007" Language="SFX">
 							<ShortName>steam_alarm_long.wav</ShortName>
-							<Path>SFX\steam_alarm_long_10C4C929.wem</Path>
+							<Path>SFX\steam_alarm_long_3CADDE39.wem</Path>
 						</File>
 						<File Id="491065972" Language="SFX">
 							<ShortName>steam_alarm.wav</ShortName>
-							<Path>SFX\steam_alarm_10C4C929.wem</Path>
+							<Path>SFX\steam_alarm_3CADDE39.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -40,7 +40,7 @@
 					<IncludedMemoryFiles>
 						<File Id="159052801" Language="SFX">
 							<ShortName>pay_money.wav</ShortName>
-							<Path>SFX\pay_money_10C4C929.wem</Path>
+							<Path>SFX\pay_money_3CADDE39.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -48,11 +48,11 @@
 					<IncludedMemoryFiles>
 						<File Id="137065097" Language="SFX">
 							<ShortName>win_money_02.wav</ShortName>
-							<Path>SFX\win_money_02_10C4C929.wem</Path>
+							<Path>SFX\win_money_02_3CADDE39.wem</Path>
 						</File>
 						<File Id="522720791" Language="SFX">
 							<ShortName>win_money_01.wav</ShortName>
-							<Path>SFX\win_money_01_10C4C929.wem</Path>
+							<Path>SFX\win_money_01_3CADDE39.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -60,43 +60,51 @@
 					<IncludedMemoryFiles>
 						<File Id="165915248" Language="SFX">
 							<ShortName>amb_steampunk.wav</ShortName>
-							<Path>SFX\amb_steampunk_B71D8462.wem</Path>
+							<Path>SFX\amb_steampunk_CB5D2332.wem</Path>
 						</File>
 						<File Id="217965274" Language="SFX">
 							<ShortName>factory_sounds_08.wav</ShortName>
-							<Path>SFX\factory_sounds_08_10C4C929.wem</Path>
+							<Path>SFX\factory_sounds_08_3CADDE39.wem</Path>
 						</File>
 						<File Id="265985976" Language="SFX">
 							<ShortName>amb_nature.wav</ShortName>
-							<Path>SFX\amb_nature_D79FB2B7.wem</Path>
+							<Path>SFX\amb_nature_696A9007.wem</Path>
 						</File>
 						<File Id="280868015" Language="SFX">
 							<ShortName>factory_sounds_07.wav</ShortName>
-							<Path>SFX\factory_sounds_07_10C4C929.wem</Path>
+							<Path>SFX\factory_sounds_07_3CADDE39.wem</Path>
 						</File>
 						<File Id="285252782" Language="SFX">
 							<ShortName>factory_sounds_01.wav</ShortName>
-							<Path>SFX\factory_sounds_01_10C4C929.wem</Path>
+							<Path>SFX\factory_sounds_01_3CADDE39.wem</Path>
 						</File>
 						<File Id="422403676" Language="SFX">
 							<ShortName>factory_sounds_06.wav</ShortName>
-							<Path>SFX\factory_sounds_06_10C4C929.wem</Path>
+							<Path>SFX\factory_sounds_06_3CADDE39.wem</Path>
 						</File>
 						<File Id="514321981" Language="SFX">
 							<ShortName>factory_sounds_04.wav</ShortName>
-							<Path>SFX\factory_sounds_04_10C4C929.wem</Path>
+							<Path>SFX\factory_sounds_04_3CADDE39.wem</Path>
 						</File>
 						<File Id="579518445" Language="SFX">
 							<ShortName>factory_sounds_02.wav</ShortName>
-							<Path>SFX\factory_sounds_02_10C4C929.wem</Path>
+							<Path>SFX\factory_sounds_02_3CADDE39.wem</Path>
 						</File>
 						<File Id="827806482" Language="SFX">
 							<ShortName>factory_sounds_05.wav</ShortName>
-							<Path>SFX\factory_sounds_05_10C4C929.wem</Path>
+							<Path>SFX\factory_sounds_05_3CADDE39.wem</Path>
 						</File>
 						<File Id="1051037502" Language="SFX">
 							<ShortName>factory_sounds_03.wav</ShortName>
-							<Path>SFX\factory_sounds_03_10C4C929.wem</Path>
+							<Path>SFX\factory_sounds_03_3CADDE39.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2932040671" Name="play_music" ObjectPath="\Events\Default Work Unit\play_music" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="577546604" Language="SFX">
+							<ShortName>Bikies neutral OST.wav</ShortName>
+							<Path>SFX\Bikies neutral OST_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -104,7 +112,7 @@
 					<IncludedMemoryFiles>
 						<File Id="951910551" Language="SFX">
 							<ShortName>place_bike_stand.wav</ShortName>
-							<Path>SFX\place_bike_stand_10C4C929.wem</Path>
+							<Path>SFX\place_bike_stand_3CADDE39.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -121,7 +129,7 @@
 				<GameParameter Id="3036303822" Name="pollution_level" ObjectPath="\Game Parameters\Default Work Unit\pollution_level"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2786491916">
+		<SoundBank Id="1355168291" Language="SFX" Hash="243883414">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

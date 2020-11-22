@@ -191,7 +191,7 @@ public class CityManager : MonoBehaviour
             {
                 stationBeingplaced.transform.SetParent(gameObject.transform);
                 stationBeingplaced.GetComponent<BikeStation>().EstablishConnections();
-                stationBeingplaced.tag = "Non constructable";
+                stationBeingplaced.tag = "Not constructable";
                 //Play Audio
                 place_station.Post(gameObject);
             }

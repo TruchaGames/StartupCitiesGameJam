@@ -10,7 +10,7 @@ public class PolutionBar : MonoBehaviour
     public Slider slider;
 
     private int uiPolution;
-    private int currentPolution = 50;
+    public int currentPolution = 50;
     public int maxPolution = 100;
 
     public int polutionIncrease = 10;
@@ -48,13 +48,13 @@ public class PolutionBar : MonoBehaviour
             SetPolution(currentPolution);
         }
 
-        if (currentPolution <= slider.minValue)
-        {
-            LoseCondition();
-        }
-        else if (currentPolution >= slider.maxValue)
+        if (slider.value <= slider.minValue)
         {
             WinCondition();
+        }
+        else if (slider.value >= slider.maxValue)
+        {
+            LoseCondition();
         }
 
         //SetPolution(uiPolution);
@@ -96,8 +96,8 @@ public class PolutionBar : MonoBehaviour
             loseScreen.SetActive(true);
         }
 
-        gameObject.SetActive(false);
-    
+        gameObject.transform.parent.gameObject.SetActive(false);
+
     }
 
 
@@ -108,7 +108,7 @@ public class PolutionBar : MonoBehaviour
             winScreen.SetActive(true);
         }
 
-        gameObject.SetActive(false);
+        gameObject.transform.parent.gameObject.SetActive(false);
 
     }
 

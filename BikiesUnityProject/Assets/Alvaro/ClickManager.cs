@@ -25,7 +25,7 @@ public class ClickManager : MonoBehaviour
 
 
     public TextMeshProUGUI bikesToMoveText;
-    public uint bikesToMove = 0;
+    public uint bikesToMove = 1;
     public uint maxBikes;
 
 
@@ -102,6 +102,9 @@ public class ClickManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, detectionMask))
         {
+            if (hit.collider.tag == "UnderConstruction")
+                return;
+
             Debug.Log(hit.collider.gameObject.name);
             if (hit.collider.gameObject.transform.childCount > 0)
             {
@@ -195,7 +198,7 @@ public class ClickManager : MonoBehaviour
 
     public void DecreaseBikesToLoad()
     {
-        if (bikesToMove > 0)
+        if (bikesToMove > 1)
         {
             bikesToMove--;
 

@@ -11,6 +11,12 @@ public class AIAgent : MonoBehaviour
     public Apartment sourceApartment;
     public InterestPoint finalDestination;
 
+    public GameObject polutionUpParticle;
+    public GameObject polutionDownParticle;
+    public GameObject angryCustomerParticle;
+    public GameObject happyCustomerParticle;
+
+
     NavMeshAgent m_Agent;
 
     [Header("Agent Patience")]
@@ -58,6 +64,9 @@ public class AIAgent : MonoBehaviour
                     sourceApartment.cyclistsWaiting.Dequeue();
                     if (polutionBar != null) { polutionBar.IncreasePolution(); } //Pollution increase
                     //TODO-UI: Show UI of angry customer using a taxi. (Destroy GO after UI shown for enough time?)
+                    Instantiate(polutionUpParticle, gameObject.transform.position, Quaternion.identity);
+                    Instantiate(angryCustomerParticle, gameObject.transform.position, Quaternion.identity);
+
                     Destroy(gameObject);
                 }
                 break;
@@ -79,6 +88,8 @@ public class AIAgent : MonoBehaviour
                     NextDestination.GetComponent<BikeStation>().waitingCyclists.Dequeue();
                     if (polutionBar != null) { polutionBar.IncreasePolution(); }
                     //TODO-UI: Show UI of angry customer (taxi use)
+                    Instantiate(polutionUpParticle, gameObject.transform.position, Quaternion.identity);
+                    Instantiate(angryCustomerParticle, gameObject.transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
                 break;
@@ -115,6 +126,8 @@ public class AIAgent : MonoBehaviour
                     {
                         if (polutionBar != null) { polutionBar.DecreasePolution(); }
                         //TODO-UI: Show UI happy customer + less pollution
+                        Instantiate(polutionDownParticle, gameObject.transform.position, Quaternion.identity);
+                        Instantiate(happyCustomerParticle, gameObject.transform.position, Quaternion.identity);
                         Destroy(gameObject);
                     }
                 }

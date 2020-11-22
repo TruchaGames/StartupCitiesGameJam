@@ -25,6 +25,45 @@
 						<ActiveSource Name="Microsoft_Windows_95_Startup_Sound" ID="{F57AE5CE-A686-4F6B-B0AE-B8331E52EB44}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<ActorMixer Name="SFX" ID="{1AAC9702-C6FB-4650-B60F-2C1338C64EB2}" ShortID="1005187189">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="3"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EA92EB91-67A7-4F96-A5D9-1A34B7900F2B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{3ACF03A8-65D8-4BF9-B25F-CA58ECED871C}" WorkUnitID="{ADB5F51C-B688-47B6-9ACA-32A15F44D3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Folder Name="AMB" ID="{C406D747-267E-4E1E-AB87-4D2AF9005C2B}" ShortID="454144180">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Folder>
+						<Folder Name="VEHICLES" ID="{F3C6F900-5680-478F-9F54-F2B9AD46CA5C}" ShortID="1025642547">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="2"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Folder>
+						<Folder Name="UI" ID="{2F206128-D9DA-477C-8FC1-B7C75956669D}" ShortID="45122705">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="21"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Folder>
+						<Folder Name="MISC" ID="{D3F0446B-453C-42E3-BDFB-4BC5C0B26AEB}" ShortID="748344995">
+							<PropertyList>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Folder>
+					</ChildrenList>
+				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

@@ -29,6 +29,9 @@ public class BikeStation : MonoBehaviour
     [Header("Cyclist Arrive Radius")]
     public float ArriveRadius = 5.0f;
 
+    [Header("Audio Events")]
+    public AK.Wwise.Event move_bike;
+
     void Awake()
     {
         cityManager = FindObjectOfType<CityManager>();
@@ -256,6 +259,9 @@ public class BikeStation : MonoBehaviour
         //Change visually a pedestrian to a bike!
         Agent_Bicycle agent_bicycle = cyclist.GetComponentInChildren<Agent_Bicycle>();
         agent_bicycle.unit_type = UNITTYPE.Bicycle;
+
+        //Audio event for a cyclist starting to bike
+        move_bike.Post(cyclist.transform.gameObject);
 
         economyManager.BikeRentIncome();
         --bikeStock;

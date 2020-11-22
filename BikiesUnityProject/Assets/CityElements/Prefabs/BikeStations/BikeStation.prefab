@@ -1561,6 +1561,11 @@ MonoBehaviour:
   nearbyApartments: []
   nearbyInterestPoints: []
   ArriveRadius: 3
+  move_bike:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 43f0597e036fc234086ed618d0ee06ef,
+      type: 2}
 --- !u!54 &1439777990131877748
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -19139,7 +19139,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 50.4
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -19346,6 +19346,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 601260447672778358, guid: b0f2cf33fb2b52c43a3db09417120b94,
         type: 3}
+    - target: {fileID: 8284881616343839073, guid: ead8d201ff555bc4dbe2ac7d0f50cebe,
+        type: 3}
+      propertyPath: apartmentActivationPeriod
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8284881616343839087, guid: ead8d201ff555bc4dbe2ac7d0f50cebe,
         type: 3}
       propertyPath: m_Name
@@ -21423,9 +21428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b76e41390e0ae47902e5a647626614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mov_speed: 60
-  zoom_speed: 400
-  PanSpeed: 80
+  mov_speed: 120
+  zoom_speed: 2000
+  PanSpeed: 150
   max_zoom_in: 10
   max_zoom_out: 150
   BoundariesZ:
@@ -27121,6 +27126,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617353, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: starting_money
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617353, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: bike_individual_cost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617353, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: bike_station_cost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617353, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: van_cost
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617353, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: bike_rent_income
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2308255662618617355, guid: 710cde75b7ee1aa42a3562fe953998c4,
         type: 3}

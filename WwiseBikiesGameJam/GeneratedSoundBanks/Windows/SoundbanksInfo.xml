@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\</ProjectRoot>
-		<SourceFilesRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="984691642" Language="SFX" Hash="2411923938">
+		<SoundBank Id="984691642" Language="SFX" Hash="3726132212">
 			<ObjectPath>\SoundBanks\Default Work Unit\InGame</ObjectPath>
 			<ShortName>InGame</ShortName>
 			<Path>InGame.bnk</Path>
@@ -102,6 +102,10 @@
 				</Event>
 				<Event Id="2932040671" Name="play_music" ObjectPath="\Events\Default Work Unit\play_music" DurationType="Infinite">
 					<IncludedMemoryFiles>
+						<File Id="76504885" Language="SFX">
+							<ShortName>bikies_ost_sequence.wav</ShortName>
+							<Path>SFX\bikies_ost_sequence_9EDFC787.wem</Path>
+						</File>
 						<File Id="577546604" Language="SFX">
 							<ShortName>Bikies neutral OST.wav</ShortName>
 							<Path>SFX\Bikies neutral OST_9EDFC787.wem</Path>
@@ -116,7 +120,6 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="452547817" Name="stop_all" ObjectPath="\Events\Default Work Unit\stop_all" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1845279716" Name="Test_Win95" ObjectPath="\Events\Default Work Unit\Test_Win95" DurationType="OneShot" DurationMin="6.710567" DurationMax="6.710567">
 					<IncludedMemoryFiles>
 						<File Id="69676076" Language="SFX">
@@ -130,7 +133,7 @@
 				<GameParameter Id="3036303822" Name="pollution_level" ObjectPath="\Game Parameters\Default Work Unit\pollution_level"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="243883414">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2786491916">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

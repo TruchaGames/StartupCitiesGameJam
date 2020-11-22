@@ -50,7 +50,7 @@ public class AIVan : MonoBehaviour
         switch(vanStatus)
         {
             // Van loads bikes that was asked to load
-            case VAN_STATUS.LOADING:
+            case VAN_STATUS.LOADING:    // TODO-UI: Show state of loading van + number of bikes loaded
                 if (Time.time - vanStartedLoadingAt > vanLoadCooldown)
                 {
                     if (origin.bikeStock > 0 && bikesToLoad > 0)
@@ -61,7 +61,7 @@ public class AIVan : MonoBehaviour
                         vanStartedLoadingAt = Time.time;
                     }
 
-                    if (origin.bikeStock <= 0 || bikesToLoad <= 0 /*|| destination.bikeStock + bikeLoad >= destination.maxBikes*/)
+                    if (origin.bikeStock <= 0 || bikesToLoad <= 0)
                     {
                         m_Agent.isStopped = false;
                         m_Agent.destination = destination.transform.position;
@@ -71,7 +71,7 @@ public class AIVan : MonoBehaviour
                 break;
 
             // Agent Walks from Apartment to Bike Station A
-            case VAN_STATUS.TRAVELLING:
+            case VAN_STATUS.TRAVELLING:    // TODO-UI: Show number of bikes loaded
                 if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
                 {
                     m_Agent.isStopped = true;
@@ -81,13 +81,16 @@ public class AIVan : MonoBehaviour
                 break;
 
             // Agent waits around the bike station
-            case VAN_STATUS.UNLOADING:
+            case VAN_STATUS.UNLOADING:    // TODO-UI: Show state of unloading van + number of bikes loaded
                 if (Time.time - vanStartedLoadingAt > vanLoadCooldown)
                 {
                     if (bikeLoad > 0)
                     {
                         --bikeLoad;
-                        ++destination.bikeStock;
+                        if (destination.bikeStock < destination.maxBikes)
+                            ++destination.bikeStock;
+                        //else
+                            //TODO-UI: Show icon of bike lost in the overall bike economy
                         vanStartedLoadingAt = Time.time;
                     }
 

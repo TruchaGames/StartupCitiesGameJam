@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class EconomyManager : MonoBehaviour
 {
-    [Header("Economy Balance & Costs")]
+    [Header("Starting Economy")]
     public uint starting_money = 100000;
     public uint starting_vans = 1;
-    public uint bike_station_cost = 30000;
+
+    [Header("Costs")]
     public uint bike_individual_cost = 1000;
+    public uint bike_station_cost = 30000;
     public uint van_cost = 1000;
+
+    [Header("Income")]
+    public uint bike_rent_income = 1000;
+
     [Range(0.0f,1.0f)]
     public float refund_percentage = 0.5f;
 
@@ -104,6 +110,11 @@ public class EconomyManager : MonoBehaviour
         }
         Debug.Log("Couldn't buy a new van!");
         return;
+    }
+
+    public void BikeRentIncome()
+    {
+        wallet += (int)bike_rent_income;
     }
 
     public uint AddVan()

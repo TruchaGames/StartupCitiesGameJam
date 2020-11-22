@@ -173,4 +173,8 @@ public class EconomyManager : MonoBehaviour
     {
         return wallet;
     }
+    public uint getVans()
+    {
+        return vans;
+    }
 }

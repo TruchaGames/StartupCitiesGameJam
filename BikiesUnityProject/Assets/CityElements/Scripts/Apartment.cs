@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Apartment : CityElement
 {
+    [Header("Cyclist UI")]
+    uint[] cyclistTypeAmount = new uint[5];
+    public TextMeshProUGUI[] cyclistTypeAmountText;
+    public Image[] cyclistTimerImg;
+
     [Header("Cyclist Instance")]
     public GameObject Cyclist;
 
@@ -13,6 +20,7 @@ public class Apartment : CityElement
     float cyclistSpawnedAt = 0.0f;
 
     public Queue<AIAgent> cyclistsWaiting = new Queue<AIAgent>();
+    public AIAgent[] cyclistWaitList;
 
     void Start()
     {
@@ -30,12 +38,20 @@ public class Apartment : CityElement
         //area.transform.position = pos;
         //area.transform.localScale = scale;
         area.SetActive(false);
+
+        for (int i = 0; i < cyclistTypeAmount.Length; ++i)
+        {
+            cyclistTypeAmount[i] = 0;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Spawn Cyclists
+        if (!ApartmentActive)
+            return;
+
+        //Spawn Cyclists
         if (Time.time - cyclistSpawnedAt > timeToSpawn)
         {
             cyclistSpawnedAt = Time.time;
@@ -54,13 +70,27 @@ public class Apartment : CityElement
                     cyclist.AgentStatus = AIAgent.AGENT_STATUS.WALKING;
                 }
             }
+
+            cyclistWaitList = cyclistsWaiting.ToArray();
+        }
+
+        for (InterestPoint.InterestPointType IP_type = InterestPoint.InterestPointType.IP_NONE + 1; IP_type != InterestPoint.InterestPointType.IP_MAX; ++IP_type)
+        {
+            foreach (AIAgent cyclist in cyclistWaitList)
+            {
+                if (cyclist.finalDestination.interestPointType == IP_type)
+                {
+                    RunCyclistTimer(cyclistTimerImg[(int)IP_type], cyclist);
+                    break;
+                }
+            }
         }
     }
 
     private void SpawnCyclist() //TODO-UI: Momentarily show that a new cyclyst has spawned
     {
         // 1. Instantiate Cyclist around nearby, set position and destination
-        AIAgent new_cyclist = GameObject.Instantiate(Cyclist).GetComponent<AIAgent>();
+        AIAgent new_cyclist = Instantiate(Cyclist).GetComponent<AIAgent>();
         Vector2 random_circle = Random.insideUnitCircle * SpawnRadius;
         new_cyclist.gameObject.transform.position = gameObject.transform.position + new Vector3(random_circle.x, 0.0f, random_circle.y);
 
@@ -70,7 +100,7 @@ public class Apartment : CityElement
 
         // 3. Mark origin of cyclist
         new_cyclist.sourceApartment = this;
-        cyclistsWaiting.Enqueue(new_cyclist);
+        EnqueueCyclist(new_cyclist);
     }
 
     public uint ConnectBikeStations()
@@ -94,5 +124,30 @@ public class Apartment : CityElement
         }
 
         return nodesConnected;
+    }
+
+    public void EnqueueCyclist(AIAgent cyclist)
+    {
+        cyclistsWaiting.Enqueue(cyclist);
+        int it = (int)cyclist.finalDestination.interestPointType;
+        ++cyclistTypeAmount[it];
+        cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
+        cyclistWaitList = cyclistsWaiting.ToArray();
+    }
+
+    public void DequeueCyclist(AIAgent cyclist)
+    {
+        cyclistsWaiting.Dequeue();
+        int it = (int)cyclist.finalDestination.interestPointType;
+        --cyclistTypeAmount[it];
+        cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
+        cyclistWaitList = cyclistsWaiting.ToArray();
+    }
+
+    void RunCyclistTimer(Image img, AIAgent cyclist)
+    {
+        float timePassed = Time.time - cyclist.startedWaitingAt;
+        if (timePassed < cyclist.waitTimeLimit)
+            img.fillAmount = (cyclist.waitTimeLimit - timePassed) / cyclist.waitTimeLimit;
     }
 }

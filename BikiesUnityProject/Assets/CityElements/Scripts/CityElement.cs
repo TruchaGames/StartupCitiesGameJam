@@ -24,6 +24,11 @@ public class CityElement : MonoBehaviour
         area.SetActive(true);
     }
 
+    void Awake()
+    {
+        Debug.Assert(cityManager != null, "GameObject <" + this.gameObject.name + "> is lacking a CityManager!");
+    }
+
     // Start is called before the first frame update
     void Start()
     {

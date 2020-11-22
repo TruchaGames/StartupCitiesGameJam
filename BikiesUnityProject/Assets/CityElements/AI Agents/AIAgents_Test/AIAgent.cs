@@ -56,7 +56,7 @@ public class AIAgent : MonoBehaviour
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
                     sourceApartment.cyclistsWaiting.Dequeue();
-                    polutionBar.IncreasePolution(); //Pollution increase
+                    if (polutionBar != null) { polutionBar.IncreasePolution(); } //Pollution increase
                     //TODO-UI: Show UI of angry customer.
                     Destroy(gameObject);
                 }
@@ -77,7 +77,7 @@ public class AIAgent : MonoBehaviour
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
                     NextDestination.GetComponent<BikeStation>().waitingCyclists.Dequeue();
-                    polutionBar.IncreasePolution();
+                    if (polutionBar != null) { polutionBar.IncreasePolution(); }
                     //TODO-UI: Show UI of angry customer (taxi use)
                     Destroy(gameObject);
                 }
@@ -113,7 +113,7 @@ public class AIAgent : MonoBehaviour
                 {
                     if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
                     {
-                        polutionBar.DecreasePolution();
+                        if (polutionBar != null) { polutionBar.DecreasePolution(); }
                         //TODO-UI: Show UI happy customer
                         Destroy(gameObject);
                     }

@@ -13,6 +13,9 @@ public class PolutionBar : MonoBehaviour
     private int currentPolution = 50;
     public int maxPolution = 100;
 
+    public int polutionIncrease = 10;
+    public int polutionDecrease = 10;
+
     public GameObject winScreen;
     public GameObject loseScreen;
 
@@ -53,6 +56,16 @@ public class PolutionBar : MonoBehaviour
     public void SetPolution(int polution)
     {
         slider.value = polution;
+    }
+
+    public void IncreasePolution()
+    {
+        slider.value += polutionIncrease;
+    }
+
+    public void DecreasePolution()
+    {
+        slider.value += polutionDecrease;
     }
 
     public void SetMaxPolution(int maxPolution)

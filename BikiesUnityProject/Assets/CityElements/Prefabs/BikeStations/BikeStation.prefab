@@ -1684,7 +1684,6 @@ GameObject:
   - component: {fileID: 3411167040587150282}
   - component: {fileID: 3299337020695213250}
   - component: {fileID: 3506399408337385363}
-  - component: {fileID: 5184275402167820378}
   m_Layer: 0
   m_Name: CyclistQueue
   m_TagString: Untagged
@@ -1777,58 +1776,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5184275402167820378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650098273126401500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37dace5769e20744586c7b9a414ea9b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bikeSlots:
-  - {fileID: 6764528480447066993}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  freeSlots: []
-  bikeText: {fileID: 0}
-  bikeCost: {fileID: 0}
-  maxBikes: 0
-  bikeStock: 0
-  economyManager: {fileID: 0}
-  bikeStation: {fileID: 0}
 --- !u!1 &1075597346125284937
 GameObject:
   m_ObjectHideFlags: 0

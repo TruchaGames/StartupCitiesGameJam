@@ -43,7 +43,7 @@ public class Apartment : CityElement
         }
 
         // Send Cyclists to a BikeStation
-        if (cyclistsWaiting.Count > 0)  // TODO-UI: Show UI of amount of cyclists waiting in an apartement (use list = queue.ToList())
+        if (cyclistsWaiting.Count > 0)  // TODO-UI: Show UI of amount of cyclists waiting in an apartement, their wanted destination, and the waiting time of each (use list = queue.ToList())
         {
             foreach (BikeStation bikeStation in nearbyBikeStations)
             {
@@ -57,7 +57,7 @@ public class Apartment : CityElement
         }
     }
 
-    private void SpawnCyclist()
+    private void SpawnCyclist() //TODO-UI: Momentarily show that a new cyclyst has spawned
     {
         // 1. Instantiate Cyclist around nearby, set position and destination
         AIAgent new_cyclist = GameObject.Instantiate(Cyclist).GetComponent<AIAgent>();

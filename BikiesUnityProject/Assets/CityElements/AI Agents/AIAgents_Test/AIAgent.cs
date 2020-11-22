@@ -57,7 +57,7 @@ public class AIAgent : MonoBehaviour
                 {
                     sourceApartment.cyclistsWaiting.Dequeue();
                     if (polutionBar != null) { polutionBar.IncreasePolution(); } //Pollution increase
-                    //TODO-UI: Show UI of angry customer.
+                    //TODO-UI: Show UI of angry customer using a taxi. (Destroy GO after UI shown for enough time?)
                     Destroy(gameObject);
                 }
                 break;
@@ -93,9 +93,9 @@ public class AIAgent : MonoBehaviour
 
                         BikeStation station = NextDestination.GetComponent<BikeStation>();
                         if (station.bikeStock < station.maxBikes)
-                            ++station.bikeStock;    //TODO-UI: Show UI "+ 1 bike" on station
-                        else
-                            station.bikeStock = station.bikeStock;  //TODO-UI: Show UI "bikes full" on attempted delivery
+                            ++station.bikeStock;    //TODO-UI: Show UI "+ 1 bike" on target station
+                        //else
+                        //    station.bikeStock = station.bikeStock;  //TODO-UI: Show UI "bikes full" on attempted delivery to target station
 
                         SetDestination(finalDestination.gameObject, finalDestination.ArriveRadius);
                         AgentStatus = AGENT_STATUS.ARRIVING;
@@ -114,7 +114,7 @@ public class AIAgent : MonoBehaviour
                     if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
                     {
                         if (polutionBar != null) { polutionBar.DecreasePolution(); }
-                        //TODO-UI: Show UI happy customer
+                        //TODO-UI: Show UI happy customer + less pollution
                         Destroy(gameObject);
                     }
                 }

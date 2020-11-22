@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class BikeStation : MonoBehaviour
 {
+    [Header("Cyclist UI")]
+    uint[] cyclistTypeAmount = new uint[5];
+    public TextMeshProUGUI[] cyclistTypeAmountText;
+    public Image[] cyclistTimerImg;
+
     CityManager cityManager;
     EconomyManager economyManager;
 
@@ -25,6 +32,7 @@ public class BikeStation : MonoBehaviour
 
     [Header("Queue of Waiting Cyclists")]
     public Queue<AIAgent> waitingCyclists = new Queue<AIAgent>();
+    public AIAgent[] cyclistWaitList;
 
     [Header("Cyclist Arrive Radius")]
     public float ArriveRadius = 5.0f;
@@ -40,6 +48,11 @@ public class BikeStation : MonoBehaviour
     void Start()
     {
         //EstablishConnections();   //Remain commented
+
+        for (int i = 0; i < cyclistTypeAmount.Length; ++i)
+        {
+            cyclistTypeAmount[i] = 0;
+        }
     }
 
     //Building variables
@@ -50,6 +63,18 @@ public class BikeStation : MonoBehaviour
     {
         if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && waitingCyclists.Count > 0)    // TODO-UI: Show UI of amount of cyclists waiting in the station, their wanted destination, and the waiting time of each (use list = queue.ToList())
             OfferBikeToCyclist();
+
+        for (InterestPoint.InterestPointType IP_type = InterestPoint.InterestPointType.IP_NONE + 1; IP_type != InterestPoint.InterestPointType.IP_MAX; ++IP_type)
+        {
+            foreach (AIAgent cyclist in cyclistWaitList)
+            {
+                if (cyclist.finalDestination.interestPointType == IP_type)
+                {
+                    RunCyclistTimer(cyclistTimerImg[(int)IP_type], cyclist);
+                    break;
+                }
+            }
+        }
     }
 
     void OnDrawGizmos()
@@ -261,5 +286,30 @@ public class BikeStation : MonoBehaviour
         --bikeStock;
         //TODO-UI: Show UI of bycicle removed from stock of station and money increased by rental?
         bikePickedAt = Time.time;
+    }
+
+    public void EnqueueCyclist(AIAgent cyclist)
+    {
+        waitingCyclists.Enqueue(cyclist);
+        int it = (int)cyclist.finalDestination.interestPointType;
+        ++cyclistTypeAmount[it];
+        cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
+        cyclistWaitList = waitingCyclists.ToArray();
+    }
+
+    public void DequeueCyclist(AIAgent cyclist)
+    {
+        waitingCyclists.Dequeue();
+        int it = (int)cyclist.finalDestination.interestPointType;
+        --cyclistTypeAmount[it];
+        cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
+        cyclistWaitList = waitingCyclists.ToArray();
+    }
+
+    void RunCyclistTimer(Image img, AIAgent cyclist)
+    {
+        float timePassed = Time.time - cyclist.startedWaitingAt;
+        if (timePassed < cyclist.waitTimeLimit)
+            img.fillAmount = (cyclist.waitTimeLimit - timePassed) / cyclist.waitTimeLimit;
     }
 }

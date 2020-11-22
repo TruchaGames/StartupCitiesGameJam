@@ -18,9 +18,14 @@ public class CameraSlerpScript : MonoBehaviour
     Quaternion m_Orientation;
     Transform m_dTransform;
 
+    // Variable to enable user camera movement
+    Camera_Movement m_CamScript;
+
     // Start is called before the first frame update
     void Start()
     {
+        m_CamScript = GetComponent<Camera_Movement>();
+
         m_dTransform = Destination.transform;
         m_Orientation = transform.rotation;
         m_Position = transform.position;
@@ -40,8 +45,11 @@ public class CameraSlerpScript : MonoBehaviour
             transform.rotation = Quaternion.Slerp(m_Orientation, m_dTransform.rotation, interpIndex);
             transform.position = Vector3.Slerp(m_Position, m_dTransform.position, interpIndex);
 
-            if (m_Position == m_dTransform.position && m_Orientation == m_dTransform.rotation)
-                    m_Interpolate = false;
+            if (transform.position == m_dTransform.position && transform.rotation == m_dTransform.rotation)
+            {
+                m_CamScript.AllowMovement = true;
+                m_Interpolate = false;
+            }
 
 
            // --- ---

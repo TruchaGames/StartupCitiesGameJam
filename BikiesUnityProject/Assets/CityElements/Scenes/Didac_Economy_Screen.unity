@@ -517,6 +517,7 @@ MonoBehaviour:
   BoundariesX:
   - -50
   - 69
+  AllowMovement: 0
 --- !u!1 &1723871358
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,6 +877,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2308255662618617353, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: receive_money.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: cc19848268c5d824cafa7df5e5bcaf28,
+        type: 2}
+    - target: {fileID: 2308255662618617353, guid: 710cde75b7ee1aa42a3562fe953998c4,
+        type: 3}
+      propertyPath: pay_money.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: b31743e3ef62ed5418497edf798b1282,
+        type: 2}
     - target: {fileID: 2308255662618617355, guid: 710cde75b7ee1aa42a3562fe953998c4,
         type: 3}
       propertyPath: m_Name

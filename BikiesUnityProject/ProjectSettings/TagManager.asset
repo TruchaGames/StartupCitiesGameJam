@@ -6,6 +6,9 @@ TagManager:
   tags:
   - City Element
   - Not constructable
+  - Full
+  - EconomyManager
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - 
   - City Elements
   - Environment
-  - 
+  - Bike
   - Not constructable
   - 
   - 
@@ -42,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2778918711
     locked: 0

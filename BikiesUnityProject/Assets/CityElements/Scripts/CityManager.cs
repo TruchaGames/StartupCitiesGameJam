@@ -38,6 +38,8 @@ public class CityManager : MonoBehaviour
     public List<Apartment> activeApartments = new List<Apartment>();
     public List<InterestPoint> activeInterestPoints = new List<InterestPoint>();
 
+    [Header("Audio Events")]
+    public AK.Wwise.Event place_station;
 
     // -- BUILDING TOOLS 
     private bool placingBikeStation = false;
@@ -188,6 +190,8 @@ public class CityManager : MonoBehaviour
             {
                 stationBeingplaced.transform.SetParent(gameObject.transform);
                 stationBeingplaced.GetComponent<BikeStation>().EstablishConnections();
+                //Play Audio
+                place_station.Post(gameObject);
             }
         }
 

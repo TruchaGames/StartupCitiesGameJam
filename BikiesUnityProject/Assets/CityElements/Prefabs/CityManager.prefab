@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8284881616343839072}
   - component: {fileID: 8284881616343839073}
+  - component: {fileID: 4013831721934253468}
   m_Layer: 0
   m_Name: CityManager
   m_TagString: Untagged
@@ -47,6 +48,37 @@ MonoBehaviour:
   startInterestPoints: 2
   apartmentActivationPeriod: 6.41
   interestPointActivationPeriod: 30
+  stationPrefab: {fileID: 0}
   bikeStations: []
   activeApartments: []
   activeInterestPoints: []
+  place_station:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3131f47ccc97d3c428c54235c40b163d,
+      type: 2}
+--- !u!114 &4013831721934253468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284881616343839087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c1633a198f4f74b81102d47d7ba5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a6c52d87b4f84324ca92c17499acd29b,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 

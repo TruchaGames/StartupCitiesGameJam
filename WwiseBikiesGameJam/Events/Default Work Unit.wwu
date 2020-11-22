@@ -14,6 +14,96 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="play_amb" ID="{D09BB54E-FCED-4A3D-8717-BCC3512F3666}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{74DA641C-AC8D-4924-9126-557726E8BE71}" ShortID="169650039">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ambient" ID="{0B6D6739-AE61-4941-8BA3-1D8E6B79DB77}" WorkUnitID="{6B851F4F-E408-41E0-B565-98F635B4E4E3}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="gameplay_win_money" ID="{B85F4B6E-4AEB-492D-B8E1-F89189162338}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="19"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{EFE83C9C-0DCF-492D-AEFC-8796DEEEAC21}" ShortID="802159362">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="win_money" ID="{4C424173-7557-42FD-8018-09E4E6EABA8A}" WorkUnitID="{6B851F4F-E408-41E0-B565-98F635B4E4E3}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="gameplay_lose_money" ID="{E8E94EC6-0F0B-42EA-9DF5-FF2A306E7400}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="19"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{F9A3FFDA-84FE-4DF3-99F0-260A20513FA0}" ShortID="317240242">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="pay_money" ID="{9D307BCF-7473-42B2-B566-4D902E0AA936}" WorkUnitID="{6B851F4F-E408-41E0-B565-98F635B4E4E3}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="gameplay_demand_alert" ID="{3E693DE8-9CBF-43E1-8AE4-DB75B49B7C71}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="19"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{5E554A91-209B-4CF5-8F40-14697DEC268E}" ShortID="142942657">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="alert_bike_stand" ID="{5E22C073-AA9E-424C-9B23-0B709D493CA5}" WorkUnitID="{6B851F4F-E408-41E0-B565-98F635B4E4E3}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="player_place_bike_stand" ID="{4F988A8F-DB2F-4FCF-A357-7206989427A5}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="2"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{2C52FF61-E300-42DB-ABDC-915F74F8D8FC}" ShortID="1019050105">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="place_bike_stand" ID="{0A54531D-147E-4A97-B146-11860495236A}" WorkUnitID="{6B851F4F-E408-41E0-B565-98F635B4E4E3}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="gameplay_bike_move" ID="{3C20BBB3-3BF3-4CF0-BDA3-8449AAD79658}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="19"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{03B0A6D0-349D-4C25-9A44-8BDC5455E9E7}" ShortID="885129362">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="bike_move" ID="{576447F5-FA61-46E2-905D-78D0C1D4E7F6}" WorkUnitID="{6B851F4F-E408-41E0-B565-98F635B4E4E3}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

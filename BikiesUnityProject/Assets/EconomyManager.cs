@@ -28,6 +28,10 @@ public class EconomyManager : MonoBehaviour
     [SerializeField]
     private uint vans = 0;
 
+    [Header("Audio Events")]
+    public AK.Wwise.Event pay_money;
+    public AK.Wwise.Event receive_money;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +52,7 @@ public class EconomyManager : MonoBehaviour
         {
             wallet -= (int)bike_station_cost;
             Debug.Log("Bought bike station!");
+            pay_money.Post(gameObject); // Play Audio
             return true;
         }
         Debug.Log("Couldn't buy a bike station!");
@@ -61,6 +66,7 @@ public class EconomyManager : MonoBehaviour
         {
             wallet -= (int)bike_individual_cost;
             Debug.Log("Bought a new bike!");
+            pay_money.Post(gameObject); // Play Audio
             return true;
         }
         Debug.Log("Couldn't buy a new bike!");
@@ -73,6 +79,7 @@ public class EconomyManager : MonoBehaviour
         {
             wallet -= (int)bike_individual_cost;
             Debug.Log("Bought a new bike!");
+            pay_money.Post(gameObject); // Play Audio
             return;
         }
         Debug.Log("Couldn't buy a new bike!");
@@ -85,6 +92,7 @@ public class EconomyManager : MonoBehaviour
         {
             wallet -= (int)van_cost;
             Debug.Log("Bought a new van!");
+            pay_money.Post(gameObject); // Play Audio
             return true;
         }
         Debug.Log("Couldn't buy a new van!");
@@ -97,6 +105,7 @@ public class EconomyManager : MonoBehaviour
         {
             wallet -= (int)van_cost;
             Debug.Log("Bought a new van!");
+            pay_money.Post(gameObject); // Play Audio
             return;
         }
         Debug.Log("Couldn't buy a new van!");
@@ -121,6 +130,7 @@ public class EconomyManager : MonoBehaviour
     public void AddWalletMoney(int ammount)
     {
         wallet += ammount;
+        receive_money.Post(gameObject);
     }
 
     //This utility function (To consult) Returns True if the user can buy a bije station, but won't spend money
@@ -155,6 +165,7 @@ public class EconomyManager : MonoBehaviour
     {
         int money_refunded = (int)(bike_station_cost * refund_percentage);
         wallet += money_refunded;
+        receive_money.Post(gameObject);
         return money_refunded;
     }
 

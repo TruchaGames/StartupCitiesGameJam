@@ -24,5 +24,10 @@ public class economy_tester : MonoBehaviour
            Debug.Log("Could'nt buy a bike station");
 
         }
+        if (Input.GetKeyUp(KeyCode.N))
+        {
+            econ_manager.AddWalletMoney(1000);
+            Debug.Log("Added money to wallet");
+        }
     }
 }

@@ -30,16 +30,18 @@ public class CityElement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Debug purpose: Update sphere size
-        Vector3 scale = area.transform.localScale;
-        Vector3 pos = area.transform.position;
+        //cityManager = FindObjectOfType<CityManager>();
 
-        //scale.y = Random.Range(1.1f, 7.82f);
-        scale.y = Random.Range(6.0f, 10.0f);
-        pos.y += scale.y/2;
-
-        area.transform.position = pos;
-        area.transform.localScale = scale;
+        ////Debug purpose: Update sphere size
+        //Vector3 scale = area.transform.localScale;
+        //Vector3 pos = area.transform.position;
+        //
+        ////scale.y = Random.Range(1.1f, 7.82f);
+        //scale.y = Random.Range(6.0f, 10.0f);
+        //pos.y += scale.y/2;
+        //
+        //area.transform.position = pos;
+        //area.transform.localScale = scale;
 
         area.SetActive(false);
     }

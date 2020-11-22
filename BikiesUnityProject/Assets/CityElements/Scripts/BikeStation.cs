@@ -48,7 +48,7 @@ public class BikeStation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && waitingCyclists.Count > 0)  // TODO-UI: Show UI of amount of cyclists waiting in an apartement (use list = queue.ToList())
+        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && waitingCyclists.Count > 0)    // TODO-UI: Show UI of amount of cyclists waiting in the station, their wanted destination, and the waiting time of each (use list = queue.ToList())
             OfferBikeToCyclist();
     }
 

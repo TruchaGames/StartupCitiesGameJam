@@ -5,7 +5,13 @@
 			<ChildrenList>
 				<SoundBank Name="InGame" ID="{6C7CF729-D65C-45CF-A75B-A1E327C587D7}">
 					<ObjectInclusionList>
+						<ObjectRef Name="gameplay_lose_money" ID="{E8E94EC6-0F0B-42EA-9DF5-FF2A306E7400}" WorkUnitID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="gameplay_demand_alert" ID="{3E693DE8-9CBF-43E1-8AE4-DB75B49B7C71}" WorkUnitID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Test_Win95" ID="{554A6213-0F57-4737-AA15-C19A1ED367BA}" WorkUnitID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="gameplay_win_money" ID="{B85F4B6E-4AEB-492D-B8E1-F89189162338}" WorkUnitID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="play_amb" ID="{D09BB54E-FCED-4A3D-8717-BCC3512F3666}" WorkUnitID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="gameplay_bike_move" ID="{3C20BBB3-3BF3-4CF0-BDA3-8449AAD79658}" WorkUnitID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="player_place_bike_stand" ID="{4F988A8F-DB2F-4FCF-A357-7206989427A5}" WorkUnitID="{464A3D6C-C5F3-47F1-A605-8E626CF28436}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

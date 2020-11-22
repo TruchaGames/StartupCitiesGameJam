@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{CB471E36-51D4-4FFC-9409-3ED2C09FCC84}" SchemaVersion="97">
 	<InteractiveMusic>
-		<WorkUnit Name="Default Work Unit" ID="{CB471E36-51D4-4FFC-9409-3ED2C09FCC84}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{CB471E36-51D4-4FFC-9409-3ED2C09FCC84}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSwitchContainer Name="BIKIES_GAMEPLAY" ID="{EFE13D49-7D68-41B5-AADF-51097FEA5FC0}" ShortID="949063613">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EA92EB91-67A7-4F96-A5D9-1A34B7900F2B}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="MUSIC" ID="{87BC3F03-C741-4052-9F22-34E96EF9AC0B}" WorkUnitID="{ADB5F51C-B688-47B6-9ACA-32A15F44D3C2}"/>
+						</Reference>
+					</ReferenceList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{BD42F7BF-DA41-44C4-AC75-1DA33B300937}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{FCE2DE39-C2AA-4825-9051-AC07D6C9FA88}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+				</MusicSwitchContainer>
+			</ChildrenList>
+		</WorkUnit>
 	</InteractiveMusic>
 </WwiseDocument>

@@ -21221,8 +21221,8 @@ MonoBehaviour:
   mov_speed: 60
   zoom_speed: 400
   PanSpeed: 80
-  max_zoom_in: 6
-  max_zoom_out: 75
+  max_zoom_in: 10
+  max_zoom_out: 150
   BoundariesZ:
   - -8
   - 70
@@ -25010,7 +25010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919401027}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 17.7, z: 0}
+  m_LocalPosition: {x: 0, y: 150, z: 0}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Children: []
   m_Father: {fileID: 1656003793}

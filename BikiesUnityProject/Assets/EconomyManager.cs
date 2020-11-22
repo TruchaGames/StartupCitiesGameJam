@@ -32,6 +32,7 @@ public class EconomyManager : MonoBehaviour
     public AK.Wwise.Event pay_money;
     public AK.Wwise.Event receive_money;
     public AK.Wwise.Event play_music;
+    public AK.Wwise.Event stop_all;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,11 @@ public class EconomyManager : MonoBehaviour
         }
         Debug.Log("Couldn't buy a bike station!");
         return false;
+    }
+
+    private void OnDestroy()
+    {
+        stop_all.Post(gameObject);
     }
 
     //This function returns TRUE on a succesfull buy operation of a single bike, if the player can't afford the station FALSE is returned and no money is expended

@@ -20,6 +20,7 @@ namespace AK
         static const AkUniqueID PLAY_AMB = 2959533290U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
         static const AkUniqueID PLAYER_PLACE_BIKE_STAND = 500500923U;
+        static const AkUniqueID STOP_ALL = 452547817U;
         static const AkUniqueID TEST_WIN95 = 1845279716U;
     } // namespace EVENTS
 

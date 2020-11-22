@@ -86,6 +86,83 @@
 												</MusicTrackSequence>
 											</SequenceList>
 										</MusicTrack>
+										<MusicTrack Name="bikies_ost_sequence" ID="{3E087965-59D3-4D2A-9351-5B76E04254B2}" ShortID="654699244">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+													<RTPCList>
+														<RTPC Name="" ID="{078E706E-28D4-45F4-AE82-DFF65B8CA0CA}" ShortID="809683154">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="pollution_level" ID="{C858EAF9-2B76-43F1-A994-BAA40F669E91}" WorkUnitID="{488592EA-0CC6-4215-82B1-C7A56C2BC27C}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{89081251-5EA7-48CB-B877-263D08933321}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>48.75445</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Log3</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{ADB5F51C-B688-47B6-9ACA-32A15F44D3C2}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="bikies_ost_sequence" ID="{CF9CEBAD-0F38-4801-A614-CA556E060CAB}">
+													<Language>SFX</Language>
+													<AudioFile>bikies_ost_sequence.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="76504885"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{42E3B251-0B1A-464B-8077-65C180A8CA65}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{2394A021-F8CD-49FD-95FB-9D5421B77598}">
+													<ClipList>
+														<MusicClip Name="bikies_ost_sequence" ID="{0628CC3C-1165-4B03-B982-DA78C5A1D8D4}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="82284.9166666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="bikies_ost_sequence" ID="{CF9CEBAD-0F38-4801-A614-CA556E060CAB}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
 									</ChildrenList>
 									<CueList>
 										<MusicCue Name="Entry Cue" ID="{6BC7D47F-8A20-4EB9-AD6B-56B3AA39ECFF}"/>

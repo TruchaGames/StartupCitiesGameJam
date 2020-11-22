@@ -309,12 +309,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042092642452037969}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.46, y: 1.12, z: -2.54}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -2.7512965, y: 12.891351, z: 1.1115869}
+  m_LocalScale: {x: 0.7499999, y: 0.75000006, z: 1}
   m_Children: []
-  m_Father: {fileID: 2227426025697464426}
-  m_RootOrder: 1
+  m_Father: {fileID: 1147061123679173713}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!212 &33617448462788918
 SpriteRenderer:
@@ -395,10 +395,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1689960346445702390}
-  - {fileID: 661048931040562038}
-  - {fileID: 4068150113134961083}
-  - {fileID: 6219261962354361562}
   - {fileID: 2052020657084878232}
+  - {fileID: 1147061123679173713}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -416,7 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nearbyBikeStations: []
   bikeStationDetectRadius: 8
-  area: {fileID: 5156978130577350907}
+  area: {fileID: 5979347343928500155}
   cyclistTypeAmountText:
   - {fileID: 2318300095082429985}
   - {fileID: 7504503948151275211}
@@ -1196,12 +1194,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5339140409701406388}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.56, y: 1.12, z: -1.57}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 5.2687035, y: 12.891351, z: 0.14158702}
+  m_LocalScale: {x: 0.4999999, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 2227426025697464426}
-  m_RootOrder: 3
+  m_Father: {fileID: 1147061123679173713}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!212 &3915118914842259872
 SpriteRenderer:
@@ -1291,7 +1289,7 @@ RectTransform:
   - {fileID: 659591680801802773}
   - {fileID: 7740290485872132305}
   m_Father: {fileID: 2227426025697464426}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1410,6 +1408,39 @@ MonoBehaviour:
   bikeStock: 0
   economyManager: {fileID: 0}
   bikeStation: {fileID: 0}
+--- !u!1 &5979347343928500155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1147061123679173713}
+  m_Layer: 0
+  m_Name: Building
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1147061123679173713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5979347343928500155}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.70870346, y: -11.771351, z: -1.428413}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 661048931040562038}
+  - {fileID: 4068150113134961083}
+  - {fileID: 6219261962354361562}
+  m_Father: {fileID: 2227426025697464426}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6550542374619646985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,12 +1959,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7913113221646003140}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.63, y: 1.12, z: 2.28}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0.07870346, y: 12.891351, z: -3.7084131}
+  m_LocalScale: {x: 0.4999999, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 2227426025697464426}
-  m_RootOrder: 2
+  m_Father: {fileID: 1147061123679173713}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!212 &4026051056090452782
 SpriteRenderer:

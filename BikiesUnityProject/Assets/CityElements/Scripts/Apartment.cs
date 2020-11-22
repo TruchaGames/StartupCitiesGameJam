@@ -48,6 +48,9 @@ public class Apartment : CityElement
     // Update is called once per frame
     void Update()
     {
+        if (!ApartmentActive)
+            return;
+
         //Spawn Cyclists
         if (Time.time - cyclistSpawnedAt > timeToSpawn)
         {

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2308255662618617352}
   - component: {fileID: 2308255662618617353}
+  - component: {fileID: 2341249975433817347}
   m_Layer: 0
   m_Name: Economy_manager
   m_TagString: Untagged
@@ -44,7 +45,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starting_money: 100000
+  starting_vans: 1
   bike_station_cost: 30000
   bike_individual_cost: 1000
+  van_cost: 1000
   refund_percentage: 0.5
   wallet: 0
+  vans: 0
+  pay_money:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b31743e3ef62ed5418497edf798b1282,
+      type: 2}
+  receive_money:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: cc19848268c5d824cafa7df5e5bcaf28,
+      type: 2}
+--- !u!114 &2341249975433817347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308255662618617355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c1633a198f4f74b81102d47d7ba5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a6c52d87b4f84324ca92c17499acd29b,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 

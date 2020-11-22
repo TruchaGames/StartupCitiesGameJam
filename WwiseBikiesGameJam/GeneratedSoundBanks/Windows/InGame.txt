@@ -1,6 +1,35 @@
 Event	ID	Name			Wwise Object Path	Notes
+	298084058	gameplay_lose_money			\Default Work Unit\gameplay_lose_money	
+	500500923	player_place_bike_stand			\Default Work Unit\player_place_bike_stand	
 	1845279716	Test_Win95			\Default Work Unit\Test_Win95	
+	2683640631	gameplay_win_money			\Default Work Unit\gameplay_win_money	
+	2959533290	play_amb			\Default Work Unit\play_amb	
+	2961806477	gameplay_bike_move			\Default Work Unit\gameplay_bike_move	
+	3677523466	gameplay_demand_alert			\Default Work Unit\gameplay_demand_alert	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3036303822	pollution_level			\Default Work Unit\pollution_level	
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	539136408	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\SFX\AMB\Ambient\factory\sequence\silence\Wwise Silence	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	69676076	Microsoft_Windows_95_Startup_Sound	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\Microsoft_Windows_95_Startup_Sound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Microsoft_Windows_95_Startup_Sound		1183808
+	137065097	win_money_02	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\win_money_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\win_money\win_money_02		205456
+	157287007	steam_alarm_long	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\steam_alarm_long_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\MISC\alert_bike_stand\steam_alarm_long		1370744
+	159052801	pay_money	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\pay_money_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\pay_money		205456
+	165915248	steampunk_amb	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\amb_steampunk_B71D8462.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\AMB\Ambient\factory\steampunk_amb		6685544
+	217965274	factory_sounds_08	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\factory_sounds_08_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\AMB\Ambient\factory\sequence\factory_sounds\factory_sounds_08		1746996
+	265985976	nature_amb	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\amb_nature_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\AMB\Ambient\nature_amb		8489948
+	280868015	factory_sounds_07	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\factory_sounds_07_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\AMB\Ambient\factory\sequence\factory_sounds\factory_sounds_07		955652
+	285252782	factory_sounds_01	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\factory_sounds_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\AMB\Ambient\factory\sequence\factory_sounds\factory_sounds_01		1746996
+	422403676	factory_sounds_06	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\factory_sounds_06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\AMB\Ambient\factory\sequence\factory_sounds\factory_sounds_06		2493548
+	491065972	steam_alarm	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\steam_alarm_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\MISC\alert_bike_stand\steam_alarm		389224
+	514321981	factory_sounds_04	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\factory_sounds_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\AMB\Ambient\factory\sequence\factory_sounds\factory_sounds_04		955652
+	522720791	win_money_01	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\win_money_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\win_money\win_money_01		205456
+	579518445	factory_sounds_02	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\factory_sounds_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\AMB\Ambient\factory\sequence\factory_sounds\factory_sounds_02		955652
+	803451803	bike_01	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\bike_move_E03FAFFB.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\VEHICLES\bike_move\bike_01		3016200
+	827806482	factory_sounds_05	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\factory_sounds_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\AMB\Ambient\factory\sequence\factory_sounds\factory_sounds_05		955652
+	951910551	place_bike_stand	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\place_bike_stand_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\place_bike_stand		305344
+	1051037502	factory_sounds_03	C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\SFX\factory_sounds_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\AMB\Ambient\factory\sequence\factory_sounds\factory_sounds_03		955652
 

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{488592EA-0CC6-4215-82B1-C7A56C2BC27C}" SchemaVersion="97">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{488592EA-0CC6-4215-82B1-C7A56C2BC27C}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{488592EA-0CC6-4215-82B1-C7A56C2BC27C}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="2"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<GameParameter Name="pollution_level" ID="{C858EAF9-2B76-43F1-A994-BAA40F669E91}"/>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

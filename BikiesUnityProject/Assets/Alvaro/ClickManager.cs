@@ -126,11 +126,11 @@ public class ClickManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && lastSelected != null && !vanMovement)
             {
                 // Aqui se comprara una bici
-                if (!lastSelectedBuyPanel.activeSelf)
+                if (lastSelectedBuyPanel != null && !lastSelectedBuyPanel.activeSelf)
                 {
                     ActivateFloatingMenu(lastSelectedBuyPanel);
                 }
-                else if (lastSelectedBuyPanel.activeSelf)
+                else if (lastSelectedBuyPanel != null && lastSelectedBuyPanel.activeSelf)
                 {
                     DeactivateFloatingMenu(lastSelectedBuyPanel);
                 }

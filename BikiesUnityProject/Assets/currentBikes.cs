@@ -13,8 +13,8 @@ public class currentBikes : MonoBehaviour
     public TextMeshProUGUI bikeText;
     public TextMeshProUGUI bikeCost;
 
-    public uint maxBikes;
-    public uint bikeStock;
+    public uint maxBikes = new uint();
+    public uint bikeStock = new uint();
 
     public EconomyManager economyManager;
 
@@ -28,8 +28,16 @@ public class currentBikes : MonoBehaviour
         economyManager = FindObjectOfType<EconomyManager>();
 
         bikeStation = GetComponentInParent<BikeStation>();
-        maxBikes = bikeStation.maxBikes;
-        bikeStock = bikeStation.bikeStock;
+        if (bikeStation != null)
+        {
+            maxBikes = bikeStation.maxBikes;
+            bikeStock = bikeStation.bikeStock;
+        }
+        else
+        {
+            Debug.LogError("bikeStation of <currentBikes> was null!");
+        }
+        
 
        // bikeText.SetText(bikeStock + "/" + maxBikes);
     }
@@ -37,14 +45,17 @@ public class currentBikes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        maxBikes = bikeStation.maxBikes;
-        bikeStock = bikeStation.bikeStock;
+        if (bikeStation != null)
+        {
+            maxBikes = bikeStation.maxBikes;
+            bikeStock = bikeStation.bikeStock;
 
-        if (bikeText != null)
-            bikeText.SetText(bikeStock + "/" + maxBikes);
+            if (bikeText != null)
+                bikeText.SetText(bikeStock + "/" + maxBikes);
 
-        if (bikeCost != null)
-            bikeCost.SetText(economyManager.bike_individual_cost.ToString());
+            if (bikeCost != null)
+                bikeCost.SetText(economyManager.bike_individual_cost.ToString());
+        }
     }
 
     public void AddBike()

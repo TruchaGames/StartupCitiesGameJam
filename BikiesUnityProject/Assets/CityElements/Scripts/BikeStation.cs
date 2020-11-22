@@ -1,9 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class BikeStation : MonoBehaviour
 {
+    [Header("Cyclist UI")]
+    public GameObject cyclistsWaitingGO;
+    public TextMeshProUGUI[] cyclistTypeAmountText;
+    public Image[] cyclistTimerImg;
+    uint[] cyclistTypeAmount = new uint[5];
+
     CityManager cityManager;
     EconomyManager economyManager;
 
@@ -24,16 +32,21 @@ public class BikeStation : MonoBehaviour
     public List<InterestPoint> nearbyInterestPoints = new List<InterestPoint>();
 
     [Header("Queue of Waiting Cyclists")]
-    public Queue<AIAgent> waitingCyclists = new Queue<AIAgent>();
+    public Queue<AIAgent> cyclistsWaiting = new Queue<AIAgent>();
+    public AIAgent[] cyclistWaitList;
 
     [Header("Cyclist Arrive Radius")]
     public float ArriveRadius = 5.0f;
 
+
     [Header("Audio Events")]
     public AK.Wwise.Event move_bike;
 
+    public SpriteRenderer areaCircle;
+
     void Awake()
     {
+        areaCircle = GetComponentInChildren<SpriteRenderer>();
         cityManager = FindObjectOfType<CityManager>();
         economyManager = FindObjectOfType<EconomyManager>();
         Debug.Assert(cityManager != null, "GameObject <" + this.gameObject.name + "> is lacking a CityManager!");
@@ -42,7 +55,14 @@ public class BikeStation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        areaCircle.size = new Vector2(apartmentDetectRadius, apartmentDetectRadius);
+
         //EstablishConnections();   //Remain commented
+
+        for (int i = 0; i < cyclistTypeAmount.Length; ++i)
+        {
+            cyclistTypeAmount[i] = 0;
+        }
     }
 
     //Building variables
@@ -51,8 +71,26 @@ public class BikeStation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && waitingCyclists.Count > 0)    // TODO-UI: Show UI of amount of cyclists waiting in the station, their wanted destination, and the waiting time of each (use list = queue.ToList())
+        if (IsConstructable() == true)
+            areaCircle.color = new Color(153/255, 255 / 255, 156 / 255);
+        else
+            areaCircle.color = new Color(255 / 255, 79 / 255, 73 / 255);
+
+
+        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && cyclistsWaiting.Count > 0)    // TODO-UI: Show UI of amount of cyclists waiting in the station, their wanted destination, and the waiting time of each (use list = queue.ToList())
             OfferBikeToCyclist();
+
+        for (InterestPoint.InterestPointType IP_type = InterestPoint.InterestPointType.IP_NONE + 1; IP_type != InterestPoint.InterestPointType.IP_MAX; ++IP_type)
+        {
+            foreach (AIAgent cyclist in cyclistWaitList)
+            {
+                if (cyclist.finalDestination.interestPointType == IP_type)
+                {
+                    RunCyclistTimer(cyclistTimerImg[(int)IP_type], cyclist);
+                    break;
+                }
+            }
+        }
     }
 
     void OnDrawGizmos()
@@ -95,9 +133,9 @@ public class BikeStation : MonoBehaviour
     // Element Interactions
     /* 1. The apartment tells the bike base that someone is going to use a bike to go to x place.
      * 2. Bike bases send
-     * 
-     * 
-     * 
+     *
+     *
+     *
      */
 
     // PUBLIC: Request to connect to nearby nodes.
@@ -217,7 +255,7 @@ public class BikeStation : MonoBehaviour
     {
         if (other.gameObject.tag == "Not constructable" || other.gameObject.tag == "City Element")
             collisions--;
-          
+
     }
 
     public bool IsConstructable()
@@ -227,7 +265,7 @@ public class BikeStation : MonoBehaviour
 
     void OfferBikeToCyclist()
     {
-        AIAgent cyclist = waitingCyclists.Dequeue();
+        AIAgent cyclist = cyclistsWaiting.Dequeue();
 
         InterestPoint cyclistDestination = cyclist.finalDestination;
         bool foundStationWithSlots = false;
@@ -247,7 +285,7 @@ public class BikeStation : MonoBehaviour
             if (cyclistDestination.nearbyBikeStations.Count > 0)
                 TakeBike(cyclist, cyclistDestination.nearbyBikeStations[0]);
             else
-                waitingCyclists.Enqueue(cyclist);
+                cyclistsWaiting.Enqueue(cyclist);
         }
     }
 
@@ -267,5 +305,40 @@ public class BikeStation : MonoBehaviour
         --bikeStock;
         //TODO-UI: Show UI of bycicle removed from stock of station and money increased by rental?
         bikePickedAt = Time.time;
+    }
+
+    public void EnqueueCyclist(AIAgent cyclist)
+    {
+        cyclistsWaiting.Enqueue(cyclist);
+        int it = (int)cyclist.finalDestination.interestPointType;
+        ++cyclistTypeAmount[it];
+        cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
+        cyclistWaitList = cyclistsWaiting.ToArray();
+
+        if (cyclistsWaitingGO != null && cyclistsWaiting.Count == 1)
+        {
+            cyclistsWaitingGO.SetActive(true);
+        }
+    }
+
+    public void DequeueCyclist(AIAgent cyclist)
+    {
+        cyclistsWaiting.Dequeue();
+        int it = (int)cyclist.finalDestination.interestPointType;
+        --cyclistTypeAmount[it];
+        cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
+        cyclistWaitList = cyclistsWaiting.ToArray();
+
+        if (cyclistsWaitingGO != null && cyclistsWaiting.Count == 0)
+        {
+            cyclistsWaitingGO.SetActive(false);
+        }
+    }
+
+    void RunCyclistTimer(Image img, AIAgent cyclist)
+    {
+        float timePassed = Time.time - cyclist.startedWaitingAt;
+        if (timePassed < cyclist.waitTimeLimit)
+            img.fillAmount = (cyclist.waitTimeLimit - timePassed) / cyclist.waitTimeLimit;
     }
 }

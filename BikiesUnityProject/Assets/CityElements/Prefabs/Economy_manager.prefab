@@ -46,9 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starting_money: 100000
   starting_vans: 1
-  bike_station_cost: 30000
   bike_individual_cost: 1000
+  bike_station_cost: 30000
   van_cost: 1000
+  bike_rent_income: 1000
   refund_percentage: 0.5
   wallet: 0
   vans: 0
@@ -61,6 +62,11 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: cc19848268c5d824cafa7df5e5bcaf28,
+      type: 2}
+  play_music:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4a2584a1d524caf41a5024920fd7849d,
       type: 2}
 --- !u!114 &2341249975433817347
 MonoBehaviour:

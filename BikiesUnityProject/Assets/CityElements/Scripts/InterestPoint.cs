@@ -48,4 +48,12 @@ public class InterestPoint : CityElement
 
         return nodesConnected;
     }
+
+    public override void Activate()
+    {
+        Debug.Log("Interest point activated");
+        area.SetActive(true);
+        ApartmentActive = true;
+    }
+
 }

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BikeStation : MonoBehaviour
 {
-    [Header("ADD City Manager GO HERE!")]
-    public CityManager cityManager;
+    CityManager cityManager;
+    EconomyManager economyManager;
 
     [Header("Bikes")]
+    public uint maxBikes = 8;
     public uint bikeStock = 5;
     public float bikePickupCooldown = 1; // In seconds
     float bikePickedAt = 0.0f;
@@ -23,31 +24,32 @@ public class BikeStation : MonoBehaviour
     public List<InterestPoint> nearbyInterestPoints = new List<InterestPoint>();
 
     [Header("Queue of Waiting Cyclists")]
-    public Queue<AIAgent> waitingCyclists;
+    public Queue<AIAgent> waitingCyclists = new Queue<AIAgent>();
+
+    [Header("Cyclist Arrive Radius")]
+    public float ArriveRadius = 5.0f;
+
+    void Awake()
+    {
+        cityManager = FindObjectOfType<CityManager>();
+        economyManager = FindObjectOfType<EconomyManager>();
+        Debug.Assert(cityManager != null, "GameObject <" + this.gameObject.name + "> is lacking a CityManager!");
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        EstablishConnections();
+        //EstablishConnections();   //Remain commented
     }
+
+    //Building variables
+    private int collisions = 0; //Amount of colliders that don't allow the construction of the station
 
     // Update is called once per frame
     void Update()
     {
-        //foreach (BikeStation BikeStation in nearbyBikeStations)
-        //{
-        //    Debug.DrawLine(transform.position, BikeStation.transform.position);
-        //};
-
-        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0)
-        {
-            AIAgent cyclist = waitingCyclists.Dequeue();
-            //LUCHO-TODO: Metelo el estado que sea y mándalo a pastar al ciclista a su bike destination.
-            //cyclist.ChangeDestination("destination", AIAgent.AGENT_STATUS.TRAVELLING);
-
-            --bikeStock;
-            bikePickedAt = Time.time;
-        }
+        if (Time.time - bikePickedAt > bikePickupCooldown && bikeStock > 0 && waitingCyclists.Count > 0)    // TODO-UI: Show UI of amount of cyclists waiting in the station, their wanted destination, and the waiting time of each (use list = queue.ToList())
+            OfferBikeToCyclist();
     }
 
     void OnDrawGizmos()
@@ -62,6 +64,11 @@ public class BikeStation : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector3(transform.position.x, 0.0f, transform.position.z), interestPointDetectRadius);
 
         //------------------------------------------------------
+
+        //foreach (BikeStation BikeStation in nearbyBikeStations)
+        //{
+        //    Debug.DrawLine(transform.position, BikeStation.transform.position);
+        //};
 
         foreach (Apartment BikeStation in nearbyApartments)
         {
@@ -106,10 +113,10 @@ public class BikeStation : MonoBehaviour
         //foreach (BikeStation it in nearbyBikeStations)
         //    it.nearbyBikeStations.Remove(this);
 
-        //foreach (Apartment it in nearbyApartments)    // TODO: Create lists in appropiate places
+        //foreach (Apartment it in nearbyApartments)
         //    it.nearbyBikeStations.Remove(this);
 
-        //foreach (InterestPoint it in nearbyInterestPoints)    // TODO: Create lists in appropiate places
+        //foreach (InterestPoint it in nearbyInterestPoints)
         //    it.nearbyBikeStations.Remove(this);
 
         //nearbyBikeStations.Clear();
@@ -195,5 +202,64 @@ public class BikeStation : MonoBehaviour
         }
 
         return nodesConnected;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Not constructable" || other.gameObject.tag == "City Element")
+            collisions++;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Not constructable" || other.gameObject.tag == "City Element")
+            collisions--;
+          
+    }
+
+    public bool IsConstructable()
+    {
+        return collisions == 0;
+    }
+
+    void OfferBikeToCyclist()
+    {
+        AIAgent cyclist = waitingCyclists.Dequeue();
+
+        InterestPoint cyclistDestination = cyclist.finalDestination;
+        bool foundStationWithSlots = false;
+
+        foreach (BikeStation bikeStation in cyclistDestination.nearbyBikeStations)
+        {
+            if (bikeStation.bikeStock < bikeStation.maxBikes)
+            {
+                TakeBike(cyclist, bikeStation);
+                foundStationWithSlots = true;
+                break;
+            }
+        }
+
+        if (!foundStationWithSlots)
+        {
+            if (cyclistDestination.nearbyBikeStations.Count > 0)
+                TakeBike(cyclist, cyclistDestination.nearbyBikeStations[0]);
+            else
+                waitingCyclists.Enqueue(cyclist);
+        }
+    }
+
+    void TakeBike(AIAgent cyclist, BikeStation stationDestination)
+    {
+        cyclist.SetDestination(stationDestination.gameObject, stationDestination.ArriveRadius);
+        cyclist.AgentStatus = AIAgent.AGENT_STATUS.TRAVELLING;
+
+        //Change visually a pedestrian to a bike!
+        Agent_Bicycle agent_bicycle = cyclist.GetComponentInChildren<Agent_Bicycle>();
+        agent_bicycle.unit_type = UNITTYPE.Bicycle;
+
+        economyManager.BikeRentIncome();
+        --bikeStock;
+        //TODO-UI: Show UI of bycicle removed from stock of station and money increased by rental?
+        bikePickedAt = Time.time;
     }
 }

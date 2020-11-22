@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Empty
-  - Full
+  - City Element
+  - Not constructable
   layers:
   - Default
   - TransparentFX
@@ -15,10 +15,10 @@ TagManager:
   - UI
   - 
   - 
-  - Bike
+  - City Elements
+  - Environment
   - 
-  - 
-  - 
+  - Not constructable
   - 
   - 
   - 

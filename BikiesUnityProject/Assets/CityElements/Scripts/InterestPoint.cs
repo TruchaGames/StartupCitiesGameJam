@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class InterestPoint : CityElement
 {
+    [Header("Radius of Cyclist Arrival")]
+    public float ArriveRadius = 5.0f;
+
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public uint ConnectBikeStations()

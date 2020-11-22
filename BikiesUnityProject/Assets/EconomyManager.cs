@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class EconomyManager : MonoBehaviour
 {
-    [Header("Economy Balance & Costs")]
+    [Header("Starting Economy")]
     public uint starting_money = 100000;
-    public uint bike_station_cost = 30000;
+    public uint starting_vans = 1;
+
+    [Header("Costs")]
     public uint bike_individual_cost = 1000;
+    public uint bike_station_cost = 30000;
+    public uint van_cost = 1000;
+
+    [Header("Income")]
+    public uint bike_rent_income = 1000;
+
     [Range(0.0f,1.0f)]
     public float refund_percentage = 0.5f;
 
@@ -16,10 +24,15 @@ public class EconomyManager : MonoBehaviour
     [SerializeField]
     private int wallet = 0;
 
+    //Vans that the PLAYER has available!!
+    [SerializeField]
+    private uint vans = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         wallet = (int)starting_money;
+        vans = starting_vans;
     }
 
     // Update is called once per frame
@@ -54,6 +67,57 @@ public class EconomyManager : MonoBehaviour
         return false;
     }
 
+    public void BuyNewBikeUI()
+    {
+        if (wallet >= bike_individual_cost)
+        {
+            wallet -= (int)bike_individual_cost;
+            Debug.Log("Bought a new bike!");
+            return;
+        }
+        Debug.Log("Couldn't buy a new bike!");
+        return;
+    }
+
+    public bool BuyNewVan()
+    {
+        if (wallet >= van_cost)
+        {
+            wallet -= (int)van_cost;
+            Debug.Log("Bought a new van!");
+            return true;
+        }
+        Debug.Log("Couldn't buy a new van!");
+        return false;
+    }
+
+    public void BuyNewVanUI()
+    {
+        if (wallet >= van_cost)
+        {
+            wallet -= (int)van_cost;
+            Debug.Log("Bought a new van!");
+            return;
+        }
+        Debug.Log("Couldn't buy a new van!");
+        return;
+    }
+
+    public void BikeRentIncome()
+    {
+        wallet += (int)bike_rent_income;
+    }
+
+    public uint AddVan()
+    {
+        return ++vans;
+    }
+
+    public uint RemoveVan()
+    {
+        return --vans;
+    }
+
     public void AddWalletMoney(int ammount)
     {
         wallet += ammount;
@@ -78,10 +142,24 @@ public class EconomyManager : MonoBehaviour
         return false;
     }
 
+    public bool CanBuyNewVan()
+    {
+        if (wallet >= van_cost)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public int RefundRemovedBikeStation()
     {
         int money_refunded = (int)(bike_station_cost * refund_percentage);
         wallet += money_refunded;
         return money_refunded;
+    }
+
+    public int getWallet()
+    {
+        return wallet;
     }
 }

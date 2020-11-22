@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class CityElement : MonoBehaviour
 {
-    public int radius = 0;
-
-    [Header("ADD City Manager GO HERE!")]
-    public CityManager cityManager;
+    protected CityManager cityManager;
 
     [Header("Lists of Nearby BikeStations")]
-    public List<BikeStation> nearbyBikeStations;
+    public List<BikeStation> nearbyBikeStations = new List<BikeStation>();
 
     [Header("Radius Detection")]
-    public float bikeStationDetectRadius = 0.0f;
+    public float bikeStationDetectRadius = 5.0f;
 
     //Range of the element
     public GameObject area;
@@ -24,19 +21,27 @@ public class CityElement : MonoBehaviour
         area.SetActive(true);
     }
 
+    void Awake()
+    {
+        cityManager = FindObjectOfType<CityManager>();
+        Debug.Assert(cityManager != null, "GameObject <" + this.gameObject.name + "> is lacking a CityManager!");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        //Debug purpose: Update sphere size
-        Vector3 scale = area.transform.localScale;
-        Vector3 pos = area.transform.position;
+        //cityManager = FindObjectOfType<CityManager>();
 
-        //scale.y = Random.Range(1.1f, 7.82f);
-        scale.y = Random.Range(6.0f, 25.0f);
-        pos.y += scale.y/2;
-
-        area.transform.position = pos;
-        area.transform.localScale = scale;
+        ////Debug purpose: Update sphere size
+        //Vector3 scale = area.transform.localScale;
+        //Vector3 pos = area.transform.position;
+        //
+        ////scale.y = Random.Range(1.1f, 7.82f);
+        //scale.y = Random.Range(6.0f, 10.0f);
+        //pos.y += scale.y/2;
+        //
+        //area.transform.position = pos;
+        //area.transform.localScale = scale;
 
         area.SetActive(false);
     }
@@ -50,5 +55,11 @@ public class CityElement : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, bikeStationDetectRadius);
     }
 }

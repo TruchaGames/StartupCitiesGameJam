@@ -176,7 +176,7 @@ public class CityManager : MonoBehaviour
         int rayLayer = 1 << 9;
 
         RaycastHit hitInfo = new RaycastHit();
-        bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo,100f,rayLayer);
+        bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo,999.9f,rayLayer);
 
         //Debug.DrawLine(Camera.main.ScreenPointToRay(Input.mousePosition).origin , hitInfo.point);
         //Debug.Log(hitInfo.point);

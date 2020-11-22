@@ -41,8 +41,7 @@ public class BikeStation : MonoBehaviour
     }
 
     //Building variables
-    private bool constructable = true;
-    private uint collisions = 0; //Amount of colliders that don't allow the construction of the station
+    private int collisions = 0; //Amount of colliders that don't allow the construction of the station
 
     // Update is called once per frame
     void Update()
@@ -207,14 +206,13 @@ public class BikeStation : MonoBehaviour
     {
         if (other.gameObject.tag == "Not constructable" || other.gameObject.tag == "City Element")
             collisions++;
-        
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Not constructable" || other.gameObject.tag == "City Element")
             collisions--;
-
+          
     }
 
     public bool IsConstructable()

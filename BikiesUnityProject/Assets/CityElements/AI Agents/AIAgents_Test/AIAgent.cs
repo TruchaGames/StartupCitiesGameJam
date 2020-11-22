@@ -14,7 +14,9 @@ public class AIAgent : MonoBehaviour
 
     [Header("Agent Patience")]
     public float waitTimeLimit = 10.0f;
-    public float startedWaitingAt = 0.0f;   // We'll use this for a small workaround so that Re-Cast has time to calculate
+    float startedWaitingAt = 0.0f;
+
+    bool waitedForRecast = false;   // We'll use this for a small workaround so that Re-Cast has time to calculate
 
     // AI Status
     public enum AGENT_STATUS {
@@ -25,14 +27,13 @@ public class AIAgent : MonoBehaviour
         TRAVELLING,
         ARRIVING
     };
-    [SerializeField]
-    AGENT_STATUS AgentStatus = AGENT_STATUS.NONE;
+    public AGENT_STATUS AgentStatus = AGENT_STATUS.NONE;
 
     private void Awake()
     {
         m_Agent = GetComponent<NavMeshAgent>();
         startedWaitingAt = Time.time;
-        AgentStatus = AGENT_STATUS.WALKING;
+        AgentStatus = AGENT_STATUS.APT_WAIT;
     }
 
     private void Start()
@@ -80,17 +81,40 @@ public class AIAgent : MonoBehaviour
 
             // Agent is travelling from Bike Station A to Bike Station B
             case AGENT_STATUS.TRAVELLING:
-                if (Time.time - startedWaitingAt > 2 && m_Agent.remainingDistance <= m_Agent.stoppingDistance)  //NOTE: The time is a workaround to give time for Re-Cast to calculate stuff
-                    ChangeDestination(finalDestination.gameObject, AGENT_STATUS.ARRIVING, finalDestination.ArriveRadius);
+                if (waitedForRecast)
+                {
+                    if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
+                    {
+                        waitedForRecast = false;
+
+                        BikeStation station = NextDestination.GetComponent<BikeStation>();
+                        if (station.bikeStock < station.maxBikes)
+                            ++station.bikeStock;
+
+                        SetDestination(finalDestination.gameObject, finalDestination.ArriveRadius);
+                        AgentStatus = AGENT_STATUS.ARRIVING;
+                    }
+                }
+                else
+                {
+                    waitedForRecast = true;
+                }
                 break;
 
             // Agent walks from Bike Station B to Destination
             case AGENT_STATUS.ARRIVING:
-                if (Time.time - startedWaitingAt > 2 && m_Agent.remainingDistance <= m_Agent.stoppingDistance)  //NOTE: The time is a workaround to give time for Re-Cast to calculate stuff
+                if (waitedForRecast)
                 {
-                    Destroy(gameObject);
-                    //TODO: Reduce pollution etc
-                }  
+                    if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
+                    {
+                        Destroy(gameObject);
+                        //TODO: Reduce pollution etc
+                    }
+                }
+                else
+                {
+                    waitedForRecast = true;
+                }
                 break;
 
             case AGENT_STATUS.NONE:
@@ -103,11 +127,9 @@ public class AIAgent : MonoBehaviour
     }
 
     // Called Upon Agent Spawn or when Arrives at bike station
-    public void ChangeDestination(GameObject destination, AGENT_STATUS agent_next_status, float arrive_radius)
+    public void SetDestination(GameObject destination, float arrive_radius)
     {
         startedWaitingAt = Time.time;
-
-        AgentStatus = agent_next_status;
 
         if (m_Agent == null)
             m_Agent = GetComponent<NavMeshAgent>();
@@ -119,6 +141,8 @@ public class AIAgent : MonoBehaviour
             Vector2 random_unit_circle = Random.insideUnitCircle;
             Vector3 dest = new Vector3(random_unit_circle.x, 0.0f, random_unit_circle.y) * arrive_radius;
             m_Agent.destination = NextDestination.transform.position + dest;
+
+            waitedForRecast = false;
         }
         else
         {

@@ -17,6 +17,8 @@ public class Camera_Movement : MonoBehaviour
     public float[] BoundariesZ = new float[] { -125f, 22f };
     public float[] BoundariesX = new float[] { -50f, 69f };
 
+    public bool AllowMovement = false;
+
 
     Vector3 lastPosition = Vector3.zero;
 
@@ -29,6 +31,9 @@ public class Camera_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!AllowMovement)
+            return;
+
         // Camera Panning
         if (Input.GetMouseButtonDown(2))
             lastPosition = Input.mousePosition;

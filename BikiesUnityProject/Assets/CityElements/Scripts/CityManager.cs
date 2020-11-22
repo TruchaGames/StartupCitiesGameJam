@@ -170,20 +170,25 @@ public class CityManager : MonoBehaviour
         RaycastHit hitInfo = new RaycastHit();
         bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo,100f,rayLayer);
 
-        Debug.DrawLine(Camera.main.ScreenPointToRay(Input.mousePosition).origin , hitInfo.point);
-        Debug.Log(hitInfo.point);
+        //Debug.DrawLine(Camera.main.ScreenPointToRay(Input.mousePosition).origin , hitInfo.point);
+        //Debug.Log(hitInfo.point);
 
         if (hit)
         {
-            stationBeingplaced.transform.position = hitInfo.point;
+            stationBeingplaced.transform.position = new Vector3(hitInfo.point.x, 1.75f, hitInfo.point.z);
         }
 
         // -- LEFT click to place the station
         if (Input.GetMouseButtonDown(0) && stationBeingplaced.GetComponent<BikeStation>().IsConstructable() /*-- need to check if the station fits in the current position*/)
         {
             placingBikeStation = false;
+            bikeStations.Add(stationBeingplaced.GetComponent<BikeStation>());
             //Coordinate all points to include the station in their list, etc,etc.
-
+            if (buildingMode == BuildingMode.CREATING)
+            {
+                stationBeingplaced.transform.SetParent(gameObject.transform);
+                stationBeingplaced.GetComponent<BikeStation>().EstablishConnections();
+            }
         }
 
         // -- RIGHT click or ESCAPE to CANCEL

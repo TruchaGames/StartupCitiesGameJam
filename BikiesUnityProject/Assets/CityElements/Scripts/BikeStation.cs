@@ -251,6 +251,10 @@ public class BikeStation : MonoBehaviour
         cyclist.SetDestination(stationDestination.gameObject, stationDestination.ArriveRadius);
         cyclist.AgentStatus = AIAgent.AGENT_STATUS.TRAVELLING;
 
+        //Change visually a pedestrian to a bike!
+        Agent_Bicycle agent_bicycle = cyclist.GetComponentInChildren<Agent_Bicycle>();
+        agent_bicycle.unit_type = UNITTYPE.Bicycle;
+
         --bikeStock;
         bikePickedAt = Time.time;
     }

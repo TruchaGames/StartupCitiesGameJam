@@ -145,6 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3018083244899181372}
   - component: {fileID: 6262515669389161499}
+  - component: {fileID: 7622465706170819331}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -216,3 +217,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7622465706170819331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7851539994729133318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87884a1d1186a214d90082eaf88ceeb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedestrian_sprite: {fileID: 21300000, guid: 546f6c5620d13954bb527c36441a2aba, type: 3}
+  bicycle_sprite: {fileID: 21300000, guid: a9c88f8f121c8c543b7d04b551f6164e, type: 3}
+  unit_type: 0
+  previous_unit_type: 0

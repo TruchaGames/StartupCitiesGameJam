@@ -46,6 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Visual feedback
+    uniqueID: 558852043
+    locked: 0
   - name: UI
     uniqueID: 2778918711
     locked: 0

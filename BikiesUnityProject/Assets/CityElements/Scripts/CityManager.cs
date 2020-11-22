@@ -133,11 +133,14 @@ public class CityManager : MonoBehaviour
     private void ActivateInterestPoint()
     {
         if (unactiveInterestPoints.Count <= 0)
+        {
+            Debug.Log("te mamaset");
             return;
-
+        }
         InterestPoint _interestPoint = unactiveInterestPoints[Random.Range(0, unactiveInterestPoints.Count)];
 
         //Activate the apartment and add it to the list of active apartments
+        _interestPoint.gameObject.SetActive(true);
         _interestPoint.Activate();
         activeInterestPoints.Add(_interestPoint);
 

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum UNITTYPE
-{
-    Pedestrian = 0,
-    Bicycle
-}
+//public enum UNITTYPE
+//{
+//    Pedestrian = 0,
+//    Bicycle
+//}
 
 public class bicycle_flipper : MonoBehaviour
 {

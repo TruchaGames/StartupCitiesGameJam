@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class AIAgent : MonoBehaviour
 {
-    
+    private PolutionBar polutionBar;
+
     GameObject NextDestination;
     public Apartment sourceApartment;
     public InterestPoint finalDestination;
@@ -32,6 +33,7 @@ public class AIAgent : MonoBehaviour
     private void Awake()
     {
         m_Agent = GetComponent<NavMeshAgent>();
+        polutionBar = FindObjectOfType<PolutionBar>();
         startedWaitingAt = Time.time;
         AgentStatus = AGENT_STATUS.APT_WAIT;
     }
@@ -54,8 +56,9 @@ public class AIAgent : MonoBehaviour
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
                     sourceApartment.cyclistsWaiting.Dequeue();
+                    polutionBar.IncreasePolution(); //Pollution increase
+                    //TODO-UI: Show UI of angry customer.
                     Destroy(gameObject);
-                    //TODO-Lucho: Augmentar polució, eliminate agent, etc.
                 }
                 break;
 
@@ -74,8 +77,9 @@ public class AIAgent : MonoBehaviour
                 if (Time.time - startedWaitingAt > waitTimeLimit)
                 {
                     NextDestination.GetComponent<BikeStation>().waitingCyclists.Dequeue();
+                    polutionBar.IncreasePolution();
+                    //TODO-UI: Show UI of angry customer (taxi use)
                     Destroy(gameObject);
-                    //TODO-Lucho: Augmentar polució, eliminate agent, etc.
                 }
                 break;
 
@@ -89,7 +93,9 @@ public class AIAgent : MonoBehaviour
 
                         BikeStation station = NextDestination.GetComponent<BikeStation>();
                         if (station.bikeStock < station.maxBikes)
-                            ++station.bikeStock;
+                            ++station.bikeStock;    //TODO-UI: Show UI "+ 1 bike" on station
+                        else
+                            station.bikeStock = station.bikeStock;  //TODO-UI: Show UI "bikes full" on attempted delivery
 
                         SetDestination(finalDestination.gameObject, finalDestination.ArriveRadius);
                         AgentStatus = AGENT_STATUS.ARRIVING;
@@ -107,8 +113,9 @@ public class AIAgent : MonoBehaviour
                 {
                     if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
                     {
+                        polutionBar.DecreasePolution();
+                        //TODO-UI: Show UI happy customer
                         Destroy(gameObject);
-                        //TODO: Reduce pollution etc
                     }
                 }
                 else

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\</ProjectRoot>
-		<SourceFilesRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:\Arturia\GitHub Projects\Bikies\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\didac\OneDrive\Documentos\GitHub\StartupCitiesGameJam\WwiseBikiesGameJam\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="984691642" Language="SFX" Hash="2500338215">
+		<SoundBank Id="984691642" Language="SFX" Hash="3726132212">
 			<ObjectPath>\SoundBanks\Default Work Unit\InGame</ObjectPath>
 			<ShortName>InGame</ShortName>
 			<Path>InGame.bnk</Path>
@@ -133,7 +133,7 @@
 				<GameParameter Id="3036303822" Name="pollution_level" ObjectPath="\Game Parameters\Default Work Unit\pollution_level"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="243883414">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2786491916">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

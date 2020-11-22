@@ -5,15 +5,16 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class PostProScript : MonoBehaviour
 {
-    [Header("Pollution Value Here")]
-    public float PollutionQuantity = -1.0f;
+    [Header("PolutionBar Script Here")]
+    public GameObject PolutionBarObject = null;
 
     [Header("MaxPollution Value Here")]
-    public float MaxPollution = 2.0f;
+    public float MaxPolution = 2.0f;
 
     ParticleSystem m_Particles;
     PostProcessVolume m_Volume = null;
     ColorGrading m_ColorCorrection = null;
+    PolutionBar m_PolutionBar = null;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +23,19 @@ public class PostProScript : MonoBehaviour
 
         m_Volume = GetComponentInChildren<PostProcessVolume>();
         m_Volume.profile.TryGetSettings(out m_ColorCorrection);
+
+        m_PolutionBar = PolutionBarObject.GetComponent<PolutionBar>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PollutionQuantity > 0.2f)
+        if(m_PolutionBar == null)
+            m_PolutionBar = PolutionBarObject.GetComponent<PolutionBar>();
+
+        if (m_PolutionBar.slider.value > 0.2f)
         {
-            float pollution_normalized = PollutionQuantity / MaxPollution;
+            float pollution_normalized = m_PolutionBar.slider.value / MaxPolution;
 
             m_ColorCorrection.temperature.value = new FloatParameter { value = Mathf.Lerp(-5.9f, 64.0f, pollution_normalized) };
             m_ColorCorrection.tint.value = new FloatParameter { value = Mathf.Lerp(-5.1f, -22.0f, pollution_normalized) };

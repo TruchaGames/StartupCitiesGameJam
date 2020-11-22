@@ -119,6 +119,7 @@ public class EconomyManager : MonoBehaviour
     public void AddWalletMoney(int ammount)
     {
         wallet += ammount;
+        receive_money.Post(gameObject);
     }
 
     //This utility function (To consult) Returns True if the user can buy a bije station, but won't spend money
@@ -153,6 +154,7 @@ public class EconomyManager : MonoBehaviour
     {
         int money_refunded = (int)(bike_station_cost * refund_percentage);
         wallet += money_refunded;
+        receive_money.Post(gameObject);
         return money_refunded;
     }
 

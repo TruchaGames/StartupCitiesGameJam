@@ -135,7 +135,7 @@ public class Apartment : CityElement
         cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
         cyclistWaitList = cyclistsWaiting.ToArray();
 
-        if (cyclistWaitListGO != null && cyclistsWaiting.Count == 1)
+        if (cyclistsWaitingGO != null && cyclistsWaiting.Count == 1)
         {
             cyclistsWaitingGO.SetActive(true);
         }
@@ -149,7 +149,7 @@ public class Apartment : CityElement
         cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
         cyclistWaitList = cyclistsWaiting.ToArray();
 
-        if (cyclistWaitListGO != null && cyclistsWaiting.Count == 0)
+        if (cyclistsWaitingGO != null && cyclistsWaiting.Count == 0)
         {
             cyclistsWaitingGO.SetActive(false);
         }

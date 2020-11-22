@@ -7,7 +7,7 @@ using TMPro;
 public class BikeStation : MonoBehaviour
 {
     [Header("Cyclist UI")]
-    public GameObject cyclistWaitListGO;
+    public GameObject cyclistsWaitingGO;
     public TextMeshProUGUI[] cyclistTypeAmountText;
     public Image[] cyclistTimerImg;
     uint[] cyclistTypeAmount = new uint[5];
@@ -297,9 +297,9 @@ public class BikeStation : MonoBehaviour
         cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
         cyclistWaitList = cyclistsWaiting.ToArray();
 
-        if (cyclistWaitListGO != null && cyclistsWaiting.Count == 1)
+        if (cyclistsWaitingGO != null && cyclistsWaiting.Count == 1)
         {
-            cyclistWaitListGO.SetActive(true);
+            cyclistsWaitingGO.SetActive(true);
         }
     }
 
@@ -311,9 +311,9 @@ public class BikeStation : MonoBehaviour
         cyclistTypeAmountText[it].text = cyclistTypeAmount[it].ToString();
         cyclistWaitList = cyclistsWaiting.ToArray();
 
-        if (cyclistWaitListGO != null && cyclistsWaiting.Count == 0)
+        if (cyclistsWaitingGO != null && cyclistsWaiting.Count == 0)
         {
-            cyclistWaitListGO.SetActive(false);
+            cyclistsWaitingGO.SetActive(false);
         }
     }
 

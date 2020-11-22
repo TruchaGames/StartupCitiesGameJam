@@ -674,6 +674,7 @@ GameObject:
   - component: {fileID: 922406205299554822}
   - component: {fileID: 922406205299554820}
   - component: {fileID: 922406205299554821}
+  - component: {fileID: 9095094611112082504}
   m_Layer: 5
   m_Name: PollutionBar
   m_TagString: Untagged
@@ -770,3 +771,33 @@ MonoBehaviour:
   polutionDecrease: 10
   winScreen: {fileID: 0}
   loseScreen: {fileID: 0}
+  pollution_event:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 7089baae62990d940aacad5e8ce57710,
+      type: 2}
+--- !u!114 &9095094611112082504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922406205299554823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c1633a198f4f74b81102d47d7ba5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a6c52d87b4f84324ca92c17499acd29b,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 

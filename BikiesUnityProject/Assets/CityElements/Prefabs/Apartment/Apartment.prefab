@@ -415,6 +415,7 @@ MonoBehaviour:
   nearbyBikeStations: []
   bikeStationDetectRadius: 8
   area: {fileID: 5979347343928500155}
+  cyclistsWaitingGO: {fileID: 5801640217542365094}
   cyclistTypeAmountText:
   - {fileID: 2318300095082429985}
   - {fileID: 7504503948151275211}
@@ -1270,7 +1271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2052020657084878232
 RectTransform:
   m_ObjectHideFlags: 0

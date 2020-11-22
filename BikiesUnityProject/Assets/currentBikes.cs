@@ -18,7 +18,7 @@ public class currentBikes : MonoBehaviour
 
     public EconomyManager economyManager;
     public CityManager cityManager;
-
+    public ClickManager clickermanager;
 
     public BikeStation bikeStation;
     public GameObject bikeStationPrefab;
@@ -28,6 +28,7 @@ public class currentBikes : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        clickermanager = FindObjectOfType<ClickManager>();
         economyManager = FindObjectOfType<EconomyManager>();
         cityManager = FindObjectOfType<CityManager>();
 
@@ -42,9 +43,9 @@ public class currentBikes : MonoBehaviour
         {
             Debug.LogError("bikeStation of <currentBikes> was null!");
         }
-        
 
-       // bikeText.SetText(bikeStock + "/" + maxBikes);
+
+        // bikeText.SetText(bikeStock + "/" + maxBikes);
     }
 
     // Update is called once per frame
@@ -85,7 +86,8 @@ public class currentBikes : MonoBehaviour
     public void BuyBike()
     {
         economyManager.BuyNewBikeUI();
+        economyManager.BuyNewBike();
     }
-        
+
 
 }

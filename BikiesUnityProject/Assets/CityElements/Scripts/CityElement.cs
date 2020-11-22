@@ -15,10 +15,13 @@ public class CityElement : MonoBehaviour
     //Range of the element
     public GameObject area;
 
+    protected bool ApartmentActive = false;
+
     //  -- When a point is activated from behind hidden or unactive we call this function
     public void Activate()
     {
         area.SetActive(true);
+        ApartmentActive = true;
     }
 
     void Awake()

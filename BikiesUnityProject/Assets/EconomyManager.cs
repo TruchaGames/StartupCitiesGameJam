@@ -31,12 +31,15 @@ public class EconomyManager : MonoBehaviour
     [Header("Audio Events")]
     public AK.Wwise.Event pay_money;
     public AK.Wwise.Event receive_money;
+    public AK.Wwise.Event play_music;
 
     // Start is called before the first frame update
     void Start()
     {
         wallet = (int)starting_money;
         vans = starting_vans;
+
+        play_music.Post(gameObject);
     }
 
     // Update is called once per frame
@@ -172,5 +175,9 @@ public class EconomyManager : MonoBehaviour
     public int getWallet()
     {
         return wallet;
+    }
+    public uint getVans()
+    {
+        return vans;
     }
 }

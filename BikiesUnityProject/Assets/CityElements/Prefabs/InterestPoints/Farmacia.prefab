@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 6544908173929848614}
   - component: {fileID: 6544908173929848615}
   m_Layer: 8
-  m_Name: InterestPoint
+  m_Name: Farmacia
   m_TagString: City Element
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearbyBikeStations: []
-  bikeStationDetectRadius: 8
-  area: {fileID: 6544908172782153537}
+  bikeStationDetectRadius: 20
+  area: {fileID: 6544908173929848612}
+  interestPointType: 1
   ArriveRadius: 3

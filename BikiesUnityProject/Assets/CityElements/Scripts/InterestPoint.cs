@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class InterestPoint : CityElement
 {
+    public enum InterestPointType
+    {
+        IP_NONE = -1,
+
+        IP_CINE,
+        IP_FARMACY,
+        IP_TEMPLE,
+        IP_HOUSES,
+        IP_MARKET,
+
+        IP_MAX
+    }
+    public InterestPointType interestPointType = InterestPointType.IP_NONE;
+
     [Header("Radius of Cyclist Arrival")]
     public float ArriveRadius = 5.0f;
 

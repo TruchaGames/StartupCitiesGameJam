@@ -153,7 +153,9 @@ public class CityManager : MonoBehaviour
     {
         stationBeingplaced = Instantiate(stationPrefab);
         placingBikeStation = true;
+        stationBeingplaced.tag = "UnderConstruction";
         buildingMode = BuildingMode.CREATING;
+        stationBeingplaced.GetComponent<BikeStation>().areaCircle.enabled = true;
     }
 
     // -- Call this function when we want to move a station
@@ -162,6 +164,7 @@ public class CityManager : MonoBehaviour
         stationBeingplaced = station;
         placingBikeStation = true;
         buildingMode = BuildingMode.REPLACING;
+        stationBeingplaced.GetComponent<BikeStation>().areaCircle.enabled = true;
     }
 
     // --  Method to place bike stations in the map
@@ -183,6 +186,8 @@ public class CityManager : MonoBehaviour
         // -- LEFT click to place the station
         if (Input.GetMouseButtonDown(0) && stationBeingplaced.GetComponent<BikeStation>().IsConstructable() /*-- need to check if the station fits in the current position*/)
         {
+
+            stationBeingplaced.GetComponent<BikeStation>().areaCircle.enabled = false;
             placingBikeStation = false;
             bikeStations.Add(stationBeingplaced.GetComponent<BikeStation>());
             //Coordinate all points to include the station in their list, etc,etc.
@@ -190,6 +195,7 @@ public class CityManager : MonoBehaviour
             {
                 stationBeingplaced.transform.SetParent(gameObject.transform);
                 stationBeingplaced.GetComponent<BikeStation>().EstablishConnections();
+                stationBeingplaced.tag = "Not constructable";
                 //Play Audio
                 place_station.Post(gameObject);
             }
@@ -198,6 +204,8 @@ public class CityManager : MonoBehaviour
         // -- RIGHT click or ESCAPE to CANCEL
         if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape))
         {
+
+            stationBeingplaced.GetComponent<BikeStation>().areaCircle.enabled = false;
             placingBikeStation = false;
             
             if (buildingMode == BuildingMode.CREATING)

@@ -243,7 +243,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 166cadd5815bf249944523b8e3aac321
     GuidInternal: 
-    m_lastTime: -8585955556822582611
+    m_lastTime: -8585955454087754238
     List:
     - name: InGame
       guid: 29f77c6c5cd6cf45a75ba1e327c587d7
@@ -262,7 +262,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 6c3d4a46f3c5f147a6058e626cf28436
     GuidInternal: 
-    m_lastTime: -8585955556829215686
+    m_lastTime: -8585955454088173126
     List:
     - name: gameplay_bike_move
       guid: b3bb203cf33bf04cbda38449aad79658
@@ -324,6 +324,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: play_music
+      guid: 1fd1ec84cdf4f64fa6456891e0abc836
+      id: 2932040671
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: play_music
+        ObjectType: 3
+      Path: Default Work Unit\play_music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: player_place_bike_stand
       guid: 8f8a984f2fdbcf4fa3577206989427a5
       id: 500500923
@@ -336,6 +348,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1840197
       minDuration: 1435474
+    - name: stop_all
+      guid: 8e1e407ea6a2e04f8fbc63b8b289425f
+      id: 452547817
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: stop_all
+        ObjectType: 3
+      Path: Default Work Unit\stop_all
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Test_Win95
       guid: 13624a55570f3747aa15c19a1ed367ba
       id: 1845279716

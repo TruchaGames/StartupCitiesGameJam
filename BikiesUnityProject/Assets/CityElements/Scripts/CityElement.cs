@@ -18,7 +18,7 @@ public class CityElement : MonoBehaviour
     protected bool ApartmentActive = false;
 
     //  -- When a point is activated from behind hidden or unactive we call this function
-    public void Activate()
+    public virtual void Activate()
     {
         area.SetActive(true);
         ApartmentActive = true;
@@ -46,7 +46,7 @@ public class CityElement : MonoBehaviour
         //area.transform.position = pos;
         //area.transform.localScale = scale;
 
-        area.SetActive(false);
+        //area.SetActive(false);
     }
 
     protected bool InsideRadius(Vector3 nearbyElement, float radius)

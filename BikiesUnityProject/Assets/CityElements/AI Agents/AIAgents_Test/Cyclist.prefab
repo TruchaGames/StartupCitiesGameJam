@@ -59,6 +59,7 @@ MonoBehaviour:
   happyCustomerParticle: {fileID: 7310489868295441393, guid: 5f0740188b5b8894f979d232935766b7,
     type: 3}
   waitTimeLimit: 10
+  startedWaitingAt: 0
   AgentStatus: -1
 --- !u!195 &6705231015387271540
 NavMeshAgent:
@@ -213,7 +214,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 4656e919e6bb1da4a89f913a38a7a5c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -1,5 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	298084058	gameplay_lose_money			\Default Work Unit\gameplay_lose_money	
+	452547817	stop_all			\Default Work Unit\stop_all	
 	500500923	player_place_bike_stand			\Default Work Unit\player_place_bike_stand	
 	1845279716	Test_Win95			\Default Work Unit\Test_Win95	
 	2683640631	gameplay_win_money			\Default Work Unit\gameplay_win_money	
